@@ -1,0 +1,155 @@
+<link rel="stylesheet" type="text/css" href="/resources/style.css">
+
+<div class="html-content">
+    <h1>School Grid with Natural-Language Integration</h1>
+        <p>
+            This example demonstrates how to use a custom natural-language (NL) search component within an Ext JS grid displaying school data. 
+        </p><p>
+            The user can type natural-language queries in the <b>search custom component</b> located in the grid toolbar to filter, sort, group, navigate pages, or even show and hide columns. 
+        </p><p>
+            The component connects to a backend NodeJS NL service powered by OpenAI, which interprets the user's intent and returns a structured JSON containing filters, sorters, grouping, and pagination instructions.
+        </p>
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <td>School Grid</td>
+        </tr>
+        <tr>
+            <th>AI Provider</th>
+            <td style="color: #396; font-weight: bold;">Open AI (Chat GPT)</td>
+        </tr>
+        <tr>
+            <th>AI Model</th>
+            <td style="color: #396; font-weight: bold;">gpt-4o-mini</td>
+        </tr>
+        <tr>
+            <th>Prompt</th>
+            <td>Constructed automatically in the backend by using the grid columns and user prompt</td>
+        </tr>
+        <tr>
+            <th>Filtering</th>
+            <td style="color: #063;">Yes</td>
+        </tr>
+        <tr>
+            <th>Sorting</th>
+            <td style="color: #063;">Yes</td>
+        </tr>
+        <tr>
+            <th>Grouping</th>
+            <td style="color: #063;">Yes</td>
+        </tr>
+        <tr>
+            <th>Page Navigation</th>
+            <td style="color: #063;">Yes</td>
+        </tr>
+        <tr>
+            <th>Page Size</th>
+            <td style="color: #063;">Yes</td>
+        </tr>
+        <tr>
+            <th>Column Visibility</th>
+            <td style="color: #063;">Yes</td>
+        </tr>
+    </table>
+   
+    <h2>Usage</h2>
+    <p>By using the NL search bar, users can type queries in plain English to explore shift data. Examples include:</p>
+    <pre>- Show students on 8 and 9 grade
+- Students with an average score between 70 and 80
+- Show A grade students
+- Sort by status
+- Sort by gender and age
+- Group by letter grade
+- Go to first page
+- Go to next page
+- Change page size to 300
+- Hide all columns but name and grade
+- Show column Letter </pre>
+ 
+
+    <p><img decoding="async" src="https://www.sencha.com/wp-content/uploads/2025/09/HowtoImplementNaturalLanguageGridSearchinExtJ.png" alt="How to Implement Natural Language Grid Search in Ext JS Using ChatGPT"></p>
+
+
+    <h2>Files</h2>
+
+    <h3>Custom Component: ux.ai.SmartSearch</h3>
+    <ul>
+        <li><b>/app/ux/ai/SearchBar.js</b><br>
+        Custom component that gathers column information from the linked grid. 
+        It sends the user prompt and the column data to the backend. 
+        Using that information, the backend generates a prompt to be sent to <b>Open AI's Api</b>.</li>
+    </ul>
+
+    <h3>Frontend (Ext JS)</h3>
+    <ul>
+        <li><b>/app/view/ai/DataGrid.js</b><br>School Grid view: columns, toolbar with NL input and standard column filters, binds to the store.</li>
+        <li><b>/app/view/ai/DataGridController.js</b><br>View Controller that is used to process the view's events and user interactions, including opening the view response window, and resiting the grid view.</li>
+        <li><b>/app/store/SchoolDataStore.js</b><br>Client-side store that load data rows from the backend. The store supports filtering and sorting; data is loaded from the server after every user query.</li>
+    </ul>
+
+    <h3>Backend (Node.js)</h3>
+    <ul>
+        <li>
+            <h3>Data Server</h3>
+            <ul>
+                <li><b>/server/server.js</b><br> Express bootstrap: serves static assets and exposes the NL endpoint used by the component.</li>
+                <li><b>/server/endpoints/school-data.js</b><br> Backend endpoint that retreives the filtered data. You should replace this for the endpoint of your chosing.</li>
+            </ul>
+        </li>
+        <li>
+            <h3>AI Server</h3>
+            <ul>
+                <li><b>/server/server.js</b><br> Express bootstrap: serves static assets and exposes the NL endpoint used by component.</li>
+                <li><b>/server/endpoints/ai/handlers/ai-endpoint.js</b><br> Endpoint handler. Receives the request from the EXT JS component, and calls the correct Node JS file depending on the specified provider (chatgpt or claude).  </li>
+                <li><b>/server/endpoints/ai/services/chatgpt.js</b><br> Builds the NL prompt from the user text, calls the NL model API, and returns the model's structured interpretation (not raw rows). </li>
+                <li><b>/server/endpoints/ai/services/claude.js</b><br> Builds the NL prompt from the user text, calls the NL model API, and returns the model's structured interpretation (not raw rows). </li>
+                <li><b>/server/endpoints/ai/services/shared.js</b><br> The ChatGPT and Claude APIs are different in the way the are called, but the prompt generation, and response analysis is the same. This file contains shared methods.</li>
+                <li><b>/server/endpoints/ai/prompts/system-prompt.json</b><br>A JSON file with the system prompt description.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Typical runtime flow (step-by-step)</h2>
+    <ol>
+        <li>User types a free-text query in the Searchbar inside the grid toolbar.</li>
+        <li>The custom component gathers the grid's columns and their filters.</li>
+        <li>The custom component sends the text and column data to the backend NL endpoint (POST /api/ai-endpoint).</li>
+        <li>The ai-endpoint.js file composes a prompt automatically and calls the NL model. The model returns a structured interpretation.</li>
+        <li>The custom component receives the response and applies it to the filters plugin, the store, or to the grid. </li>
+        <li>If the store's data comes from the backend, it will connect to the provided endpoint, and retreive the filtered data from the backend.</li>
+    </ol>
+
+    <h3>The response</h3>
+    <p>Once the middleware responds, it returns a JSON object that can include up to four main sections: filters, sorters, grouping, and tokenData.</p>
+    <ul>
+        <li><b>filters</b><br> Contains the filtering conditions generated from the user's query, defining which records should be displayed. Ready to be applied to the grid filters.</li>
+        <li><b>sorters</b><br> Specifies how the data should be ordered (e.g., by field and direction such as ascending or descending) ready to be applied to the store.</li>
+        <li><b>grouping</b><br> Describes how records are grouped by a specific field.</li>
+        <li><b>paging</b><br> Allows page navigation and size.</li>
+        <li><b>columns</b><br> Describes the visibility of columns.</li>
+        <li><b>tokenData</b><br> Provides the total tokens consumed during the request.</li>
+    </ul>
+
+
+    <h2>About the custom component</h2>
+    <p>
+        The <b>AI Search Bar</b> is a custom Ext JS component designed to bring natural-language search to data grids. Instead of using traditional filter menus, users can type plain-English queries (for example, “show students with an average grade of 80 or higher”) directly into the search bar.
+    </p>
+    <p>
+        When a query is submitted, the component collects information about the grid — such as its columns and active filters — and sends that context to a backend service. The backend then interprets the request (through an AI model) and returns structured instructions on how the grid should be filtered, sorted, grouped, or paged.
+    </p>
+    <p>
+        This component doesn't talk directly to the AI model; it relies on a middleware service to handle communication with OpenAI or other natural-language engines. It's designed to sit inside a grid's toolbar (or be linked to a specific grid) so it can automatically apply the AI's instructions to the grid's data.
+    </p>
+    <p>
+        In short, <b>Ext.ai.SmartSearch</b> lets users interact with complex data through simple language, transforming natural sentences into dynamic grid actions.
+    </p>
+    <p>
+        Although the provided middleware was created with NodeJS, it can be any backend of your preference. 
+    </p>
+
+
+    <a href="https://www.sencha.com/products/extjs/evaluate/"><img decoding="async" src="https://www.sencha.com/wp-content/uploads/2023/08/Sencha-CTA-Banner.png" alt="Sencha Ext JS"  width="100%"></a></p>
+
+</div>

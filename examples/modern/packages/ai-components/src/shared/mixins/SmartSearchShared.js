@@ -1,0 +1,718 @@
+/**
+ * Ext.ai.mixins.SmartSearchShared
+ * 
+ * REDACT
+ */
+Ext.define('Ext.ai.mixins.SmartSearchShared', {
+   
+    aiResponse: null,
+
+    config: {
+        name: 'GRID_'+Ext.id(), // Specify name that will be used for caching
+        filedContainer: null,
+        store: null,
+        grid: null,
+        debug: false,
+        showError: true,
+        serverUrl: 'http://www.sencha.com',
+        endpoint: '/api/ai-smart-search',
+        llmConfig: {
+            provider: 'chatgpt',
+            model: 'gpt-4o-mini',
+            systemPrompt: {
+                name: null, // name of the system prompt, if null, it will read the default system prompt, and ignore the build property
+            },
+            rules: [],  // New rules can be added to the prompt, best practice would be to add it to the system prompt in the backend directly
+            examples: [],     
+            /* backend middleware connection */
+                loadingMessage: 'Connecting to AI',
+                callback: null,       
+        },
+        
+        /* Grid Options */
+            clearFilters: true,
+            // filterType: 'gridfilters',
+        /* Text field Options */
+            placeholder: 'type your prompt',
+            value: null,
+            allowBlank: false,
+
+        /* Button Configuration */
+            buttons: {
+                search: {
+                    hidden: false,
+                    text: '',
+                    iconCls: 'fa fa-search',
+                },
+                reset: {
+                    hidden: true,
+                    text: '',
+                    iconCls: 'fa fa-ban',
+                    message: 'Reset grid filters'
+                }
+            },
+            features: {
+                filtering: true,
+                sorting: true,
+                grouping: true,
+                paging: true,
+                columns: true
+            }
+    }, 
+
+
+
+    /*****************************
+     *      INIT METHODS
+     *****************************/
+            /**
+             * Will initialize the component options
+             */
+            _init: function () { 
+                let me=this;
+                me.fieldContainer=Ext.isClassic ? me.items[0] : me;
+
+                me._setFieldParams(me, me.fieldContainer);
+
+                let aiTextfield=me._getItem(0);
+                // Init text field:
+                    aiTextfield.emptyText = me.config.placeholder;
+                    aiTextfield.text = me.config.value || "";
+                    aiTextfield.allowBlank = me.allowBlank;
+                    
+                // lets add and create the buttons
+                // loop through actions:
+                    let aiButton=null;
+                    if (me.config.buttons) {
+                        // Add Search Button
+                            me._setupButton('search', 'searchButton'); // Search button
+                            me._setupButton('reset', 'resetButton'); // Search button
+                    }
+
+                // Setup features
+                    me._setupFeatures();
+                
+            },
+
+            /**
+             * Will check the active options, and if available, will allow to use them, otherwise, they will be deactivated
+             * For example, if the grid has no paging, the paging feature will be deativated
+             * features: {
+             *   filtering: true,
+             *   sorting: true,
+             *   grouping: true,
+             *   paging: true,
+             *   columns: true
+             * }
+             * 
+             */
+            _setupFeatures: function () {
+                let me=this;
+                let features = Ext.apply(me.defaultConfig.features,me.config.features);
+                let grid = me._getGrid();
+                // Let's check if filtering is active
+                    features.filtering = (features.filtering && me._getPlugin(grid)!==null); // if filtering is selected, but no filters are available, change to false
+                    features.grouping = (features.grouping && me._getGrouping(grid)); // if grouping is selected, but no groups are available, change to false
+                    // features.paging = (features.paging && me._getPaging(grid)); // Paging is checked during call
+
+                me.config.features=features;
+            },
+
+            /**
+             * Setups one of the three buttons
+             * @param {*} type 
+             * @param {*} buttonId 
+             * @returns the action Config
+             */
+            _setupButton: function (type, buttonId) {
+                let me=this;
+                let button = me._getItems().find(function(item) { return item.itemId===buttonId; });
+                let userActionConfig = (
+                        typeof me.config.buttons[type]==='object'  
+                        ? Ext.clone(me.config.buttons[type])            // Gets object
+                        :   (
+                                typeof me.config.buttons[type]==='boolean'  
+                                ? { hidden: !me.config.buttons[type] }   // gets hidden and turns into an object
+                                : { }                                   // gets empty
+                            )
+                );
+                let actionConfig = Ext.clone(me.defaultConfig.buttons[type] || {});
+
+                if (button!==undefined) {
+                    Ext.apply(actionConfig,userActionConfig);
+                    Ext.apply(button,actionConfig);
+                    button.smartSearch=me;
+                }
+                
+                return button;
+            },
+
+            /**
+             * Copies the params passed to the Component to the fieldcontainer
+             * @param {*} me 
+             * @param {*} fieldContainer 
+             * @returns 
+             */
+            _setFieldParams: function (me, fieldContainer) {
+                let params = "width,height,padding,margin,cls,style,userCls,config,listeners";
+                
+                params=params.split(",");
+                for (let key in params) {
+                    let param = params[key];
+                    if (me[param]!==undefined) fieldContainer[param]=me[param];
+                }
+                return fieldContainer;
+            },
+
+
+            /**
+             * Due to differences in classic and modern toolkit, the following method get the two child items
+             * @param {*} pos 
+             * @returns 
+             */
+            _getItem: function (pos) {
+                let me=this;
+                let items = Ext.isClassic ? me.items : me.getItems().items;
+                
+                return items[pos];
+            },
+
+            /**
+             * Due to differences in classic and modern toolkit, the following method get the two child items
+             * @param {*} pos 
+             * @returns 
+             */
+            _getItems: function () {
+                let me=this;
+                return Ext.isClassic ? me.items : me.getItems().items;
+            },
+
+    /**************************
+     *      SEARCH METHODS
+     **************************/
+
+            /**
+             * Automatically gets the linked grid, either from the grid property, or from the grid that contains it
+             * @returns grid object or null/undefined
+             */
+            _getGrid: function () {
+                let me=this;
+
+                return (me.config.grid!==null && me.config.grid!==undefined) ? me.config.grid : me.up('grid');
+            },
+
+            /**
+             * PERFORM SEARCH
+             * Main method that calls the middleware that connects to the AI Provider
+             * @param {*} userPrompt 
+             */
+            _performSearch: function (fieldcontainer,userPrompt) {
+                let me=this;
+                // get the linked grid
+                    let linkedGrid = me._getGrid();
+                // get the text field
+                    let textField = fieldcontainer.down('#queryField');
+
+
+                if (!textField.validate()) {
+                    // Validate the prompt is not empty
+                        if (me.config.debug) console.error('Can\'t send an empty an empty prompt');
+                } else if (linkedGrid!==null) {
+                    // Construct the prompt Object
+                        let promptObj = me._getPromptObj(linkedGrid,userPrompt);
+                    
+                    // Mask the grid
+                        linkedGrid.mask(me.config.loadingMessage);
+                    // Let's connect
+                        if (me.config.debug) { console.log('%cPrompt Object: ','color:#993;'); console.log(promptObj); };
+
+                        Ext.Ajax.request({
+                            url: me.config.serverUrl+me.config.endpoint,
+                            method: 'POST',
+                            jsonData: { 
+                                query: promptObj
+                            },
+                            success: function (response) {
+                                linkedGrid.unmask();
+                                try {
+                                    let result = Ext.decode(response.responseText);
+                                    if (me.config.debug) { console.log('%cAi Response:','color:#993;'); console.log(result) };
+                                    if (result.error===undefined || result.error===null) {
+                                        // if the result is correct
+                                            me._processResponse(linkedGrid,result);
+                                    } else {
+                                        // If could not process, or result is incorrect:
+                                            if (me.config.debug) console.log('Could not process prompt: '+result.error);
+                                            if (me.config.showError) {
+                                                Ext.toast('Response: '+result.error, 'Could not process prompt');
+                                            }
+                                    }
+
+                                    // Save result inside the component, this will be helpfull if the user wants to show the response in a window
+                                        me.aiResponse = result;
+
+                                    // Call Callback method if set, return the result, the original prompt, and the recovered fields
+                                        if (me.config.callback!==null) me.config.callback(linkedGrid, result, promptObj.prompt, promptObj.fields);
+                                } catch (err) {
+                                    if (me.config.debug) console.error('Error decoding response.');
+                                }
+                            },
+                            failure: function () {
+                                linkedGrid.unmask();
+                                if (me.config.debug) console.error('Unsuccessfull connection.');
+                                if (me.config.showError) {
+                                    Ext.toast('Connection error: Could connect to Middleware');
+                                }
+                            }
+                        });
+                } else {
+                    if (me.config.debug) console.error('Search bar must be inside a grid toolbar or linked to a grid for the component to work');
+                }
+            },
+
+
+            /**
+             * Resets the grid, clearing filters, sorters, and all other modifiers
+             */
+            _resetGrid: function () {
+                let me=this;
+                let grid = _getGrid();
+
+                let filters = me._getPlugin(grid);
+                let store = grid.getStore();
+
+                if (filters) filters.clearFilters();
+                if (store) {
+                    store.setPageSize(store.getInitialConfig('pageSize'));
+                    store.clearGrouping();
+                    store.sorters.clear();
+                }
+                // show all columns
+                    Ext.Array.forEach(grid.getColumnManager().getColumns(), function(col) {
+                        col.setHidden(false);
+                    });
+
+                store.load();
+            },
+
+    /*****************************
+     *  GRID AND COLUMN RETRIEVAL
+     *****************************/
+            /**
+             * Creates the llm Config variable with all the required parameters
+             * @returns 
+             */
+            _getPromptObj: function (linkedGrid,userPrompt) {
+                let me=this;
+                let systemPrompt = me.config.llmConfig.systemPrompt || {}; // get the system prompt
+
+                // Let's get the systemprompt
+                    // if only the name was specified
+                        let sysPromptName = (typeof systemPrompt === 'string') ? systemPrompt : (systemPrompt.name || null);
+                        systemPrompt = {
+                            name: sysPromptName,
+                        };
+
+
+                // Let's get the initialConfig
+                    let promptObj = {
+                        name: me.config.name,
+                        llmConfig: {
+                            provider:  me.config.llmConfig.provider || me.initialConfig.llmConfig.provider,
+                            model:  me.config.llmConfig.model || me.initialConfig.llmConfig.model,
+                            systemPrompt:  systemPrompt,
+                            rules: me.config.llmConfig.rules || [],
+                            examples: me.config.llmConfig.examples || []
+                        },
+                        prompt: userPrompt,
+                        fields: me._getColumns(linkedGrid), // retreives the columns from the grid, to be used by the middleware
+                    };
+
+                return promptObj;
+            },
+
+            /**
+             * GET COLUMNS
+             * Gets the columns from the grid to be used by the middleware to personalize the system prompt.
+             * Loops through the linked grid columns, and gets their dataIndex and filter type.
+             * @param {*} linkedGrid 
+             * @returns 
+             */
+            _getColumns: function (linkedGrid) {
+                let me=this;
+                let columns = linkedGrid.getColumns();
+                let fields = [];
+                me.listOptions={};
+
+                // Loop through the columns
+                Ext.Array.each(columns, function (col) {
+                    // Filters are obtained in a different way in classic and modern toolkits
+                    let filter =  
+                        (Ext.isClassic) 
+                            ? ((col.filter!==undefined && col.filter!==null) ? col.filter : false)
+                            : ((col.getFilter()!==undefined && col.getFilter()!==null) ? col.getFilter() : false);
+
+                    let field = {
+                        name: (Ext.isClassic) ? col.dataIndex : col.getDataIndex(),
+                        type: Ext.isObject(filter) ? filter.type : filter
+                    };
+
+                    // If the filter is of type list, let's try and retreive the list
+                    // this works best if the options are hardcoded or come from a store
+                        if (field.type==='list') {
+                            field.options = (filter && Ext.isObject(filter) && filter.options!==undefined) ? filter.options : null;
+                            if (field.options===null) {
+                                field.options = Ext.Array.unique(linkedGrid.getStore().collect(field.name)); // get the list from the grid
+                            }
+                        }
+                    // Filter only if it has an available filter
+                        if (field.type!==false) {
+                            fields.push(field);
+                            me.listOptions[field.name]=field;
+                        }
+                }); 
+
+                return fields;
+            },
+
+    /**********************************
+     *      RESPONSE PROCESSING
+     **********************************/
+            /**
+             *  PROCESS RESPONSE
+             * Main method that will process the response of the middle ware and apply it to the linked grid
+             *  Process the AI result and applies filters and sorters
+             * 
+             * Will Apply only the active features
+             * 
+             * features: {
+             *   filtering: true,
+             *   sorting: true,
+             *   grouping: true,
+             *   paging: true,
+             *   columns: true
+             * }
+             * 
+             * @param {*} linkedGrid 
+             * @param {*} result 
+             */
+            _processResponse: function (linkedGrid,result) {
+                let me=this;
+                let plugin = me._getPlugin(linkedGrid); // Get filter plugin
+                let gridStore = (me.config.store!==null) ? me.config.store : (linkedGrid.store ? linkedGrid.store : null); // get grid store
+                let features = me.config.features;
+
+                // STEP 1. Apply new sorters
+                    if (features.sorting && (result.sorters && gridStore!==null && Array.isArray(result.sorters) && result.sorters.length>0)) {
+                        gridStore.sort(result.sorters);
+                    }
+
+                // STEP 2. Apply new Filters
+                    if (features.filtering && (result.filters && Array.isArray(result.filters))) {
+                        if (plugin!==undefined && plugin!==null) {
+                            // Apply filters
+                                plugin=me._applyFilters(plugin,result.filters,linkedGrid);
+                        } else {
+                            if (me.config.debug) console.error('Must have active filters in the grid for the NL search to work.');
+                        }
+                    }
+
+                // STEP 3. Apply new grouping
+                    if (features.grouping) {
+                        me._grouping(linkedGrid,gridStore,result.grouping);
+                    } else if (features.grouping===false) {
+                        me._groupClear(linkedGrid,gridStore);
+                    }
+
+                // STEP 4. Column visibility, only if parameters are correct and if the column exists
+                    if (features.columns && (typeof result.columns === 'object')) {
+                        me._columnVisibility(linkedGrid,result.columns);
+                    }
+
+                // STEP 5. Apply page change
+                    if (features.paging) {
+                        me._setPaging(linkedGrid,gridStore,result.paging);
+                    }
+                    
+            },
+
+            /**
+             * Recovers the active filter plugin. This searchbar only works if either the 
+             * - gridfilters
+             * - gridfilterbar
+             * is active
+             * @param {*} linkedGrid The linked grid
+             * @returns object plugin
+             */
+            _getPlugin: function (linkedGrid) {
+                let plugin = null;
+
+                // Gets grid filters plugin
+                    plugin = linkedGrid.getPlugin('gridfilters');
+                // if not found, get the grid filter bar plugin
+                    if (!plugin) {
+                        plugin = linkedGrid.getPlugin('gridfilterbar');
+                    }
+                // if not found, then do nothing with filters
+                    if (!plugin) {
+                        plugin=null;
+                        if (me.config.debug) console.log('%cThe AI search bar requires either the gridfilters or the gridfilterbar plugin','color: #933;');
+                    }
+
+                return plugin;
+            },
+
+
+            /**
+             * Sanitizes dates by making sure they are in a valid format. 
+             * Dates from the middle ware will come as yyyy/mm/dd
+             * This method will convert them into valid dates
+             * @param {*} value 
+             * @returns 
+             */
+            _sanitizeDate: function (value) {
+                if (value.gt!==undefined) value.gt=new Date(value.gt);
+                if (value.lt!==undefined) value.lt=new Date(value.lt);
+                if (value.eq!==undefined) value.eq=new Date(value.eq);
+                return value;
+            },
+
+
+
+            /****
+             * STEPS
+             */
+                    /************
+                     * FILTERS
+                     */
+
+                    /**
+                             * Applies filters to either modern or classic grid
+                             * 
+                             * @param {*} plugin 
+                             * @param {*} filters 
+                             */
+                            _applyFilters: function (plugin,filters) {
+                                let me=this;
+                                let filterArray=[];
+
+                                // In classic, plugin requires to clear the existing filters
+                                if (me.config.clearFilters && Ext.isClassic) {
+                                    plugin.clearFilters();
+                                }
+                                
+                                Ext.Array.forEach(filters, function (filter) {
+                                    // We will get the column data. This will be used for several things:
+                                    // 1. If filter is of type list, we will need to get the options to avoid an issue where the options are modified
+                                    // 2. Sometimes, the LLM model might change the filter type. We need the real filter type, and not the one that comes from the LLM
+                                        let filterCfg = me.listOptions[filter.property];
+
+                                        if (filterCfg!==undefined) {
+                                            // Dates coming from the response have not been correctly formatted, 
+                                            // the following statement fixes it to make it work correctly
+                                                if (filterCfg.type==="date") {
+                                                    filter.value=me._sanitizeDate(filter.value);
+                                                }
+
+                                                if (Ext.isClassic) {
+                                                    filterArray.push({
+                                                        dataIndex: filter.property,
+                                                        type: filterCfg.type || filter.type, // fix filter type change from LLM
+                                                        operator: filter.operator,
+                                                        value: filter.value,
+                                                        options: filterCfg.options || [] // will fix an issue with options on a list filter
+                                                    });
+                                                } else {
+                                                    filterArray.push({
+                                                        property: filter.property,
+                                                        value: filter.value,
+                                                        operator: filter.operator
+                                                    });
+                                                }
+                                        } else {
+                                            if (me.config.debug) console.log('%cFilter '+filter.property+" not found","color:#933;");
+                                        }
+
+                                    
+                                    });
+                                    if (filterArray.length>0) {
+                                        if (Ext.isClassic) {
+                                            plugin.addFilter(filterArray);
+                                        } else {
+                                            plugin.setActiveFilter(filterArray);
+                                        }
+                                    }
+                                return plugin;
+                            },
+
+                    /************
+                     * GROUPING
+                     */
+                            _getGrouping: function (linkedGrid) {
+                                let groupingft = (linkedGrid.features!==undefined) ? Ext.Array.findBy(linkedGrid.features, function (f) {
+                                    return f.ftype === 'grouping' || f.ftype === 'groupingsummary';
+                                }) : null;
+                                return ((groupingft!==undefined && groupingft!==null) || Ext.isModern);
+                            },
+
+                            /**
+                             * Perform grouping
+                             * @param {*} linkedGrid 
+                             * @param {*} gridStore 
+                             * @param {*} grouping 
+                             */
+                            _grouping: function (linkedGrid, gridStore, grouping) {
+                                let me=this;
+                                if (Ext.isClassic && linkedGrid.features!==undefined) {
+                                    // Classic toolkit, grouping is performed by using features
+                                    // Search for grouping feature
+                                        if (me._getGrouping(linkedGrid)) {
+                                            me._groupClear(linkedGrid,gridStore);
+                                            if (grouping!==false && grouping.property!==undefined)
+                                            me._groupBy(gridStore,grouping.property);
+                                        } else {
+                                            if (me.config.debug) console.error('NL grouping cannot be applied if the grid does not have the grouping feature active');
+                                        }
+                                } else if (Ext.isModern) {
+                                    // Modern
+                                    
+                                    me._groupByModern(linkedGrid,gridStore,grouping.property);
+                                }
+                            },
+
+                            /**
+                             *  Groups by specified field
+                             * @param {*} gridStore 
+                             * @param {*} fieldName 
+                             */
+                            _groupBy: function (gridStore,fieldName) {
+                                gridStore.group(fieldName);
+                            },
+
+                            /**
+                             *  Groups by specified field
+                             * @param {*} gridStore 
+                             * @param {*} fieldName 
+                             */
+                            _groupByModern: function (grid,gridStore,fieldName) {
+                                gridStore.setGrouper({
+                                    property: fieldName,     // <-- your field
+                                    direction: 'ASC'
+                                    // groupFn: rec => rec.get('status') // optional if you need custom grouping
+                                });
+
+                                if (grid.setGrouped) {
+                                    grid.setGrouped(true);
+                                } else {
+                                    grid.grouped = true; 
+                                }
+                            },
+
+                            /**
+                             * Clears grouping
+                             * @param {*} gridStore 
+                             */
+                            _groupClear: function (grid,gridStore) {
+                                if (Ext.isClassic) {
+                                    gridStore.clearGrouping();
+                                } else {
+                                    if (grid.setGrouped) {
+                                        grid.setGrouped(false);
+                                    } else {
+                                        grid.grouped = false; 
+                                    }
+                                }
+                            },
+
+                    /**
+                     * COLUMN VISIBILITY
+                     * Loops through columns, and shows/hides the described columns
+                     * @param {*} linkedGrid 
+                     * @param {*} columnResponse 
+                     */
+                    _columnVisibility: function (linkedGrid, columnResponse) {
+                        for (let key in columnResponse) {
+                            if (columnResponse.hasOwnProperty(key)) {
+                                let element = columnResponse[key];
+                                if (element && element.property!==undefined && element.hidden!==undefined && typeof element.hidden==='boolean') {
+                                    let column = linkedGrid.down(`gridcolumn[dataIndex=${element.property}]`);
+                                    if (column) {
+                                        column.setHidden(element.hidden);
+                                    }
+                                }
+                            }
+                        }
+                    },
+
+
+                    /********
+                     * PAGING
+                     */
+
+                            _getPaging: function (linkedGrid) {
+                                let pagingtb = linkedGrid.down('pagingtoolbar');
+                                return (pagingtb!==undefined && pagingtb!==null);
+                            },
+
+                            /**
+                             * Sets the grid's paging. It can change the page size, and the current page
+                             * @param {*} store 
+                             * @param {*} paging 
+                             */
+                            _setPaging: function (linkedGrid,store, paging) {
+                                let me=this;
+                                if (paging!==null && paging!==undefined) {
+                                    let pagingtb = linkedGrid.down('pagingtoolbar');
+
+                                    if (me._getPaging()) {
+                                        // Paging
+                                            if (paging.page) me._changePage(store,paging.page);
+                                        // Page Size
+                                            if (paging.size) me._changePageSize(store,paging.size);
+                                    } else {
+                                        if (me.config.debug) console.log('%cNL page switching cannot be performed if the grid does not have pagination active','color:#660;');
+                                    }
+                                }
+                            },
+
+                            /**
+                             * Change the page size
+                             * @param {*} store 
+                             * @param {*} page 
+                             */
+                            _changePage: function (store,page) {
+                                let last = Math.floor((store.getTotalCount()-1)/store.getPageSize())+1;
+                                switch (page) {
+                                    case 'prev': case 'previous':
+                                        store.previousPage();
+                                        break;
+                                    case 'next':
+                                        store.nextPage();
+                                        break;
+                                    case 'first':
+                                        store.loadPage(1);
+                                        break;
+                                    case 'last':
+                                        store.loadPage(last);
+                                        break;
+                                    default:
+                                        let pagNumber=parseInt(page);
+                                        if (pagNumber<=0) pagNumber=1;
+                                        if (pagNumber>last) pagNumber=last;
+                                        store.loadPage(pagNumber);
+                                        break;
+                                }
+                            },
+
+                            /**
+                             * Change the page size
+                             * @param {*} store 
+                             * @param {*} pageSize 
+                             */
+                            _changePageSize: function (store,pageSize) {
+                                pageSize=parseInt(pageSize);
+                                if (pageSize<=0) pageSize=1;
+                                store.setPageSize(pageSize);
+                                store.loadPage(1);
+                            },
+});

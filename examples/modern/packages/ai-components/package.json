@@ -1,0 +1,26 @@
+{
+    "name": "ai-components",
+    "author": "Andres Villalba Palau",
+
+    "namespace": "Ext",
+    "type": "code",
+    "toolkits": [ "classic", "modern" ],
+    "creator": "Sencha",
+    "summary": "Sencha AI Components",
+    "detailedDescription": "Package containing classes related to AI Components.",
+    "description": "Package containing classes related to AI Components.",
+    "version": "1.0.0",
+    "compatVersion": "1.0.0",
+    
+    "output": "${package.dir}/build/${toolkit.name}/${build.id}",
+    "local": true,
+
+    "classpath": [
+        "${package.dir}/src/shared",
+        "${package.dir}/src/${toolkit.name}"
+    ],
+    
+    "requires": [
+        "ext"
+    ]
+}

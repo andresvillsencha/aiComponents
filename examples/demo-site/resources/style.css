@@ -1,0 +1,85 @@
+.html-content {
+    color: #666;
+    line-height: normal;
+}
+.html-content h1 {
+    font-size: 16px;
+    padding: 0px; 
+    margin: 0px;
+    color: var(--base-color);
+    line-height:normal;
+}
+.html-content h2 {
+    font-size: 14px;
+    color: var(--base-dark-color);
+}
+.html-content h3 {
+    font-size: 12px;
+    color: var(--accent-dark-color);
+}
+.html-content img {
+    width: 100%;
+}
+
+.html-content p {
+    width: 100%;
+    text-align: justify;
+    line-height: 22px;
+    font-size: 13px;
+}
+
+.html-content ul {
+    line-height: 22px;
+    font-size: 13px;
+}
+
+.html-content pre, .html-content .code, .html-content table {
+    width: 100%;
+    line-height: 22px;
+    font-size: 13px;
+    padding: 16px;
+    box-sizing: border-box;
+    background-color: #eee;
+    border-radius: 8px;
+}
+
+.html-content .code ul {
+    list-style: none; /* Remove default bullets */
+    padding: 0px 8px;
+    margin: 0px 16px;
+    line-height: normal;
+}
+.html-content .code ul li::marker {
+    content: '└─ ';
+    width: 24px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.html-content .code .fa-folder {
+    color: #f1d592;
+}
+
+.html-content .code .fa-file {
+    color: #999;
+}
+
+.html-content table {
+    border-collapse: collapse;
+    border: 2px solid #eee;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.html-content table th {
+    background-color: var(--accent-color);
+    width: 120px !important;
+    background-color: #fff;
+    padding: 4px 8px;
+    text-align: left;
+    vertical-align: top;
+}
+.html-content table td {
+    text-align: left;
+    padding: 4px 8px;
+    vertical-align: top;
+}

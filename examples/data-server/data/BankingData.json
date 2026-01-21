@@ -1,0 +1,5007 @@
+{
+  "count": 500,
+  "success": true,
+  "data": [
+    {
+      "loan_id": "LN-1001",
+      "borrower_name": "John Miller",
+      "loan_type": "Personal",
+      "principal_amount": 12500,
+      "interest_rate": 5.8,
+      "remaining_balance": 8200,
+      "next_payment_due": "2025-10-25",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1002",
+      "borrower_name": "Samantha Collins",
+      "loan_type": "Auto",
+      "principal_amount": 22000,
+      "interest_rate": 4.5,
+      "remaining_balance": 15200,
+      "next_payment_due": "2025-10-20",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1003",
+      "borrower_name": "James Turner",
+      "loan_type": "Mortgage",
+      "principal_amount": 185000,
+      "interest_rate": 3.9,
+      "remaining_balance": 164200,
+      "next_payment_due": "2025-11-05",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1004",
+      "borrower_name": "Emily Carter",
+      "loan_type": "Personal",
+      "principal_amount": 9500,
+      "interest_rate": 6.2,
+      "remaining_balance": 4800,
+      "next_payment_due": "2025-10-18",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1005",
+      "borrower_name": "Daniel Johnson",
+      "loan_type": "Auto",
+      "principal_amount": 27000,
+      "interest_rate": 4.1,
+      "remaining_balance": 21000,
+      "next_payment_due": "2025-11-01",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1006",
+      "borrower_name": "Grace Mitchell",
+      "loan_type": "Mortgage",
+      "principal_amount": 240000,
+      "interest_rate": 3.6,
+      "remaining_balance": 226400,
+      "next_payment_due": "2025-10-28",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1007",
+      "borrower_name": "Benjamin Price",
+      "loan_type": "Business",
+      "principal_amount": 78000,
+      "interest_rate": 6.0,
+      "remaining_balance": 60300,
+      "next_payment_due": "2025-10-19",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1008",
+      "borrower_name": "Hannah Foster",
+      "loan_type": "Education",
+      "principal_amount": 32000,
+      "interest_rate": 5.1,
+      "remaining_balance": 28700,
+      "next_payment_due": "2025-11-03",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1009",
+      "borrower_name": "Matthew Clark",
+      "loan_type": "Personal",
+      "principal_amount": 14000,
+      "interest_rate": 6.5,
+      "remaining_balance": 10100,
+      "next_payment_due": "2025-10-14",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1010",
+      "borrower_name": "Laura Thompson",
+      "loan_type": "Mortgage",
+      "principal_amount": 310000,
+      "interest_rate": 3.7,
+      "remaining_balance": 295400,
+      "next_payment_due": "2025-10-30",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1011",
+      "borrower_name": "Oliver Davis",
+      "loan_type": "Personal",
+      "principal_amount": 8000,
+      "interest_rate": 6.9,
+      "remaining_balance": 4900,
+      "next_payment_due": "2025-10-10",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1012",
+      "borrower_name": "Sophia Harris",
+      "loan_type": "Auto",
+      "principal_amount": 19500,
+      "interest_rate": 4.8,
+      "remaining_balance": 12000,
+      "next_payment_due": "2025-10-23",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1013",
+      "borrower_name": "Ethan Richardson",
+      "loan_type": "Business",
+      "principal_amount": 94000,
+      "interest_rate": 6.3,
+      "remaining_balance": 71400,
+      "next_payment_due": "2025-11-02",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1014",
+      "borrower_name": "Charlotte Evans",
+      "loan_type": "Education",
+      "principal_amount": 28000,
+      "interest_rate": 5.0,
+      "remaining_balance": 26000,
+      "next_payment_due": "2025-10-26",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1015",
+      "borrower_name": "Lucas Wright",
+      "loan_type": "Mortgage",
+      "principal_amount": 225000,
+      "interest_rate": 3.8,
+      "remaining_balance": 213700,
+      "next_payment_due": "2025-10-24",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1016",
+      "borrower_name": "Megan Lewis",
+      "loan_type": "Personal",
+      "principal_amount": 10500,
+      "interest_rate": 6.4,
+      "remaining_balance": 5900,
+      "next_payment_due": "2025-10-11",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1017",
+      "borrower_name": "Jacob Hall",
+      "loan_type": "Auto",
+      "principal_amount": 18500,
+      "interest_rate": 4.3,
+      "remaining_balance": 15500,
+      "next_payment_due": "2025-11-06",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1018",
+      "borrower_name": "Amelia Brooks",
+      "loan_type": "Education",
+      "principal_amount": 35000,
+      "interest_rate": 5.2,
+      "remaining_balance": 31600,
+      "next_payment_due": "2025-10-29",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1019",
+      "borrower_name": "Ryan Parker",
+      "loan_type": "Personal",
+      "principal_amount": 8900,
+      "interest_rate": 6.7,
+      "remaining_balance": 4400,
+      "next_payment_due": "2025-10-08",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1020",
+      "borrower_name": "Olivia Robinson",
+      "loan_type": "Mortgage",
+      "principal_amount": 270000,
+      "interest_rate": 3.5,
+      "remaining_balance": 265500,
+      "next_payment_due": "2025-11-04",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1021",
+      "borrower_name": "Jack Edwards",
+      "loan_type": "Business",
+      "principal_amount": 120000,
+      "interest_rate": 5.9,
+      "remaining_balance": 118400,
+      "next_payment_due": "2025-10-22",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1022",
+      "borrower_name": "Ella Hughes",
+      "loan_type": "Personal",
+      "principal_amount": 9700,
+      "interest_rate": 6.1,
+      "remaining_balance": 5500,
+      "next_payment_due": "2025-10-15",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1023",
+      "borrower_name": "Harry Bennett",
+      "loan_type": "Auto",
+      "principal_amount": 24000,
+      "interest_rate": 4.2,
+      "remaining_balance": 17000,
+      "next_payment_due": "2025-10-19",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1024",
+      "borrower_name": "Isabella Green",
+      "loan_type": "Education",
+      "principal_amount": 31000,
+      "interest_rate": 5.3,
+      "remaining_balance": 28000,
+      "next_payment_due": "2025-10-31",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1025",
+      "borrower_name": "William Scott",
+      "loan_type": "Business",
+      "principal_amount": 95000,
+      "interest_rate": 6.5,
+      "remaining_balance": 75200,
+      "next_payment_due": "2025-10-27",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1026",
+      "borrower_name": "Mia Adams",
+      "loan_type": "Personal",
+      "principal_amount": 7200,
+      "interest_rate": 6.8,
+      "remaining_balance": 3100,
+      "next_payment_due": "2025-10-09",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1027",
+      "borrower_name": "Henry Cooper",
+      "loan_type": "Mortgage",
+      "principal_amount": 255000,
+      "interest_rate": 3.9,
+      "remaining_balance": 249800,
+      "next_payment_due": "2025-11-07",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1028",
+      "borrower_name": "Ava Ward",
+      "loan_type": "Education",
+      "principal_amount": 29500,
+      "interest_rate": 5.4,
+      "remaining_balance": 27400,
+      "next_payment_due": "2025-10-25",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1029",
+      "borrower_name": "George King",
+      "loan_type": "Auto",
+      "principal_amount": 26000,
+      "interest_rate": 4.4,
+      "remaining_balance": 21000,
+      "next_payment_due": "2025-10-13",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1030",
+      "borrower_name": "Lucy Wood",
+      "loan_type": "Personal",
+      "principal_amount": 11500,
+      "interest_rate": 6.2,
+      "remaining_balance": 8000,
+      "next_payment_due": "2025-11-03",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1031",
+      "borrower_name": "Noah Morgan",
+      "loan_type": "Business",
+      "principal_amount": 110000,
+      "interest_rate": 5.8,
+      "remaining_balance": 98400,
+      "next_payment_due": "2025-10-29",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1032",
+      "borrower_name": "Chloe Bell",
+      "loan_type": "Mortgage",
+      "principal_amount": 295000,
+      "interest_rate": 3.5,
+      "remaining_balance": 278900,
+      "next_payment_due": "2025-11-05",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1033",
+      "borrower_name": "Oscar Murphy",
+      "loan_type": "Auto",
+      "principal_amount": 17500,
+      "interest_rate": 4.7,
+      "remaining_balance": 14200,
+      "next_payment_due": "2025-10-16",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1034",
+      "borrower_name": "Isla Gray",
+      "loan_type": "Education",
+      "principal_amount": 34500,
+      "interest_rate": 5.0,
+      "remaining_balance": 33200,
+      "next_payment_due": "2025-10-28",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1035",
+      "borrower_name": "Thomas Bailey",
+      "loan_type": "Personal",
+      "principal_amount": 13400,
+      "interest_rate": 6.3,
+      "remaining_balance": 7800,
+      "next_payment_due": "2025-10-12",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1036",
+      "borrower_name": "Sophie Phillips",
+      "loan_type": "Mortgage",
+      "principal_amount": 260000,
+      "interest_rate": 3.6,
+      "remaining_balance": 243800,
+      "next_payment_due": "2025-10-30",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1037",
+      "borrower_name": "Leo Richardson",
+      "loan_type": "Business",
+      "principal_amount": 85000,
+      "interest_rate": 6.2,
+      "remaining_balance": 81000,
+      "next_payment_due": "2025-10-22",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1038",
+      "borrower_name": "Harper Anderson",
+      "loan_type": "Auto",
+      "principal_amount": 19000,
+      "interest_rate": 4.9,
+      "remaining_balance": 14800,
+      "next_payment_due": "2025-11-01",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1039",
+      "borrower_name": "Samuel Rogers",
+      "loan_type": "Personal",
+      "principal_amount": 8900,
+      "interest_rate": 6.7,
+      "remaining_balance": 3900,
+      "next_payment_due": "2025-10-07",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1040",
+      "borrower_name": "Ella Hughes",
+      "loan_type": "Education",
+      "principal_amount": 32000,
+      "interest_rate": 5.2,
+      "remaining_balance": 30500,
+      "next_payment_due": "2025-10-31",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1041",
+      "borrower_name": "Liam Thompson",
+      "loan_type": "Mortgage",
+      "principal_amount": 280000,
+      "interest_rate": 3.7,
+      "remaining_balance": 269200,
+      "next_payment_due": "2025-10-27",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1042",
+      "borrower_name": "Grace Foster",
+      "loan_type": "Personal",
+      "principal_amount": 11200,
+      "interest_rate": 6.1,
+      "remaining_balance": 7100,
+      "next_payment_due": "2025-10-15",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1043",
+      "borrower_name": "Nathan Hughes",
+      "loan_type": "Auto",
+      "principal_amount": 20500,
+      "interest_rate": 4.5,
+      "remaining_balance": 18200,
+      "next_payment_due": "2025-10-29",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1044",
+      "borrower_name": "Aiden Russell",
+      "loan_type": "Business",
+      "principal_amount": 115000,
+      "interest_rate": 5.7,
+      "remaining_balance": 101500,
+      "next_payment_due": "2025-11-06",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1045",
+      "borrower_name": "Emma Scott",
+      "loan_type": "Education",
+      "principal_amount": 27000,
+      "interest_rate": 5.0,
+      "remaining_balance": 24100,
+      "next_payment_due": "2025-10-24",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1046",
+      "borrower_name": "Caleb James",
+      "loan_type": "Mortgage",
+      "principal_amount": 310000,
+      "interest_rate": 3.6,
+      "remaining_balance": 298000,
+      "next_payment_due": "2025-11-02",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1047",
+      "borrower_name": "Ella Brooks",
+      "loan_type": "Personal",
+      "principal_amount": 9800,
+      "interest_rate": 6.8,
+      "remaining_balance": 4300,
+      "next_payment_due": "2025-10-10",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1048",
+      "borrower_name": "Jack Peterson",
+      "loan_type": "Auto",
+      "principal_amount": 23000,
+      "interest_rate": 4.6,
+      "remaining_balance": 19200,
+      "next_payment_due": "2025-10-28",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1049",
+      "borrower_name": "Victoria Campbell",
+      "loan_type": "Education",
+      "principal_amount": 33000,
+      "interest_rate": 5.4,
+      "remaining_balance": 31200,
+      "next_payment_due": "2025-10-30",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1050",
+      "borrower_name": "Andrew Barnes",
+      "loan_type": "Business",
+      "principal_amount": 125000,
+      "interest_rate": 6.1,
+      "remaining_balance": 119200,
+      "next_payment_due": "2025-11-05",
+      "status": "Current"
+    },
+
+    {
+      "loan_id": "LN-1051",
+      "borrower_name": "Sarah Thompson",
+      "loan_type": "Mortgage",
+      "principal_amount": 250000,
+      "interest_rate": 4.5,
+      "remaining_balance": 187000,
+      "next_payment_due": "2025-11-15",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1052",
+      "borrower_name": "Michael Rodriguez",
+      "loan_type": "Auto",
+      "principal_amount": 32000,
+      "interest_rate": 6.1,
+      "remaining_balance": 21000,
+      "next_payment_due": "2025-11-20",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1053",
+      "borrower_name": "Emily Johnson",
+      "loan_type": "Personal",
+      "principal_amount": 15000,
+      "interest_rate": 7.2,
+      "remaining_balance": 8900,
+      "next_payment_due": "2025-11-12",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1054",
+      "borrower_name": "David Kim",
+      "loan_type": "Education",
+      "principal_amount": 48000,
+      "interest_rate": 5.4,
+      "remaining_balance": 39200,
+      "next_payment_due": "2025-12-01",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1055",
+      "borrower_name": "Jessica Parker",
+      "loan_type": "Auto",
+      "principal_amount": 27000,
+      "interest_rate": 5.9,
+      "remaining_balance": 15400,
+      "next_payment_due": "2025-11-05",
+      "status": "Paid Off"
+    },
+    {
+      "loan_id": "LN-1056",
+      "borrower_name": "Robert Davis",
+      "loan_type": "Business",
+      "principal_amount": 120000,
+      "interest_rate": 6.8,
+      "remaining_balance": 101000,
+      "next_payment_due": "2025-11-28",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1057",
+      "borrower_name": "Olivia Martinez",
+      "loan_type": "Mortgage",
+      "principal_amount": 310000,
+      "interest_rate": 4.1,
+      "remaining_balance": 285000,
+      "next_payment_due": "2025-11-25",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1058",
+      "borrower_name": "William Brown",
+      "loan_type": "Personal",
+      "principal_amount": 9500,
+      "interest_rate": 8.0,
+      "remaining_balance": 6400,
+      "next_payment_due": "2025-10-30",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1059",
+      "borrower_name": "Sophia Lee",
+      "loan_type": "Education",
+      "principal_amount": 42000,
+      "interest_rate": 5.2,
+      "remaining_balance": 27500,
+      "next_payment_due": "2025-12-10",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1060",
+      "borrower_name": "James Wilson",
+      "loan_type": "Business",
+      "principal_amount": 95000,
+      "interest_rate": 6.3,
+      "remaining_balance": 89000,
+      "next_payment_due": "2025-11-18",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1061",
+      "borrower_name": "Ava Johnson",
+      "loan_type": "Auto",
+      "principal_amount": 28500,
+      "interest_rate": 5.6,
+      "remaining_balance": 16400,
+      "next_payment_due": "2025-11-07",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1062",
+      "borrower_name": "Benjamin White",
+      "loan_type": "Personal",
+      "principal_amount": 13000,
+      "interest_rate": 7.5,
+      "remaining_balance": 9100,
+      "next_payment_due": "2025-11-30",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1063",
+      "borrower_name": "Chloe Anderson",
+      "loan_type": "Mortgage",
+      "principal_amount": 220000,
+      "interest_rate": 4.3,
+      "remaining_balance": 183000,
+      "next_payment_due": "2025-12-05",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1064",
+      "borrower_name": "Ethan Scott",
+      "loan_type": "Education",
+      "principal_amount": 30000,
+      "interest_rate": 5.6,
+      "remaining_balance": 26500,
+      "next_payment_due": "2025-11-21",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1065",
+      "borrower_name": "Isabella Harris",
+      "loan_type": "Personal",
+      "principal_amount": 8000,
+      "interest_rate": 6.9,
+      "remaining_balance": 3100,
+      "next_payment_due": "2025-10-29",
+      "status": "Paid Off"
+    },
+    {
+      "loan_id": "LN-1066",
+      "borrower_name": "Daniel Clark",
+      "loan_type": "Business",
+      "principal_amount": 150000,
+      "interest_rate": 7.0,
+      "remaining_balance": 120000,
+      "next_payment_due": "2025-11-27",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1067",
+      "borrower_name": "Grace Lewis",
+      "loan_type": "Auto",
+      "principal_amount": 36000,
+      "interest_rate": 5.5,
+      "remaining_balance": 23200,
+      "next_payment_due": "2025-11-10",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1068",
+      "borrower_name": "Henry Walker",
+      "loan_type": "Mortgage",
+      "principal_amount": 195000,
+      "interest_rate": 4.7,
+      "remaining_balance": 157000,
+      "next_payment_due": "2025-11-16",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1069",
+      "borrower_name": "Lily King",
+      "loan_type": "Education",
+      "principal_amount": 25000,
+      "interest_rate": 5.1,
+      "remaining_balance": 18300,
+      "next_payment_due": "2025-12-08",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1070",
+      "borrower_name": "Jack Young",
+      "loan_type": "Personal",
+      "principal_amount": 11000,
+      "interest_rate": 8.3,
+      "remaining_balance": 9500,
+      "next_payment_due": "2025-11-19",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1071",
+      "borrower_name": "Ella Hall",
+      "loan_type": "Business",
+      "principal_amount": 180000,
+      "interest_rate": 6.5,
+      "remaining_balance": 142000,
+      "next_payment_due": "2025-12-12",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1072",
+      "borrower_name": "Noah Allen",
+      "loan_type": "Auto",
+      "principal_amount": 24000,
+      "interest_rate": 6.0,
+      "remaining_balance": 9700,
+      "next_payment_due": "2025-10-31",
+      "status": "Paid Off"
+    },
+    {
+      "loan_id": "LN-1073",
+      "borrower_name": "Mia Wright",
+      "loan_type": "Personal",
+      "principal_amount": 15500,
+      "interest_rate": 7.1,
+      "remaining_balance": 7800,
+      "next_payment_due": "2025-11-03",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1074",
+      "borrower_name": "Lucas Baker",
+      "loan_type": "Education",
+      "principal_amount": 37000,
+      "interest_rate": 5.9,
+      "remaining_balance": 34100,
+      "next_payment_due": "2025-11-26",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1075",
+      "borrower_name": "Harper Gonzalez",
+      "loan_type": "Mortgage",
+      "principal_amount": 270000,
+      "interest_rate": 4.2,
+      "remaining_balance": 196000,
+      "next_payment_due": "2025-12-02",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1076",
+      "borrower_name": "Jacob Perez",
+      "loan_type": "Business",
+      "principal_amount": 135000,
+      "interest_rate": 6.7,
+      "remaining_balance": 101000,
+      "next_payment_due": "2025-11-29",
+      "status": "Overdue"
+    },
+    {
+      "loan_id": "LN-1077",
+      "borrower_name": "Amelia Sanchez",
+      "loan_type": "Auto",
+      "principal_amount": 28000,
+      "interest_rate": 5.3,
+      "remaining_balance": 18500,
+      "next_payment_due": "2025-11-14",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1078",
+      "borrower_name": "Logan Ramirez",
+      "loan_type": "Personal",
+      "principal_amount": 12000,
+      "interest_rate": 8.1,
+      "remaining_balance": 9800,
+      "next_payment_due": "2025-11-23",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1079",
+      "borrower_name": "Abigail Nelson",
+      "loan_type": "Education",
+      "principal_amount": 46000,
+      "interest_rate": 5.7,
+      "remaining_balance": 38200,
+      "next_payment_due": "2025-12-09",
+      "status": "Current"
+    },
+    {
+      "loan_id": "LN-1080",
+      "borrower_name": "Matthew Carter",
+      "loan_type": "Business",
+      "principal_amount": 160000,
+      "interest_rate": 6.9,
+      "remaining_balance": 131000,
+      "next_payment_due": "2025-12-03",
+      "status": "Current"
+    },
+    {
+    "loan_id": "LN-1081",
+    "borrower_name": "Daniel Davis",
+    "loan_type": "Business",
+    "principal_amount": 291681,
+    "interest_rate": 3.8,
+    "remaining_balance": 217733,
+    "next_payment_due": "2025-12-26",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1082",
+    "borrower_name": "Mason Gonzalez",
+    "loan_type": "Education",
+    "principal_amount": 348612,
+    "interest_rate": 3.9,
+    "remaining_balance": 295612,
+    "next_payment_due": "2025-12-11",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1083",
+    "borrower_name": "Ella Allen",
+    "loan_type": "Personal",
+    "principal_amount": 63000,
+    "interest_rate": 8.3,
+    "remaining_balance": 54391,
+    "next_payment_due": "2025-11-04",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1084",
+    "borrower_name": "Aria Hernandez",
+    "loan_type": "Mortgage",
+    "principal_amount": 175190,
+    "interest_rate": 7.2,
+    "remaining_balance": 36495,
+    "next_payment_due": "2025-11-16",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1085",
+    "borrower_name": "William Nguyen",
+    "loan_type": "Education",
+    "principal_amount": 79372,
+    "interest_rate": 4.6,
+    "remaining_balance": 54152,
+    "next_payment_due": "2025-11-06",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1086",
+    "borrower_name": "Benjamin Moore",
+    "loan_type": "Auto",
+    "principal_amount": 43221,
+    "interest_rate": 6.7,
+    "remaining_balance": 6287,
+    "next_payment_due": "2025-12-14",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1087",
+    "borrower_name": "Abigail White",
+    "loan_type": "Business",
+    "principal_amount": 309570,
+    "interest_rate": 6.7,
+    "remaining_balance": 261818,
+    "next_payment_due": "2025-11-29",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1088",
+    "borrower_name": "Mia Miller",
+    "loan_type": "Personal",
+    "principal_amount": 218932,
+    "interest_rate": 4.7,
+    "remaining_balance": 28494,
+    "next_payment_due": "2025-11-08",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1089",
+    "borrower_name": "Daniel Garcia",
+    "loan_type": "Personal",
+    "principal_amount": 272332,
+    "interest_rate": 7.9,
+    "remaining_balance": 110507,
+    "next_payment_due": "2025-12-31",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1090",
+    "borrower_name": "Ethan Wilson",
+    "loan_type": "Business",
+    "principal_amount": 326369,
+    "interest_rate": 5.1,
+    "remaining_balance": 245575,
+    "next_payment_due": "2025-11-24",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1091",
+    "borrower_name": "Madison Miller",
+    "loan_type": "Mortgage",
+    "principal_amount": 134097,
+    "interest_rate": 5.2,
+    "remaining_balance": 40384,
+    "next_payment_due": "2025-12-27",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1092",
+    "borrower_name": "Lucas Miller",
+    "loan_type": "Auto",
+    "principal_amount": 195534,
+    "interest_rate": 3.9,
+    "remaining_balance": 189340,
+    "next_payment_due": "2025-11-07",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1093",
+    "borrower_name": "Ethan Rodriguez",
+    "loan_type": "Education",
+    "principal_amount": 196326,
+    "interest_rate": 6.5,
+    "remaining_balance": 144222,
+    "next_payment_due": "2025-11-18",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1094",
+    "borrower_name": "Mia Torres",
+    "loan_type": "Mortgage",
+    "principal_amount": 124777,
+    "interest_rate": 5.5,
+    "remaining_balance": 84661,
+    "next_payment_due": "2025-12-16",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1095",
+    "borrower_name": "Noah Clark",
+    "loan_type": "Auto",
+    "principal_amount": 128173,
+    "interest_rate": 6.3,
+    "remaining_balance": 25099,
+    "next_payment_due": "2025-11-23",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1096",
+    "borrower_name": "Sebastian King",
+    "loan_type": "Mortgage",
+    "principal_amount": 234753,
+    "interest_rate": 8.3,
+    "remaining_balance": 163624,
+    "next_payment_due": "2025-12-04",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1097",
+    "borrower_name": "Sebastian Allen",
+    "loan_type": "Education",
+    "principal_amount": 274199,
+    "interest_rate": 3.5,
+    "remaining_balance": 261756,
+    "next_payment_due": "2025-11-29",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1098",
+    "borrower_name": "Chloe Harris",
+    "loan_type": "Auto",
+    "principal_amount": 347926,
+    "interest_rate": 7.9,
+    "remaining_balance": 238449,
+    "next_payment_due": "2025-12-30",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1099",
+    "borrower_name": "Henry Williams",
+    "loan_type": "Business",
+    "principal_amount": 129384,
+    "interest_rate": 5.2,
+    "remaining_balance": 56742,
+    "next_payment_due": "2025-11-27",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1100",
+    "borrower_name": "Emily Rodriguez",
+    "loan_type": "Personal",
+    "principal_amount": 53740,
+    "interest_rate": 7.1,
+    "remaining_balance": 31407,
+    "next_payment_due": "2025-11-13",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1101",
+    "borrower_name": "Jacob Walker",
+    "loan_type": "Business",
+    "principal_amount": 258282,
+    "interest_rate": 5.7,
+    "remaining_balance": 185515,
+    "next_payment_due": "2025-11-16",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1102",
+    "borrower_name": "Matthew Lewis",
+    "loan_type": "Education",
+    "principal_amount": 197680,
+    "interest_rate": 8.0,
+    "remaining_balance": 3597,
+    "next_payment_due": "2025-12-13",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1103",
+    "borrower_name": "Natalie Lee",
+    "loan_type": "Mortgage",
+    "principal_amount": 153799,
+    "interest_rate": 6.6,
+    "remaining_balance": 29317,
+    "next_payment_due": "2025-12-18",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1104",
+    "borrower_name": "Harper Ramirez",
+    "loan_type": "Business",
+    "principal_amount": 303921,
+    "interest_rate": 4.5,
+    "remaining_balance": 212481,
+    "next_payment_due": "2025-11-25",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1105",
+    "borrower_name": "Olivia Williams",
+    "loan_type": "Education",
+    "principal_amount": 255738,
+    "interest_rate": 6.8,
+    "remaining_balance": 228128,
+    "next_payment_due": "2025-11-26",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1106",
+    "borrower_name": "Abigail Sanchez",
+    "loan_type": "Personal",
+    "principal_amount": 291325,
+    "interest_rate": 5.1,
+    "remaining_balance": 174922,
+    "next_payment_due": "2025-11-28",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1107",
+    "borrower_name": "Ava Martinez",
+    "loan_type": "Business",
+    "principal_amount": 347357,
+    "interest_rate": 3.9,
+    "remaining_balance": 143000,
+    "next_payment_due": "2025-12-03",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1108",
+    "borrower_name": "Daniel Nguyen",
+    "loan_type": "Business",
+    "principal_amount": 316964,
+    "interest_rate": 3.9,
+    "remaining_balance": 3289,
+    "next_payment_due": "2025-11-05",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1109",
+    "borrower_name": "Luna Walker",
+    "loan_type": "Mortgage",
+    "principal_amount": 221707,
+    "interest_rate": 5.2,
+    "remaining_balance": 152330,
+    "next_payment_due": "2025-11-07",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1110",
+    "borrower_name": "David Moore",
+    "loan_type": "Education",
+    "principal_amount": 302059,
+    "interest_rate": 6.4,
+    "remaining_balance": 133920,
+    "next_payment_due": "2025-11-18",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1111",
+    "borrower_name": "Matthew Taylor",
+    "loan_type": "Business",
+    "principal_amount": 242047,
+    "interest_rate": 5.5,
+    "remaining_balance": 40292,
+    "next_payment_due": "2025-11-12",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1112",
+    "borrower_name": "Olivia Wilson",
+    "loan_type": "Education",
+    "principal_amount": 282040,
+    "interest_rate": 6.8,
+    "remaining_balance": 147179,
+    "next_payment_due": "2025-11-07",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1113",
+    "borrower_name": "Amelia Walker",
+    "loan_type": "Mortgage",
+    "principal_amount": 7457,
+    "interest_rate": 6.9,
+    "remaining_balance": 2498,
+    "next_payment_due": "2025-11-02",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1114",
+    "borrower_name": "Jessica Walker",
+    "loan_type": "Personal",
+    "principal_amount": 140999,
+    "interest_rate": 6.0,
+    "remaining_balance": 25977,
+    "next_payment_due": "2025-12-19",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1115",
+    "borrower_name": "Mia Lewis",
+    "loan_type": "Education",
+    "principal_amount": 334110,
+    "interest_rate": 5.1,
+    "remaining_balance": 63921,
+    "next_payment_due": "2025-12-31",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1116",
+    "borrower_name": "Natalie Jones",
+    "loan_type": "Education",
+    "principal_amount": 340419,
+    "interest_rate": 5.7,
+    "remaining_balance": 247376,
+    "next_payment_due": "2025-12-20",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1117",
+    "borrower_name": "James Garcia",
+    "loan_type": "Auto",
+    "principal_amount": 150874,
+    "interest_rate": 5.7,
+    "remaining_balance": 111884,
+    "next_payment_due": "2025-11-15",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1118",
+    "borrower_name": "Sebastian Thomas",
+    "loan_type": "Education",
+    "principal_amount": 57971,
+    "interest_rate": 3.6,
+    "remaining_balance": 9802,
+    "next_payment_due": "2025-11-20",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1119",
+    "borrower_name": "Jacob Ramirez",
+    "loan_type": "Business",
+    "principal_amount": 154803,
+    "interest_rate": 4.0,
+    "remaining_balance": 109023,
+    "next_payment_due": "2025-12-25",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1120",
+    "borrower_name": "Logan Lopez",
+    "loan_type": "Education",
+    "principal_amount": 137149,
+    "interest_rate": 3.5,
+    "remaining_balance": 5180,
+    "next_payment_due": "2025-12-11",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1121",
+    "borrower_name": "Carter Smith",
+    "loan_type": "Mortgage",
+    "principal_amount": 130124,
+    "interest_rate": 7.1,
+    "remaining_balance": 34482,
+    "next_payment_due": "2025-11-09",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1122",
+    "borrower_name": "Jack Scott",
+    "loan_type": "Business",
+    "principal_amount": 170318,
+    "interest_rate": 8.3,
+    "remaining_balance": 151781,
+    "next_payment_due": "2025-11-09",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1123",
+    "borrower_name": "Ava Hernandez",
+    "loan_type": "Mortgage",
+    "principal_amount": 115083,
+    "interest_rate": 7.8,
+    "remaining_balance": 42448,
+    "next_payment_due": "2025-12-18",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1124",
+    "borrower_name": "Sebastian Lewis",
+    "loan_type": "Education",
+    "principal_amount": 7810,
+    "interest_rate": 4.0,
+    "remaining_balance": 5931,
+    "next_payment_due": "2025-11-17",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1125",
+    "borrower_name": "Madison Thompson",
+    "loan_type": "Education",
+    "principal_amount": 173332,
+    "interest_rate": 5.4,
+    "remaining_balance": 11482,
+    "next_payment_due": "2025-11-05",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1126",
+    "borrower_name": "Henry King",
+    "loan_type": "Business",
+    "principal_amount": 86443,
+    "interest_rate": 4.2,
+    "remaining_balance": 75252,
+    "next_payment_due": "2025-11-10",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1127",
+    "borrower_name": "Abigail Gonzalez",
+    "loan_type": "Auto",
+    "principal_amount": 44805,
+    "interest_rate": 7.3,
+    "remaining_balance": 22399,
+    "next_payment_due": "2025-12-25",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1128",
+    "borrower_name": "Logan Taylor",
+    "loan_type": "Education",
+    "principal_amount": 39121,
+    "interest_rate": 5.9,
+    "remaining_balance": 1363,
+    "next_payment_due": "2025-11-20",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1129",
+    "borrower_name": "Chloe Thomas",
+    "loan_type": "Personal",
+    "principal_amount": 208851,
+    "interest_rate": 5.7,
+    "remaining_balance": 202166,
+    "next_payment_due": "2025-12-30",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1130",
+    "borrower_name": "Mia Smith",
+    "loan_type": "Personal",
+    "principal_amount": 133662,
+    "interest_rate": 7.1,
+    "remaining_balance": 106560,
+    "next_payment_due": "2025-12-27",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1131",
+    "borrower_name": "Lily Torres",
+    "loan_type": "Mortgage",
+    "principal_amount": 82500,
+    "interest_rate": 4.1,
+    "remaining_balance": 36415,
+    "next_payment_due": "2025-11-23",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1132",
+    "borrower_name": "David Walker",
+    "loan_type": "Auto",
+    "principal_amount": 302180,
+    "interest_rate": 6.6,
+    "remaining_balance": 272065,
+    "next_payment_due": "2025-11-25",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1133",
+    "borrower_name": "John Scott",
+    "loan_type": "Personal",
+    "principal_amount": 231835,
+    "interest_rate": 7.3,
+    "remaining_balance": 70694,
+    "next_payment_due": "2025-11-04",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1134",
+    "borrower_name": "Noah Nguyen",
+    "loan_type": "Personal",
+    "principal_amount": 215977,
+    "interest_rate": 5.5,
+    "remaining_balance": 18367,
+    "next_payment_due": "2025-12-03",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1135",
+    "borrower_name": "Aria Lee",
+    "loan_type": "Personal",
+    "principal_amount": 293933,
+    "interest_rate": 5.7,
+    "remaining_balance": 181169,
+    "next_payment_due": "2025-12-25",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1136",
+    "borrower_name": "Logan Johnson",
+    "loan_type": "Business",
+    "principal_amount": 260837,
+    "interest_rate": 4.1,
+    "remaining_balance": 66311,
+    "next_payment_due": "2025-11-04",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1137",
+    "borrower_name": "Ella Jones",
+    "loan_type": "Mortgage",
+    "principal_amount": 175385,
+    "interest_rate": 7.0,
+    "remaining_balance": 135058,
+    "next_payment_due": "2025-12-25",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1138",
+    "borrower_name": "Ethan Sanchez",
+    "loan_type": "Auto",
+    "principal_amount": 283098,
+    "interest_rate": 5.7,
+    "remaining_balance": 110237,
+    "next_payment_due": "2025-12-03",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1139",
+    "borrower_name": "Noah Jones",
+    "loan_type": "Business",
+    "principal_amount": 349094,
+    "interest_rate": 7.2,
+    "remaining_balance": 112386,
+    "next_payment_due": "2025-12-30",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1140",
+    "borrower_name": "Robert Flores",
+    "loan_type": "Education",
+    "principal_amount": 176596,
+    "interest_rate": 8.1,
+    "remaining_balance": 154457,
+    "next_payment_due": "2025-12-22",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1141",
+    "borrower_name": "Benjamin Miller",
+    "loan_type": "Business",
+    "principal_amount": 193044,
+    "interest_rate": 4.2,
+    "remaining_balance": 109607,
+    "next_payment_due": "2025-11-04",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1142",
+    "borrower_name": "Matthew Wright",
+    "loan_type": "Personal",
+    "principal_amount": 162549,
+    "interest_rate": 8.0,
+    "remaining_balance": 102962,
+    "next_payment_due": "2025-12-27",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1143",
+    "borrower_name": "Amelia Torres",
+    "loan_type": "Personal",
+    "principal_amount": 150832,
+    "interest_rate": 5.2,
+    "remaining_balance": 46108,
+    "next_payment_due": "2025-11-05",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1144",
+    "borrower_name": "Jacob White",
+    "loan_type": "Auto",
+    "principal_amount": 306199,
+    "interest_rate": 6.3,
+    "remaining_balance": 73717,
+    "next_payment_due": "2025-11-21",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1145",
+    "borrower_name": "Abigail Davis",
+    "loan_type": "Mortgage",
+    "principal_amount": 340400,
+    "interest_rate": 3.9,
+    "remaining_balance": 145006,
+    "next_payment_due": "2025-12-17",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1146",
+    "borrower_name": "Jessica Harris",
+    "loan_type": "Education",
+    "principal_amount": 238203,
+    "interest_rate": 6.7,
+    "remaining_balance": 100281,
+    "next_payment_due": "2025-11-20",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1147",
+    "borrower_name": "Mia Perez",
+    "loan_type": "Mortgage",
+    "principal_amount": 327352,
+    "interest_rate": 7.2,
+    "remaining_balance": 126288,
+    "next_payment_due": "2025-12-26",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1148",
+    "borrower_name": "Victoria Garcia",
+    "loan_type": "Education",
+    "principal_amount": 123457,
+    "interest_rate": 8.3,
+    "remaining_balance": 39889,
+    "next_payment_due": "2025-11-03",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1149",
+    "borrower_name": "Mason Sanchez",
+    "loan_type": "Mortgage",
+    "principal_amount": 47898,
+    "interest_rate": 6.4,
+    "remaining_balance": 47173,
+    "next_payment_due": "2025-11-03",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1150",
+    "borrower_name": "Amelia Martinez",
+    "loan_type": "Education",
+    "principal_amount": 332256,
+    "interest_rate": 7.3,
+    "remaining_balance": 41465,
+    "next_payment_due": "2025-11-05",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1151",
+    "borrower_name": "Lily Lee",
+    "loan_type": "Business",
+    "principal_amount": 114535,
+    "interest_rate": 4.0,
+    "remaining_balance": 76512,
+    "next_payment_due": "2025-12-21",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1152",
+    "borrower_name": "Victoria Flores",
+    "loan_type": "Auto",
+    "principal_amount": 109243,
+    "interest_rate": 8.2,
+    "remaining_balance": 1728,
+    "next_payment_due": "2025-11-07",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1153",
+    "borrower_name": "Harper Walker",
+    "loan_type": "Education",
+    "principal_amount": 89800,
+    "interest_rate": 6.8,
+    "remaining_balance": 6294,
+    "next_payment_due": "2025-12-01",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1154",
+    "borrower_name": "Grace Martin",
+    "loan_type": "Business",
+    "principal_amount": 79285,
+    "interest_rate": 6.0,
+    "remaining_balance": 23298,
+    "next_payment_due": "2025-11-25",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1155",
+    "borrower_name": "Benjamin Smith",
+    "loan_type": "Personal",
+    "principal_amount": 12522,
+    "interest_rate": 7.5,
+    "remaining_balance": 11417,
+    "next_payment_due": "2025-12-16",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1156",
+    "borrower_name": "Ethan Walker",
+    "loan_type": "Education",
+    "principal_amount": 285812,
+    "interest_rate": 3.7,
+    "remaining_balance": 114129,
+    "next_payment_due": "2025-12-13",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1157",
+    "borrower_name": "Benjamin Young",
+    "loan_type": "Auto",
+    "principal_amount": 200254,
+    "interest_rate": 7.5,
+    "remaining_balance": 81905,
+    "next_payment_due": "2025-11-16",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1158",
+    "borrower_name": "Logan Hill",
+    "loan_type": "Auto",
+    "principal_amount": 171942,
+    "interest_rate": 3.7,
+    "remaining_balance": 42771,
+    "next_payment_due": "2025-12-21",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1159",
+    "borrower_name": "Michael Taylor",
+    "loan_type": "Auto",
+    "principal_amount": 233603,
+    "interest_rate": 6.4,
+    "remaining_balance": 39975,
+    "next_payment_due": "2025-11-04",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1160",
+    "borrower_name": "William Hernandez",
+    "loan_type": "Business",
+    "principal_amount": 38528,
+    "interest_rate": 6.8,
+    "remaining_balance": 3936,
+    "next_payment_due": "2025-11-21",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1161",
+    "borrower_name": "Sarah Lee",
+    "loan_type": "Personal",
+    "principal_amount": 21985,
+    "interest_rate": 5.9,
+    "remaining_balance": 9896,
+    "next_payment_due": "2025-11-17",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1162",
+    "borrower_name": "David Scott",
+    "loan_type": "Education",
+    "principal_amount": 250356,
+    "interest_rate": 5.6,
+    "remaining_balance": 109688,
+    "next_payment_due": "2025-11-04",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1163",
+    "borrower_name": "Lucas Taylor",
+    "loan_type": "Personal",
+    "principal_amount": 100177,
+    "interest_rate": 6.8,
+    "remaining_balance": 36114,
+    "next_payment_due": "2025-12-03",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1164",
+    "borrower_name": "Robert Brown",
+    "loan_type": "Auto",
+    "principal_amount": 93661,
+    "interest_rate": 3.7,
+    "remaining_balance": 55111,
+    "next_payment_due": "2025-11-18",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1165",
+    "borrower_name": "Mason Allen",
+    "loan_type": "Business",
+    "principal_amount": 308582,
+    "interest_rate": 6.9,
+    "remaining_balance": 72672,
+    "next_payment_due": "2025-11-11",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1166",
+    "borrower_name": "Ella Young",
+    "loan_type": "Auto",
+    "principal_amount": 27953,
+    "interest_rate": 6.9,
+    "remaining_balance": 24695,
+    "next_payment_due": "2025-12-09",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1167",
+    "borrower_name": "Madison Smith",
+    "loan_type": "Auto",
+    "principal_amount": 307130,
+    "interest_rate": 5.5,
+    "remaining_balance": 273045,
+    "next_payment_due": "2025-12-25",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1168",
+    "borrower_name": "Noah Williams",
+    "loan_type": "Auto",
+    "principal_amount": 316801,
+    "interest_rate": 5.4,
+    "remaining_balance": 8153,
+    "next_payment_due": "2025-12-29",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1169",
+    "borrower_name": "Sebastian Lewis",
+    "loan_type": "Personal",
+    "principal_amount": 315781,
+    "interest_rate": 5.5,
+    "remaining_balance": 166733,
+    "next_payment_due": "2025-12-28",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1170",
+    "borrower_name": "Matthew Hernandez",
+    "loan_type": "Personal",
+    "principal_amount": 86540,
+    "interest_rate": 7.7,
+    "remaining_balance": 41941,
+    "next_payment_due": "2025-11-02",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1171",
+    "borrower_name": "Ava Lee",
+    "loan_type": "Education",
+    "principal_amount": 337833,
+    "interest_rate": 7.0,
+    "remaining_balance": 14454,
+    "next_payment_due": "2025-11-09",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1172",
+    "borrower_name": "Madison Hill",
+    "loan_type": "Mortgage",
+    "principal_amount": 219638,
+    "interest_rate": 6.9,
+    "remaining_balance": 61318,
+    "next_payment_due": "2025-12-03",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1173",
+    "borrower_name": "Madison Robinson",
+    "loan_type": "Auto",
+    "principal_amount": 56096,
+    "interest_rate": 4.4,
+    "remaining_balance": 29652,
+    "next_payment_due": "2025-12-26",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1174",
+    "borrower_name": "John Young",
+    "loan_type": "Auto",
+    "principal_amount": 206347,
+    "interest_rate": 4.0,
+    "remaining_balance": 169443,
+    "next_payment_due": "2025-11-05",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1175",
+    "borrower_name": "Grace Young",
+    "loan_type": "Business",
+    "principal_amount": 190693,
+    "interest_rate": 6.0,
+    "remaining_balance": 171454,
+    "next_payment_due": "2025-12-28",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1176",
+    "borrower_name": "Mia Hill",
+    "loan_type": "Business",
+    "principal_amount": 286455,
+    "interest_rate": 4.2,
+    "remaining_balance": 21274,
+    "next_payment_due": "2025-12-03",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1177",
+    "borrower_name": "Chloe Scott",
+    "loan_type": "Education",
+    "principal_amount": 35206,
+    "interest_rate": 8.1,
+    "remaining_balance": 32951,
+    "next_payment_due": "2025-11-06",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1178",
+    "borrower_name": "Aria Nguyen",
+    "loan_type": "Auto",
+    "principal_amount": 224058,
+    "interest_rate": 8.3,
+    "remaining_balance": 138993,
+    "next_payment_due": "2025-12-22",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1179",
+    "borrower_name": "Carter Allen",
+    "loan_type": "Business",
+    "principal_amount": 272661,
+    "interest_rate": 3.8,
+    "remaining_balance": 146723,
+    "next_payment_due": "2025-12-30",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1180",
+    "borrower_name": "Carter Scott",
+    "loan_type": "Personal",
+    "principal_amount": 11369,
+    "interest_rate": 7.8,
+    "remaining_balance": 7681,
+    "next_payment_due": "2025-12-11",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1181",
+    "borrower_name": "Abigail Garcia",
+    "loan_type": "Education",
+    "principal_amount": 97712,
+    "interest_rate": 6.5,
+    "remaining_balance": 30961,
+    "next_payment_due": "2025-11-03",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1182",
+    "borrower_name": "Ava Lopez",
+    "loan_type": "Education",
+    "principal_amount": 206340,
+    "interest_rate": 4.9,
+    "remaining_balance": 170234,
+    "next_payment_due": "2025-11-16",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1183",
+    "borrower_name": "Abigail Anderson",
+    "loan_type": "Mortgage",
+    "principal_amount": 15838,
+    "interest_rate": 7.2,
+    "remaining_balance": 13033,
+    "next_payment_due": "2025-11-30",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1184",
+    "borrower_name": "Amelia Williams",
+    "loan_type": "Mortgage",
+    "principal_amount": 222081,
+    "interest_rate": 4.5,
+    "remaining_balance": 171771,
+    "next_payment_due": "2025-11-10",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1185",
+    "borrower_name": "Benjamin Davis",
+    "loan_type": "Auto",
+    "principal_amount": 248680,
+    "interest_rate": 4.5,
+    "remaining_balance": 102426,
+    "next_payment_due": "2025-11-21",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1186",
+    "borrower_name": "Daniel Clark",
+    "loan_type": "Business",
+    "principal_amount": 52494,
+    "interest_rate": 7.4,
+    "remaining_balance": 44223,
+    "next_payment_due": "2025-12-15",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1187",
+    "borrower_name": "Jack Hernandez",
+    "loan_type": "Mortgage",
+    "principal_amount": 169416,
+    "interest_rate": 6.3,
+    "remaining_balance": 89525,
+    "next_payment_due": "2025-11-03",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1188",
+    "borrower_name": "Harper Perez",
+    "loan_type": "Personal",
+    "principal_amount": 256853,
+    "interest_rate": 6.6,
+    "remaining_balance": 137264,
+    "next_payment_due": "2025-11-22",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1189",
+    "borrower_name": "Ethan Jones",
+    "loan_type": "Education",
+    "principal_amount": 193198,
+    "interest_rate": 3.6,
+    "remaining_balance": 81238,
+    "next_payment_due": "2025-12-11",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1190",
+    "borrower_name": "Amelia Brown",
+    "loan_type": "Personal",
+    "principal_amount": 83599,
+    "interest_rate": 7.8,
+    "remaining_balance": 42365,
+    "next_payment_due": "2025-11-21",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1191",
+    "borrower_name": "Daniel Johnson",
+    "loan_type": "Business",
+    "principal_amount": 135304,
+    "interest_rate": 7.4,
+    "remaining_balance": 71753,
+    "next_payment_due": "2025-12-31",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1192",
+    "borrower_name": "Daniel Harris",
+    "loan_type": "Personal",
+    "principal_amount": 269867,
+    "interest_rate": 5.7,
+    "remaining_balance": 32664,
+    "next_payment_due": "2025-12-28",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1193",
+    "borrower_name": "James Hernandez",
+    "loan_type": "Business",
+    "principal_amount": 251937,
+    "interest_rate": 3.7,
+    "remaining_balance": 49494,
+    "next_payment_due": "2025-11-10",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1194",
+    "borrower_name": "Ethan Robinson",
+    "loan_type": "Mortgage",
+    "principal_amount": 91978,
+    "interest_rate": 5.0,
+    "remaining_balance": 43216,
+    "next_payment_due": "2025-11-26",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1195",
+    "borrower_name": "Michael Young",
+    "loan_type": "Education",
+    "principal_amount": 189679,
+    "interest_rate": 5.5,
+    "remaining_balance": 20872,
+    "next_payment_due": "2025-11-04",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1196",
+    "borrower_name": "Lucas Hill",
+    "loan_type": "Personal",
+    "principal_amount": 322648,
+    "interest_rate": 6.8,
+    "remaining_balance": 183491,
+    "next_payment_due": "2025-11-23",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1197",
+    "borrower_name": "Matthew Ramirez",
+    "loan_type": "Personal",
+    "principal_amount": 120195,
+    "interest_rate": 4.4,
+    "remaining_balance": 31772,
+    "next_payment_due": "2025-12-04",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1198",
+    "borrower_name": "Elijah Taylor",
+    "loan_type": "Personal",
+    "principal_amount": 278580,
+    "interest_rate": 7.1,
+    "remaining_balance": 118359,
+    "next_payment_due": "2025-11-29",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1199",
+    "borrower_name": "Luna Sanchez",
+    "loan_type": "Auto",
+    "principal_amount": 137253,
+    "interest_rate": 5.9,
+    "remaining_balance": 9457,
+    "next_payment_due": "2025-11-10",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1200",
+    "borrower_name": "Jack Scott",
+    "loan_type": "Auto",
+    "principal_amount": 247519,
+    "interest_rate": 6.5,
+    "remaining_balance": 102559,
+    "next_payment_due": "2025-12-18",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1201",
+    "borrower_name": "William Hernandez",
+    "loan_type": "Personal",
+    "principal_amount": 125439,
+    "interest_rate": 7.0,
+    "remaining_balance": 72092,
+    "next_payment_due": "2025-12-15",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1202",
+    "borrower_name": "John Thomas",
+    "loan_type": "Mortgage",
+    "principal_amount": 100489,
+    "interest_rate": 6.6,
+    "remaining_balance": 6854,
+    "next_payment_due": "2025-12-22",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1203",
+    "borrower_name": "Aria Taylor",
+    "loan_type": "Mortgage",
+    "principal_amount": 240070,
+    "interest_rate": 8.5,
+    "remaining_balance": 182774,
+    "next_payment_due": "2025-11-18",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1204",
+    "borrower_name": "Grace Nguyen",
+    "loan_type": "Education",
+    "principal_amount": 255843,
+    "interest_rate": 6.3,
+    "remaining_balance": 189281,
+    "next_payment_due": "2025-12-11",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1205",
+    "borrower_name": "Isabella Jones",
+    "loan_type": "Business",
+    "principal_amount": 123894,
+    "interest_rate": 8.1,
+    "remaining_balance": 67039,
+    "next_payment_due": "2025-11-10",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1206",
+    "borrower_name": "Ava Martinez",
+    "loan_type": "Business",
+    "principal_amount": 312420,
+    "interest_rate": 7.1,
+    "remaining_balance": 219901,
+    "next_payment_due": "2025-11-10",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1207",
+    "borrower_name": "Benjamin Wilson",
+    "loan_type": "Mortgage",
+    "principal_amount": 192741,
+    "interest_rate": 6.8,
+    "remaining_balance": 138139,
+    "next_payment_due": "2025-12-13",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1208",
+    "borrower_name": "Jessica Jackson",
+    "loan_type": "Mortgage",
+    "principal_amount": 27760,
+    "interest_rate": 4.5,
+    "remaining_balance": 4078,
+    "next_payment_due": "2025-11-18",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1209",
+    "borrower_name": "Ava Martin",
+    "loan_type": "Auto",
+    "principal_amount": 206218,
+    "interest_rate": 4.1,
+    "remaining_balance": 173509,
+    "next_payment_due": "2025-11-26",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1210",
+    "borrower_name": "Sophia Garcia",
+    "loan_type": "Education",
+    "principal_amount": 275966,
+    "interest_rate": 4.1,
+    "remaining_balance": 267171,
+    "next_payment_due": "2025-12-13",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1211",
+    "borrower_name": "Lily Hill",
+    "loan_type": "Mortgage",
+    "principal_amount": 175378,
+    "interest_rate": 5.7,
+    "remaining_balance": 76289,
+    "next_payment_due": "2025-12-23",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1212",
+    "borrower_name": "Benjamin Wilson",
+    "loan_type": "Auto",
+    "principal_amount": 277194,
+    "interest_rate": 4.9,
+    "remaining_balance": 154576,
+    "next_payment_due": "2025-12-23",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1213",
+    "borrower_name": "Sebastian Thomas",
+    "loan_type": "Business",
+    "principal_amount": 340430,
+    "interest_rate": 5.8,
+    "remaining_balance": 125592,
+    "next_payment_due": "2025-12-13",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1214",
+    "borrower_name": "Ava Perez",
+    "loan_type": "Auto",
+    "principal_amount": 292248,
+    "interest_rate": 7.0,
+    "remaining_balance": 11458,
+    "next_payment_due": "2025-11-23",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1215",
+    "borrower_name": "Noah Rodriguez",
+    "loan_type": "Mortgage",
+    "principal_amount": 314603,
+    "interest_rate": 6.1,
+    "remaining_balance": 288392,
+    "next_payment_due": "2025-12-07",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1216",
+    "borrower_name": "Harper Clark",
+    "loan_type": "Education",
+    "principal_amount": 112670,
+    "interest_rate": 6.4,
+    "remaining_balance": 73992,
+    "next_payment_due": "2025-11-12",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1217",
+    "borrower_name": "Lucas Sanchez",
+    "loan_type": "Education",
+    "principal_amount": 36190,
+    "interest_rate": 5.3,
+    "remaining_balance": 14589,
+    "next_payment_due": "2025-12-30",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1218",
+    "borrower_name": "Jessica Wright",
+    "loan_type": "Mortgage",
+    "principal_amount": 49787,
+    "interest_rate": 7.9,
+    "remaining_balance": 4948,
+    "next_payment_due": "2025-11-04",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1219",
+    "borrower_name": "John Martinez",
+    "loan_type": "Personal",
+    "principal_amount": 118770,
+    "interest_rate": 5.7,
+    "remaining_balance": 16770,
+    "next_payment_due": "2025-11-15",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1220",
+    "borrower_name": "William Young",
+    "loan_type": "Business",
+    "principal_amount": 38148,
+    "interest_rate": 6.2,
+    "remaining_balance": 2319,
+    "next_payment_due": "2025-11-25",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1221",
+    "borrower_name": "David Davis",
+    "loan_type": "Mortgage",
+    "principal_amount": 171295,
+    "interest_rate": 6.7,
+    "remaining_balance": 17410,
+    "next_payment_due": "2025-11-11",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1222",
+    "borrower_name": "Aria Torres",
+    "loan_type": "Personal",
+    "principal_amount": 50299,
+    "interest_rate": 4.2,
+    "remaining_balance": 13776,
+    "next_payment_due": "2025-12-17",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1223",
+    "borrower_name": "Madison Moore",
+    "loan_type": "Business",
+    "principal_amount": 146193,
+    "interest_rate": 6.2,
+    "remaining_balance": 7965,
+    "next_payment_due": "2025-11-21",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1224",
+    "borrower_name": "Madison King",
+    "loan_type": "Business",
+    "principal_amount": 76662,
+    "interest_rate": 5.5,
+    "remaining_balance": 41575,
+    "next_payment_due": "2025-12-29",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1225",
+    "borrower_name": "Henry Moore",
+    "loan_type": "Business",
+    "principal_amount": 145081,
+    "interest_rate": 4.8,
+    "remaining_balance": 22705,
+    "next_payment_due": "2025-12-02",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1226",
+    "borrower_name": "Noah Anderson",
+    "loan_type": "Personal",
+    "principal_amount": 258549,
+    "interest_rate": 7.7,
+    "remaining_balance": 255189,
+    "next_payment_due": "2025-11-28",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1227",
+    "borrower_name": "Grace Harris",
+    "loan_type": "Business",
+    "principal_amount": 274262,
+    "interest_rate": 6.0,
+    "remaining_balance": 225125,
+    "next_payment_due": "2025-11-30",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1228",
+    "borrower_name": "Matthew Garcia",
+    "loan_type": "Mortgage",
+    "principal_amount": 40226,
+    "interest_rate": 3.7,
+    "remaining_balance": 17255,
+    "next_payment_due": "2025-11-02",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1229",
+    "borrower_name": "Ava Davis",
+    "loan_type": "Personal",
+    "principal_amount": 206418,
+    "interest_rate": 5.2,
+    "remaining_balance": 71263,
+    "next_payment_due": "2025-11-21",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1230",
+    "borrower_name": "John Martin",
+    "loan_type": "Mortgage",
+    "principal_amount": 256692,
+    "interest_rate": 4.8,
+    "remaining_balance": 255615,
+    "next_payment_due": "2025-11-11",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1231",
+    "borrower_name": "John Perez",
+    "loan_type": "Education",
+    "principal_amount": 62720,
+    "interest_rate": 6.9,
+    "remaining_balance": 10292,
+    "next_payment_due": "2025-11-17",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1232",
+    "borrower_name": "Lily Allen",
+    "loan_type": "Business",
+    "principal_amount": 96983,
+    "interest_rate": 4.3,
+    "remaining_balance": 80003,
+    "next_payment_due": "2025-11-04",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1233",
+    "borrower_name": "Ella Harris",
+    "loan_type": "Personal",
+    "principal_amount": 96567,
+    "interest_rate": 4.2,
+    "remaining_balance": 94156,
+    "next_payment_due": "2025-12-13",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1234",
+    "borrower_name": "John Sanchez",
+    "loan_type": "Personal",
+    "principal_amount": 264564,
+    "interest_rate": 4.8,
+    "remaining_balance": 220846,
+    "next_payment_due": "2025-12-19",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1235",
+    "borrower_name": "Harper Martin",
+    "loan_type": "Mortgage",
+    "principal_amount": 101138,
+    "interest_rate": 6.8,
+    "remaining_balance": 13252,
+    "next_payment_due": "2025-11-15",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1236",
+    "borrower_name": "Benjamin Clark",
+    "loan_type": "Business",
+    "principal_amount": 119190,
+    "interest_rate": 5.8,
+    "remaining_balance": 118191,
+    "next_payment_due": "2025-12-21",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1237",
+    "borrower_name": "Sarah Robinson",
+    "loan_type": "Business",
+    "principal_amount": 338540,
+    "interest_rate": 5.6,
+    "remaining_balance": 104818,
+    "next_payment_due": "2025-11-21",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1238",
+    "borrower_name": "John Garcia",
+    "loan_type": "Mortgage",
+    "principal_amount": 300651,
+    "interest_rate": 7.3,
+    "remaining_balance": 269658,
+    "next_payment_due": "2025-12-14",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1239",
+    "borrower_name": "Ethan Perez",
+    "loan_type": "Education",
+    "principal_amount": 344205,
+    "interest_rate": 5.3,
+    "remaining_balance": 87473,
+    "next_payment_due": "2025-12-09",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1240",
+    "borrower_name": "Isabella Hernandez",
+    "loan_type": "Education",
+    "principal_amount": 184141,
+    "interest_rate": 6.8,
+    "remaining_balance": 178682,
+    "next_payment_due": "2025-11-29",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1241",
+    "borrower_name": "Luna Hernandez",
+    "loan_type": "Auto",
+    "principal_amount": 344963,
+    "interest_rate": 8.0,
+    "remaining_balance": 9148,
+    "next_payment_due": "2025-11-29",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1242",
+    "borrower_name": "Sarah White",
+    "loan_type": "Personal",
+    "principal_amount": 15399,
+    "interest_rate": 7.9,
+    "remaining_balance": 13377,
+    "next_payment_due": "2025-11-13",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1243",
+    "borrower_name": "John Thompson",
+    "loan_type": "Business",
+    "principal_amount": 253771,
+    "interest_rate": 6.6,
+    "remaining_balance": 122983,
+    "next_payment_due": "2025-12-30",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1244",
+    "borrower_name": "Olivia Gonzalez",
+    "loan_type": "Mortgage",
+    "principal_amount": 327595,
+    "interest_rate": 5.3,
+    "remaining_balance": 21253,
+    "next_payment_due": "2025-11-01",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1245",
+    "borrower_name": "Elijah Martin",
+    "loan_type": "Personal",
+    "principal_amount": 7422,
+    "interest_rate": 8.4,
+    "remaining_balance": 2857,
+    "next_payment_due": "2025-12-22",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1246",
+    "borrower_name": "Abigail Smith",
+    "loan_type": "Personal",
+    "principal_amount": 108681,
+    "interest_rate": 7.4,
+    "remaining_balance": 27628,
+    "next_payment_due": "2025-11-21",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1247",
+    "borrower_name": "Grace Hernandez",
+    "loan_type": "Auto",
+    "principal_amount": 35745,
+    "interest_rate": 3.5,
+    "remaining_balance": 10223,
+    "next_payment_due": "2025-12-21",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1248",
+    "borrower_name": "Lily Young",
+    "loan_type": "Mortgage",
+    "principal_amount": 34474,
+    "interest_rate": 7.2,
+    "remaining_balance": 3074,
+    "next_payment_due": "2025-12-27",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1249",
+    "borrower_name": "Victoria Rodriguez",
+    "loan_type": "Mortgage",
+    "principal_amount": 203744,
+    "interest_rate": 8.4,
+    "remaining_balance": 197856,
+    "next_payment_due": "2025-12-10",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1250",
+    "borrower_name": "Olivia Flores",
+    "loan_type": "Mortgage",
+    "principal_amount": 349509,
+    "interest_rate": 5.1,
+    "remaining_balance": 215330,
+    "next_payment_due": "2025-12-27",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1251",
+    "borrower_name": "Noah Garcia",
+    "loan_type": "Education",
+    "principal_amount": 270663,
+    "interest_rate": 7.1,
+    "remaining_balance": 65454,
+    "next_payment_due": "2025-12-11",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1252",
+    "borrower_name": "Victoria Hill",
+    "loan_type": "Personal",
+    "principal_amount": 323338,
+    "interest_rate": 7.8,
+    "remaining_balance": 1494,
+    "next_payment_due": "2025-11-21",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1253",
+    "borrower_name": "Lily Wright",
+    "loan_type": "Personal",
+    "principal_amount": 249918,
+    "interest_rate": 5.5,
+    "remaining_balance": 213861,
+    "next_payment_due": "2025-12-11",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1254",
+    "borrower_name": "Mia Davis",
+    "loan_type": "Personal",
+    "principal_amount": 343229,
+    "interest_rate": 5.3,
+    "remaining_balance": 239483,
+    "next_payment_due": "2025-12-01",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1255",
+    "borrower_name": "Lucas Miller",
+    "loan_type": "Business",
+    "principal_amount": 160527,
+    "interest_rate": 7.8,
+    "remaining_balance": 159031,
+    "next_payment_due": "2025-12-06",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1256",
+    "borrower_name": "Lucas Clark",
+    "loan_type": "Education",
+    "principal_amount": 287066,
+    "interest_rate": 7.3,
+    "remaining_balance": 51941,
+    "next_payment_due": "2025-12-15",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1257",
+    "borrower_name": "Jacob Nguyen",
+    "loan_type": "Mortgage",
+    "principal_amount": 313557,
+    "interest_rate": 4.1,
+    "remaining_balance": 13177,
+    "next_payment_due": "2025-12-17",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1258",
+    "borrower_name": "Robert Torres",
+    "loan_type": "Education",
+    "principal_amount": 259253,
+    "interest_rate": 8.4,
+    "remaining_balance": 212710,
+    "next_payment_due": "2025-12-31",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1259",
+    "borrower_name": "Luna Wilson",
+    "loan_type": "Mortgage",
+    "principal_amount": 240199,
+    "interest_rate": 4.1,
+    "remaining_balance": 163387,
+    "next_payment_due": "2025-11-04",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1260",
+    "borrower_name": "Carter Brown",
+    "loan_type": "Auto",
+    "principal_amount": 326051,
+    "interest_rate": 7.2,
+    "remaining_balance": 289420,
+    "next_payment_due": "2025-11-06",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1261",
+    "borrower_name": "Lily Sanchez",
+    "loan_type": "Personal",
+    "principal_amount": 122274,
+    "interest_rate": 3.8,
+    "remaining_balance": 51242,
+    "next_payment_due": "2025-12-10",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1262",
+    "borrower_name": "Grace Lee",
+    "loan_type": "Education",
+    "principal_amount": 252426,
+    "interest_rate": 4.1,
+    "remaining_balance": 118576,
+    "next_payment_due": "2025-11-13",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1263",
+    "borrower_name": "Logan Lewis",
+    "loan_type": "Mortgage",
+    "principal_amount": 287324,
+    "interest_rate": 7.4,
+    "remaining_balance": 252915,
+    "next_payment_due": "2025-12-30",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1264",
+    "borrower_name": "Harper Thompson",
+    "loan_type": "Business",
+    "principal_amount": 335793,
+    "interest_rate": 5.7,
+    "remaining_balance": 211702,
+    "next_payment_due": "2025-11-28",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1265",
+    "borrower_name": "Robert King",
+    "loan_type": "Education",
+    "principal_amount": 120787,
+    "interest_rate": 6.6,
+    "remaining_balance": 63918,
+    "next_payment_due": "2025-12-01",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1266",
+    "borrower_name": "Lily Lee",
+    "loan_type": "Auto",
+    "principal_amount": 326560,
+    "interest_rate": 4.3,
+    "remaining_balance": 61362,
+    "next_payment_due": "2025-12-27",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1267",
+    "borrower_name": "Victoria Moore",
+    "loan_type": "Business",
+    "principal_amount": 342166,
+    "interest_rate": 3.7,
+    "remaining_balance": 33312,
+    "next_payment_due": "2025-12-20",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1268",
+    "borrower_name": "Robert Davis",
+    "loan_type": "Business",
+    "principal_amount": 254187,
+    "interest_rate": 7.9,
+    "remaining_balance": 171522,
+    "next_payment_due": "2025-11-26",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1269",
+    "borrower_name": "Logan Hill",
+    "loan_type": "Business",
+    "principal_amount": 32405,
+    "interest_rate": 6.3,
+    "remaining_balance": 22693,
+    "next_payment_due": "2025-11-23",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1270",
+    "borrower_name": "James Rodriguez",
+    "loan_type": "Auto",
+    "principal_amount": 132346,
+    "interest_rate": 4.8,
+    "remaining_balance": 59765,
+    "next_payment_due": "2025-11-07",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1271",
+    "borrower_name": "Emily Harris",
+    "loan_type": "Business",
+    "principal_amount": 298211,
+    "interest_rate": 8.2,
+    "remaining_balance": 163427,
+    "next_payment_due": "2025-12-07",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1272",
+    "borrower_name": "Ella Hill",
+    "loan_type": "Business",
+    "principal_amount": 279993,
+    "interest_rate": 5.7,
+    "remaining_balance": 87253,
+    "next_payment_due": "2025-12-08",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1273",
+    "borrower_name": "Luna Clark",
+    "loan_type": "Education",
+    "principal_amount": 44936,
+    "interest_rate": 4.5,
+    "remaining_balance": 15307,
+    "next_payment_due": "2025-12-14",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1274",
+    "borrower_name": "Ethan Davis",
+    "loan_type": "Business",
+    "principal_amount": 180026,
+    "interest_rate": 5.3,
+    "remaining_balance": 4405,
+    "next_payment_due": "2025-11-10",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1275",
+    "borrower_name": "Isabella Flores",
+    "loan_type": "Auto",
+    "principal_amount": 47351,
+    "interest_rate": 5.2,
+    "remaining_balance": 5914,
+    "next_payment_due": "2025-11-28",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1276",
+    "borrower_name": "Elijah Ramirez",
+    "loan_type": "Mortgage",
+    "principal_amount": 93178,
+    "interest_rate": 4.3,
+    "remaining_balance": 54920,
+    "next_payment_due": "2025-12-21",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1277",
+    "borrower_name": "Elijah Allen",
+    "loan_type": "Education",
+    "principal_amount": 6154,
+    "interest_rate": 4.7,
+    "remaining_balance": 1788,
+    "next_payment_due": "2025-12-22",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1278",
+    "borrower_name": "Michael Smith",
+    "loan_type": "Mortgage",
+    "principal_amount": 274099,
+    "interest_rate": 6.1,
+    "remaining_balance": 80140,
+    "next_payment_due": "2025-12-21",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1279",
+    "borrower_name": "Lily Sanchez",
+    "loan_type": "Personal",
+    "principal_amount": 343589,
+    "interest_rate": 4.6,
+    "remaining_balance": 220315,
+    "next_payment_due": "2025-11-17",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1280",
+    "borrower_name": "Ethan Lee",
+    "loan_type": "Auto",
+    "principal_amount": 284222,
+    "interest_rate": 7.8,
+    "remaining_balance": 38590,
+    "next_payment_due": "2025-12-01",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1281",
+    "borrower_name": "William Wright",
+    "loan_type": "Personal",
+    "principal_amount": 302125,
+    "interest_rate": 3.7,
+    "remaining_balance": 247882,
+    "next_payment_due": "2025-12-03",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1282",
+    "borrower_name": "Victoria Smith",
+    "loan_type": "Education",
+    "principal_amount": 245964,
+    "interest_rate": 7.2,
+    "remaining_balance": 119307,
+    "next_payment_due": "2025-11-13",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1283",
+    "borrower_name": "Sophia Martin",
+    "loan_type": "Education",
+    "principal_amount": 329740,
+    "interest_rate": 8.1,
+    "remaining_balance": 213931,
+    "next_payment_due": "2025-12-21",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1284",
+    "borrower_name": "Natalie Harris",
+    "loan_type": "Education",
+    "principal_amount": 165681,
+    "interest_rate": 7.7,
+    "remaining_balance": 4834,
+    "next_payment_due": "2025-11-15",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1285",
+    "borrower_name": "Sophia Gonzalez",
+    "loan_type": "Auto",
+    "principal_amount": 234307,
+    "interest_rate": 4.3,
+    "remaining_balance": 163189,
+    "next_payment_due": "2025-12-31",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1286",
+    "borrower_name": "Olivia Johnson",
+    "loan_type": "Personal",
+    "principal_amount": 162511,
+    "interest_rate": 4.2,
+    "remaining_balance": 108870,
+    "next_payment_due": "2025-12-22",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1287",
+    "borrower_name": "Abigail Thompson",
+    "loan_type": "Auto",
+    "principal_amount": 162277,
+    "interest_rate": 5.1,
+    "remaining_balance": 98334,
+    "next_payment_due": "2025-11-10",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1288",
+    "borrower_name": "Olivia Williams",
+    "loan_type": "Mortgage",
+    "principal_amount": 301811,
+    "interest_rate": 7.7,
+    "remaining_balance": 154552,
+    "next_payment_due": "2025-12-27",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1289",
+    "borrower_name": "Chloe Wright",
+    "loan_type": "Education",
+    "principal_amount": 28063,
+    "interest_rate": 7.5,
+    "remaining_balance": 18513,
+    "next_payment_due": "2025-12-31",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1290",
+    "borrower_name": "Mia Walker",
+    "loan_type": "Personal",
+    "principal_amount": 126497,
+    "interest_rate": 6.7,
+    "remaining_balance": 21374,
+    "next_payment_due": "2025-12-01",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1291",
+    "borrower_name": "Elijah Wilson",
+    "loan_type": "Business",
+    "principal_amount": 5685,
+    "interest_rate": 8.4,
+    "remaining_balance": 1911,
+    "next_payment_due": "2025-11-21",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1292",
+    "borrower_name": "Sebastian Allen",
+    "loan_type": "Education",
+    "principal_amount": 252594,
+    "interest_rate": 7.3,
+    "remaining_balance": 10650,
+    "next_payment_due": "2025-11-11",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1293",
+    "borrower_name": "Grace Jackson",
+    "loan_type": "Auto",
+    "principal_amount": 148175,
+    "interest_rate": 3.7,
+    "remaining_balance": 11479,
+    "next_payment_due": "2025-12-21",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1294",
+    "borrower_name": "Henry Taylor",
+    "loan_type": "Mortgage",
+    "principal_amount": 185285,
+    "interest_rate": 6.9,
+    "remaining_balance": 77320,
+    "next_payment_due": "2025-12-18",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1295",
+    "borrower_name": "Jessica Clark",
+    "loan_type": "Personal",
+    "principal_amount": 95215,
+    "interest_rate": 5.2,
+    "remaining_balance": 43954,
+    "next_payment_due": "2025-12-27",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1296",
+    "borrower_name": "Benjamin Smith",
+    "loan_type": "Auto",
+    "principal_amount": 110475,
+    "interest_rate": 8.3,
+    "remaining_balance": 66031,
+    "next_payment_due": "2025-11-22",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1297",
+    "borrower_name": "Carter Brown",
+    "loan_type": "Auto",
+    "principal_amount": 302510,
+    "interest_rate": 4.2,
+    "remaining_balance": 8470,
+    "next_payment_due": "2025-11-25",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1298",
+    "borrower_name": "Isabella Williams",
+    "loan_type": "Personal",
+    "principal_amount": 150543,
+    "interest_rate": 7.4,
+    "remaining_balance": 117616,
+    "next_payment_due": "2025-12-19",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1299",
+    "borrower_name": "Lily Nguyen",
+    "loan_type": "Education",
+    "principal_amount": 167311,
+    "interest_rate": 6.8,
+    "remaining_balance": 162473,
+    "next_payment_due": "2025-11-30",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1300",
+    "borrower_name": "Henry Thomas",
+    "loan_type": "Education",
+    "principal_amount": 38846,
+    "interest_rate": 6.5,
+    "remaining_balance": 32338,
+    "next_payment_due": "2025-11-19",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1301",
+    "borrower_name": "Sebastian Jackson",
+    "loan_type": "Personal",
+    "principal_amount": 173507,
+    "interest_rate": 6.6,
+    "remaining_balance": 124886,
+    "next_payment_due": "2025-11-15",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1302",
+    "borrower_name": "Jacob Anderson",
+    "loan_type": "Mortgage",
+    "principal_amount": 174646,
+    "interest_rate": 6.1,
+    "remaining_balance": 132336,
+    "next_payment_due": "2025-12-22",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1303",
+    "borrower_name": "Elijah Robinson",
+    "loan_type": "Mortgage",
+    "principal_amount": 258335,
+    "interest_rate": 5.9,
+    "remaining_balance": 256244,
+    "next_payment_due": "2025-11-12",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1304",
+    "borrower_name": "Chloe Lewis",
+    "loan_type": "Auto",
+    "principal_amount": 211854,
+    "interest_rate": 6.8,
+    "remaining_balance": 109656,
+    "next_payment_due": "2025-11-09",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1305",
+    "borrower_name": "Harper Sanchez",
+    "loan_type": "Auto",
+    "principal_amount": 50586,
+    "interest_rate": 8.1,
+    "remaining_balance": 43113,
+    "next_payment_due": "2025-12-26",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1306",
+    "borrower_name": "Michael Harris",
+    "loan_type": "Personal",
+    "principal_amount": 59988,
+    "interest_rate": 7.2,
+    "remaining_balance": 12884,
+    "next_payment_due": "2025-11-02",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1307",
+    "borrower_name": "Natalie Smith",
+    "loan_type": "Personal",
+    "principal_amount": 15937,
+    "interest_rate": 6.6,
+    "remaining_balance": 1671,
+    "next_payment_due": "2025-11-21",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1308",
+    "borrower_name": "Elijah Walker",
+    "loan_type": "Auto",
+    "principal_amount": 118975,
+    "interest_rate": 5.6,
+    "remaining_balance": 59583,
+    "next_payment_due": "2025-12-24",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1309",
+    "borrower_name": "Isabella Harris",
+    "loan_type": "Auto",
+    "principal_amount": 132882,
+    "interest_rate": 7.2,
+    "remaining_balance": 76484,
+    "next_payment_due": "2025-11-30",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1310",
+    "borrower_name": "Lucas Young",
+    "loan_type": "Business",
+    "principal_amount": 47138,
+    "interest_rate": 4.9,
+    "remaining_balance": 26363,
+    "next_payment_due": "2025-11-27",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1311",
+    "borrower_name": "Harper Ramirez",
+    "loan_type": "Personal",
+    "principal_amount": 286492,
+    "interest_rate": 7.2,
+    "remaining_balance": 32515,
+    "next_payment_due": "2025-12-30",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1312",
+    "borrower_name": "Elijah King",
+    "loan_type": "Auto",
+    "principal_amount": 321270,
+    "interest_rate": 4.0,
+    "remaining_balance": 70458,
+    "next_payment_due": "2025-12-30",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1313",
+    "borrower_name": "Amelia Sanchez",
+    "loan_type": "Education",
+    "principal_amount": 324833,
+    "interest_rate": 8.4,
+    "remaining_balance": 2720,
+    "next_payment_due": "2025-11-03",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1314",
+    "borrower_name": "Benjamin Hill",
+    "loan_type": "Personal",
+    "principal_amount": 96783,
+    "interest_rate": 8.0,
+    "remaining_balance": 74424,
+    "next_payment_due": "2025-12-28",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1315",
+    "borrower_name": "Lily Perez",
+    "loan_type": "Business",
+    "principal_amount": 218728,
+    "interest_rate": 5.9,
+    "remaining_balance": 34344,
+    "next_payment_due": "2025-11-29",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1316",
+    "borrower_name": "Ethan Young",
+    "loan_type": "Personal",
+    "principal_amount": 245323,
+    "interest_rate": 8.0,
+    "remaining_balance": 120115,
+    "next_payment_due": "2025-11-05",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1317",
+    "borrower_name": "Mason Williams",
+    "loan_type": "Education",
+    "principal_amount": 156039,
+    "interest_rate": 8.1,
+    "remaining_balance": 107219,
+    "next_payment_due": "2025-11-07",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1318",
+    "borrower_name": "Ella Lee",
+    "loan_type": "Business",
+    "principal_amount": 243489,
+    "interest_rate": 8.0,
+    "remaining_balance": 43524,
+    "next_payment_due": "2025-12-26",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1319",
+    "borrower_name": "Harper Lee",
+    "loan_type": "Education",
+    "principal_amount": 158581,
+    "interest_rate": 4.1,
+    "remaining_balance": 113274,
+    "next_payment_due": "2025-11-23",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1320",
+    "borrower_name": "Mia Martinez",
+    "loan_type": "Business",
+    "principal_amount": 204557,
+    "interest_rate": 5.3,
+    "remaining_balance": 33965,
+    "next_payment_due": "2025-11-01",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1321",
+    "borrower_name": "Jack Harris",
+    "loan_type": "Personal",
+    "principal_amount": 314188,
+    "interest_rate": 3.9,
+    "remaining_balance": 178352,
+    "next_payment_due": "2025-11-19",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1322",
+    "borrower_name": "Jessica Martin",
+    "loan_type": "Business",
+    "principal_amount": 192549,
+    "interest_rate": 3.7,
+    "remaining_balance": 61462,
+    "next_payment_due": "2025-11-08",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1323",
+    "borrower_name": "Jessica Davis",
+    "loan_type": "Mortgage",
+    "principal_amount": 63314,
+    "interest_rate": 5.9,
+    "remaining_balance": 26381,
+    "next_payment_due": "2025-12-07",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1324",
+    "borrower_name": "Natalie Jones",
+    "loan_type": "Business",
+    "principal_amount": 291978,
+    "interest_rate": 3.6,
+    "remaining_balance": 183558,
+    "next_payment_due": "2025-12-03",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1325",
+    "borrower_name": "Abigail Smith",
+    "loan_type": "Mortgage",
+    "principal_amount": 249559,
+    "interest_rate": 5.1,
+    "remaining_balance": 52971,
+    "next_payment_due": "2025-11-08",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1326",
+    "borrower_name": "James Lopez",
+    "loan_type": "Mortgage",
+    "principal_amount": 87857,
+    "interest_rate": 8.0,
+    "remaining_balance": 50739,
+    "next_payment_due": "2025-12-08",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1327",
+    "borrower_name": "James Taylor",
+    "loan_type": "Personal",
+    "principal_amount": 168078,
+    "interest_rate": 4.0,
+    "remaining_balance": 36591,
+    "next_payment_due": "2025-11-16",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1328",
+    "borrower_name": "Sarah Martinez",
+    "loan_type": "Personal",
+    "principal_amount": 86510,
+    "interest_rate": 5.7,
+    "remaining_balance": 65506,
+    "next_payment_due": "2025-12-10",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1329",
+    "borrower_name": "Matthew Lopez",
+    "loan_type": "Mortgage",
+    "principal_amount": 148847,
+    "interest_rate": 6.5,
+    "remaining_balance": 15510,
+    "next_payment_due": "2025-11-02",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1330",
+    "borrower_name": "Lucas Allen",
+    "loan_type": "Education",
+    "principal_amount": 271507,
+    "interest_rate": 6.7,
+    "remaining_balance": 176974,
+    "next_payment_due": "2025-11-16",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1331",
+    "borrower_name": "Ethan Gonzalez",
+    "loan_type": "Auto",
+    "principal_amount": 341161,
+    "interest_rate": 5.4,
+    "remaining_balance": 154293,
+    "next_payment_due": "2025-12-22",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1332",
+    "borrower_name": "Grace Miller",
+    "loan_type": "Business",
+    "principal_amount": 68877,
+    "interest_rate": 8.4,
+    "remaining_balance": 12288,
+    "next_payment_due": "2025-12-04",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1333",
+    "borrower_name": "James Torres",
+    "loan_type": "Auto",
+    "principal_amount": 155398,
+    "interest_rate": 7.0,
+    "remaining_balance": 24110,
+    "next_payment_due": "2025-11-17",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1334",
+    "borrower_name": "Henry Nguyen",
+    "loan_type": "Education",
+    "principal_amount": 131941,
+    "interest_rate": 8.3,
+    "remaining_balance": 27440,
+    "next_payment_due": "2025-12-09",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1335",
+    "borrower_name": "Isabella Miller",
+    "loan_type": "Education",
+    "principal_amount": 246821,
+    "interest_rate": 8.3,
+    "remaining_balance": 25542,
+    "next_payment_due": "2025-11-08",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1336",
+    "borrower_name": "Luna Jones",
+    "loan_type": "Mortgage",
+    "principal_amount": 277287,
+    "interest_rate": 8.3,
+    "remaining_balance": 192971,
+    "next_payment_due": "2025-11-24",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1337",
+    "borrower_name": "John Taylor",
+    "loan_type": "Auto",
+    "principal_amount": 63619,
+    "interest_rate": 6.6,
+    "remaining_balance": 55987,
+    "next_payment_due": "2025-12-15",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1338",
+    "borrower_name": "Logan Taylor",
+    "loan_type": "Business",
+    "principal_amount": 22163,
+    "interest_rate": 6.7,
+    "remaining_balance": 5624,
+    "next_payment_due": "2025-12-14",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1339",
+    "borrower_name": "Daniel Wilson",
+    "loan_type": "Auto",
+    "principal_amount": 67908,
+    "interest_rate": 3.8,
+    "remaining_balance": 7342,
+    "next_payment_due": "2025-11-29",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1340",
+    "borrower_name": "Isabella Walker",
+    "loan_type": "Education",
+    "principal_amount": 226698,
+    "interest_rate": 7.8,
+    "remaining_balance": 23301,
+    "next_payment_due": "2025-11-22",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1341",
+    "borrower_name": "Emily Rodriguez",
+    "loan_type": "Education",
+    "principal_amount": 172768,
+    "interest_rate": 4.1,
+    "remaining_balance": 110784,
+    "next_payment_due": "2025-12-22",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1342",
+    "borrower_name": "Jessica Allen",
+    "loan_type": "Education",
+    "principal_amount": 215330,
+    "interest_rate": 3.5,
+    "remaining_balance": 176933,
+    "next_payment_due": "2025-11-04",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1343",
+    "borrower_name": "Ella White",
+    "loan_type": "Business",
+    "principal_amount": 63044,
+    "interest_rate": 5.0,
+    "remaining_balance": 24671,
+    "next_payment_due": "2025-12-14",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1344",
+    "borrower_name": "Ethan Robinson",
+    "loan_type": "Personal",
+    "principal_amount": 92910,
+    "interest_rate": 7.8,
+    "remaining_balance": 69406,
+    "next_payment_due": "2025-12-16",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1345",
+    "borrower_name": "Robert Scott",
+    "loan_type": "Business",
+    "principal_amount": 63374,
+    "interest_rate": 7.0,
+    "remaining_balance": 32456,
+    "next_payment_due": "2025-12-14",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1346",
+    "borrower_name": "Henry Garcia",
+    "loan_type": "Education",
+    "principal_amount": 281005,
+    "interest_rate": 4.4,
+    "remaining_balance": 26863,
+    "next_payment_due": "2025-11-20",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1347",
+    "borrower_name": "Ella Moore",
+    "loan_type": "Mortgage",
+    "principal_amount": 134436,
+    "interest_rate": 7.5,
+    "remaining_balance": 25247,
+    "next_payment_due": "2025-11-01",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1348",
+    "borrower_name": "Abigail Hernandez",
+    "loan_type": "Mortgage",
+    "principal_amount": 5056,
+    "interest_rate": 6.7,
+    "remaining_balance": 1270,
+    "next_payment_due": "2025-11-11",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1349",
+    "borrower_name": "Aria Walker",
+    "loan_type": "Auto",
+    "principal_amount": 115922,
+    "interest_rate": 6.8,
+    "remaining_balance": 51920,
+    "next_payment_due": "2025-12-29",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1350",
+    "borrower_name": "Ava Ramirez",
+    "loan_type": "Auto",
+    "principal_amount": 233048,
+    "interest_rate": 5.1,
+    "remaining_balance": 224657,
+    "next_payment_due": "2025-12-19",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1351",
+    "borrower_name": "Aria King",
+    "loan_type": "Education",
+    "principal_amount": 195018,
+    "interest_rate": 7.3,
+    "remaining_balance": 20718,
+    "next_payment_due": "2025-12-15",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1352",
+    "borrower_name": "Abigail Thompson",
+    "loan_type": "Personal",
+    "principal_amount": 69532,
+    "interest_rate": 7.7,
+    "remaining_balance": 45772,
+    "next_payment_due": "2025-11-18",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1353",
+    "borrower_name": "Abigail Brown",
+    "loan_type": "Education",
+    "principal_amount": 318566,
+    "interest_rate": 8.0,
+    "remaining_balance": 150505,
+    "next_payment_due": "2025-12-28",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1354",
+    "borrower_name": "Sarah White",
+    "loan_type": "Business",
+    "principal_amount": 200556,
+    "interest_rate": 4.6,
+    "remaining_balance": 149595,
+    "next_payment_due": "2025-12-18",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1355",
+    "borrower_name": "Michael Davis",
+    "loan_type": "Auto",
+    "principal_amount": 155968,
+    "interest_rate": 7.5,
+    "remaining_balance": 24653,
+    "next_payment_due": "2025-11-27",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1356",
+    "borrower_name": "Chloe Walker",
+    "loan_type": "Personal",
+    "principal_amount": 209467,
+    "interest_rate": 7.4,
+    "remaining_balance": 110980,
+    "next_payment_due": "2025-12-24",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1357",
+    "borrower_name": "David Miller",
+    "loan_type": "Business",
+    "principal_amount": 301916,
+    "interest_rate": 3.5,
+    "remaining_balance": 63301,
+    "next_payment_due": "2025-12-17",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1358",
+    "borrower_name": "Abigail Johnson",
+    "loan_type": "Mortgage",
+    "principal_amount": 188397,
+    "interest_rate": 6.8,
+    "remaining_balance": 176470,
+    "next_payment_due": "2025-11-11",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1359",
+    "borrower_name": "Michael Martinez",
+    "loan_type": "Mortgage",
+    "principal_amount": 124409,
+    "interest_rate": 7.2,
+    "remaining_balance": 2122,
+    "next_payment_due": "2025-12-02",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1360",
+    "borrower_name": "Lily Martin",
+    "loan_type": "Business",
+    "principal_amount": 167894,
+    "interest_rate": 8.0,
+    "remaining_balance": 162791,
+    "next_payment_due": "2025-11-24",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1361",
+    "borrower_name": "William Jones",
+    "loan_type": "Business",
+    "principal_amount": 317208,
+    "interest_rate": 5.8,
+    "remaining_balance": 7849,
+    "next_payment_due": "2025-11-04",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1362",
+    "borrower_name": "Emily Garcia",
+    "loan_type": "Education",
+    "principal_amount": 104066,
+    "interest_rate": 3.5,
+    "remaining_balance": 25610,
+    "next_payment_due": "2025-12-30",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1363",
+    "borrower_name": "Sebastian Gonzalez",
+    "loan_type": "Personal",
+    "principal_amount": 271945,
+    "interest_rate": 4.1,
+    "remaining_balance": 227017,
+    "next_payment_due": "2025-11-14",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1364",
+    "borrower_name": "Harper Thomas",
+    "loan_type": "Personal",
+    "principal_amount": 211752,
+    "interest_rate": 5.5,
+    "remaining_balance": 29418,
+    "next_payment_due": "2025-11-23",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1365",
+    "borrower_name": "Natalie Ramirez",
+    "loan_type": "Personal",
+    "principal_amount": 271779,
+    "interest_rate": 6.2,
+    "remaining_balance": 236908,
+    "next_payment_due": "2025-11-26",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1366",
+    "borrower_name": "James Scott",
+    "loan_type": "Mortgage",
+    "principal_amount": 247615,
+    "interest_rate": 7.0,
+    "remaining_balance": 34528,
+    "next_payment_due": "2025-11-13",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1367",
+    "borrower_name": "Olivia Taylor",
+    "loan_type": "Education",
+    "principal_amount": 160615,
+    "interest_rate": 5.6,
+    "remaining_balance": 28590,
+    "next_payment_due": "2025-12-04",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1368",
+    "borrower_name": "Sebastian Wilson",
+    "loan_type": "Auto",
+    "principal_amount": 340758,
+    "interest_rate": 5.8,
+    "remaining_balance": 62300,
+    "next_payment_due": "2025-12-24",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1369",
+    "borrower_name": "Emily Martin",
+    "loan_type": "Education",
+    "principal_amount": 275110,
+    "interest_rate": 6.4,
+    "remaining_balance": 45686,
+    "next_payment_due": "2025-11-22",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1370",
+    "borrower_name": "Elijah Young",
+    "loan_type": "Education",
+    "principal_amount": 265042,
+    "interest_rate": 8.4,
+    "remaining_balance": 109682,
+    "next_payment_due": "2025-12-04",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1371",
+    "borrower_name": "Chloe Young",
+    "loan_type": "Education",
+    "principal_amount": 152905,
+    "interest_rate": 4.0,
+    "remaining_balance": 77167,
+    "next_payment_due": "2025-11-21",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1372",
+    "borrower_name": "Sophia Wright",
+    "loan_type": "Personal",
+    "principal_amount": 25595,
+    "interest_rate": 7.5,
+    "remaining_balance": 20340,
+    "next_payment_due": "2025-11-04",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1373",
+    "borrower_name": "Ava Nguyen",
+    "loan_type": "Mortgage",
+    "principal_amount": 348661,
+    "interest_rate": 5.3,
+    "remaining_balance": 219942,
+    "next_payment_due": "2025-12-20",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1374",
+    "borrower_name": "Isabella Lopez",
+    "loan_type": "Auto",
+    "principal_amount": 244788,
+    "interest_rate": 5.7,
+    "remaining_balance": 51335,
+    "next_payment_due": "2025-12-07",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1375",
+    "borrower_name": "Natalie Davis",
+    "loan_type": "Business",
+    "principal_amount": 35614,
+    "interest_rate": 3.6,
+    "remaining_balance": 20239,
+    "next_payment_due": "2025-11-02",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1376",
+    "borrower_name": "Natalie Lewis",
+    "loan_type": "Mortgage",
+    "principal_amount": 124811,
+    "interest_rate": 8.2,
+    "remaining_balance": 39629,
+    "next_payment_due": "2025-12-25",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1377",
+    "borrower_name": "Ethan Brown",
+    "loan_type": "Personal",
+    "principal_amount": 24340,
+    "interest_rate": 5.7,
+    "remaining_balance": 18367,
+    "next_payment_due": "2025-11-13",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1378",
+    "borrower_name": "Carter Lee",
+    "loan_type": "Personal",
+    "principal_amount": 309838,
+    "interest_rate": 7.2,
+    "remaining_balance": 214514,
+    "next_payment_due": "2025-11-11",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1379",
+    "borrower_name": "Mia Anderson",
+    "loan_type": "Personal",
+    "principal_amount": 295074,
+    "interest_rate": 6.0,
+    "remaining_balance": 131008,
+    "next_payment_due": "2025-12-13",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1380",
+    "borrower_name": "James Scott",
+    "loan_type": "Mortgage",
+    "principal_amount": 304862,
+    "interest_rate": 4.5,
+    "remaining_balance": 206693,
+    "next_payment_due": "2025-11-10",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1381",
+    "borrower_name": "Chloe Allen",
+    "loan_type": "Business",
+    "principal_amount": 173071,
+    "interest_rate": 4.0,
+    "remaining_balance": 149689,
+    "next_payment_due": "2025-12-16",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1382",
+    "borrower_name": "Sophia Jones",
+    "loan_type": "Mortgage",
+    "principal_amount": 142445,
+    "interest_rate": 6.1,
+    "remaining_balance": 35930,
+    "next_payment_due": "2025-12-12",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1383",
+    "borrower_name": "Sophia Brown",
+    "loan_type": "Auto",
+    "principal_amount": 255832,
+    "interest_rate": 4.7,
+    "remaining_balance": 69003,
+    "next_payment_due": "2025-11-26",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1384",
+    "borrower_name": "Noah Ramirez",
+    "loan_type": "Business",
+    "principal_amount": 141053,
+    "interest_rate": 4.5,
+    "remaining_balance": 6756,
+    "next_payment_due": "2025-11-30",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1385",
+    "borrower_name": "Natalie Robinson",
+    "loan_type": "Education",
+    "principal_amount": 163885,
+    "interest_rate": 7.0,
+    "remaining_balance": 142767,
+    "next_payment_due": "2025-11-28",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1386",
+    "borrower_name": "Henry Martin",
+    "loan_type": "Mortgage",
+    "principal_amount": 251131,
+    "interest_rate": 5.1,
+    "remaining_balance": 209067,
+    "next_payment_due": "2025-12-02",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1387",
+    "borrower_name": "Sebastian Allen",
+    "loan_type": "Business",
+    "principal_amount": 94020,
+    "interest_rate": 4.6,
+    "remaining_balance": 38417,
+    "next_payment_due": "2025-11-24",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1388",
+    "borrower_name": "Victoria Davis",
+    "loan_type": "Auto",
+    "principal_amount": 334030,
+    "interest_rate": 7.2,
+    "remaining_balance": 249408,
+    "next_payment_due": "2025-11-13",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1389",
+    "borrower_name": "Lily Johnson",
+    "loan_type": "Auto",
+    "principal_amount": 178824,
+    "interest_rate": 4.0,
+    "remaining_balance": 145542,
+    "next_payment_due": "2025-12-07",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1390",
+    "borrower_name": "Noah Anderson",
+    "loan_type": "Business",
+    "principal_amount": 233090,
+    "interest_rate": 5.9,
+    "remaining_balance": 150851,
+    "next_payment_due": "2025-11-26",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1391",
+    "borrower_name": "Sophia Torres",
+    "loan_type": "Mortgage",
+    "principal_amount": 289748,
+    "interest_rate": 5.8,
+    "remaining_balance": 18276,
+    "next_payment_due": "2025-11-11",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1392",
+    "borrower_name": "Mia Scott",
+    "loan_type": "Auto",
+    "principal_amount": 345665,
+    "interest_rate": 6.9,
+    "remaining_balance": 285766,
+    "next_payment_due": "2025-11-24",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1393",
+    "borrower_name": "Robert Thompson",
+    "loan_type": "Business",
+    "principal_amount": 209904,
+    "interest_rate": 8.3,
+    "remaining_balance": 196985,
+    "next_payment_due": "2025-11-10",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1394",
+    "borrower_name": "Amelia Harris",
+    "loan_type": "Mortgage",
+    "principal_amount": 349127,
+    "interest_rate": 4.3,
+    "remaining_balance": 296779,
+    "next_payment_due": "2025-11-27",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1395",
+    "borrower_name": "Natalie Perez",
+    "loan_type": "Business",
+    "principal_amount": 136610,
+    "interest_rate": 4.5,
+    "remaining_balance": 46636,
+    "next_payment_due": "2025-12-20",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1396",
+    "borrower_name": "William Harris",
+    "loan_type": "Auto",
+    "principal_amount": 108956,
+    "interest_rate": 5.1,
+    "remaining_balance": 69164,
+    "next_payment_due": "2025-11-15",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1397",
+    "borrower_name": "Sophia Wright",
+    "loan_type": "Education",
+    "principal_amount": 267038,
+    "interest_rate": 3.9,
+    "remaining_balance": 9226,
+    "next_payment_due": "2025-12-04",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1398",
+    "borrower_name": "Jessica Davis",
+    "loan_type": "Business",
+    "principal_amount": 161485,
+    "interest_rate": 3.8,
+    "remaining_balance": 160485,
+    "next_payment_due": "2025-11-04",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1399",
+    "borrower_name": "Lily Jones",
+    "loan_type": "Business",
+    "principal_amount": 243915,
+    "interest_rate": 8.1,
+    "remaining_balance": 130450,
+    "next_payment_due": "2025-11-19",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1400",
+    "borrower_name": "Mason Flores",
+    "loan_type": "Personal",
+    "principal_amount": 141909,
+    "interest_rate": 8.0,
+    "remaining_balance": 132214,
+    "next_payment_due": "2025-12-30",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1401",
+    "borrower_name": "Elijah Brown",
+    "loan_type": "Education",
+    "principal_amount": 42221,
+    "interest_rate": 3.7,
+    "remaining_balance": 2510,
+    "next_payment_due": "2025-12-21",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1402",
+    "borrower_name": "Sophia Martin",
+    "loan_type": "Business",
+    "principal_amount": 307504,
+    "interest_rate": 5.1,
+    "remaining_balance": 292865,
+    "next_payment_due": "2025-12-10",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1403",
+    "borrower_name": "Sebastian Jones",
+    "loan_type": "Mortgage",
+    "principal_amount": 88065,
+    "interest_rate": 7.8,
+    "remaining_balance": 86268,
+    "next_payment_due": "2025-12-28",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1404",
+    "borrower_name": "Noah Anderson",
+    "loan_type": "Mortgage",
+    "principal_amount": 260317,
+    "interest_rate": 5.5,
+    "remaining_balance": 43520,
+    "next_payment_due": "2025-11-19",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1405",
+    "borrower_name": "Sophia Nguyen",
+    "loan_type": "Mortgage",
+    "principal_amount": 78033,
+    "interest_rate": 5.0,
+    "remaining_balance": 19334,
+    "next_payment_due": "2025-12-10",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1406",
+    "borrower_name": "Michael Hill",
+    "loan_type": "Education",
+    "principal_amount": 145795,
+    "interest_rate": 7.2,
+    "remaining_balance": 89774,
+    "next_payment_due": "2025-12-20",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1407",
+    "borrower_name": "Harper Moore",
+    "loan_type": "Mortgage",
+    "principal_amount": 230036,
+    "interest_rate": 7.4,
+    "remaining_balance": 136057,
+    "next_payment_due": "2025-11-05",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1408",
+    "borrower_name": "Carter Ramirez",
+    "loan_type": "Mortgage",
+    "principal_amount": 194021,
+    "interest_rate": 7.8,
+    "remaining_balance": 87275,
+    "next_payment_due": "2025-11-23",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1409",
+    "borrower_name": "Madison Jackson",
+    "loan_type": "Education",
+    "principal_amount": 77684,
+    "interest_rate": 5.7,
+    "remaining_balance": 41760,
+    "next_payment_due": "2025-11-23",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1410",
+    "borrower_name": "Aria Robinson",
+    "loan_type": "Business",
+    "principal_amount": 230387,
+    "interest_rate": 7.3,
+    "remaining_balance": 181335,
+    "next_payment_due": "2025-12-18",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1411",
+    "borrower_name": "John Brown",
+    "loan_type": "Education",
+    "principal_amount": 205532,
+    "interest_rate": 4.1,
+    "remaining_balance": 7371,
+    "next_payment_due": "2025-11-29",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1412",
+    "borrower_name": "Lucas Williams",
+    "loan_type": "Education",
+    "principal_amount": 184361,
+    "interest_rate": 4.7,
+    "remaining_balance": 147411,
+    "next_payment_due": "2025-11-12",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1413",
+    "borrower_name": "William Flores",
+    "loan_type": "Mortgage",
+    "principal_amount": 113864,
+    "interest_rate": 5.0,
+    "remaining_balance": 9860,
+    "next_payment_due": "2025-12-23",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1414",
+    "borrower_name": "Olivia Walker",
+    "loan_type": "Auto",
+    "principal_amount": 111275,
+    "interest_rate": 7.1,
+    "remaining_balance": 89956,
+    "next_payment_due": "2025-12-06",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1415",
+    "borrower_name": "Madison Lee",
+    "loan_type": "Mortgage",
+    "principal_amount": 46026,
+    "interest_rate": 8.3,
+    "remaining_balance": 19580,
+    "next_payment_due": "2025-11-07",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1416",
+    "borrower_name": "Mia Wright",
+    "loan_type": "Mortgage",
+    "principal_amount": 214848,
+    "interest_rate": 5.3,
+    "remaining_balance": 84929,
+    "next_payment_due": "2025-11-05",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1417",
+    "borrower_name": "Robert Thomas",
+    "loan_type": "Business",
+    "principal_amount": 328083,
+    "interest_rate": 4.4,
+    "remaining_balance": 96610,
+    "next_payment_due": "2025-12-29",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1418",
+    "borrower_name": "William Williams",
+    "loan_type": "Education",
+    "principal_amount": 44598,
+    "interest_rate": 4.9,
+    "remaining_balance": 32598,
+    "next_payment_due": "2025-11-04",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1419",
+    "borrower_name": "Madison Davis",
+    "loan_type": "Auto",
+    "principal_amount": 158645,
+    "interest_rate": 8.1,
+    "remaining_balance": 23480,
+    "next_payment_due": "2025-11-27",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1420",
+    "borrower_name": "James Brown",
+    "loan_type": "Education",
+    "principal_amount": 86362,
+    "interest_rate": 5.7,
+    "remaining_balance": 75213,
+    "next_payment_due": "2025-11-12",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1421",
+    "borrower_name": "Daniel Taylor",
+    "loan_type": "Auto",
+    "principal_amount": 188908,
+    "interest_rate": 5.4,
+    "remaining_balance": 31226,
+    "next_payment_due": "2025-12-11",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1422",
+    "borrower_name": "Sebastian White",
+    "loan_type": "Auto",
+    "principal_amount": 33171,
+    "interest_rate": 3.7,
+    "remaining_balance": 31477,
+    "next_payment_due": "2025-12-29",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1423",
+    "borrower_name": "Grace Moore",
+    "loan_type": "Personal",
+    "principal_amount": 56827,
+    "interest_rate": 8.2,
+    "remaining_balance": 31793,
+    "next_payment_due": "2025-11-04",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1424",
+    "borrower_name": "John Harris",
+    "loan_type": "Auto",
+    "principal_amount": 307341,
+    "interest_rate": 6.2,
+    "remaining_balance": 131475,
+    "next_payment_due": "2025-11-24",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1425",
+    "borrower_name": "Isabella Moore",
+    "loan_type": "Education",
+    "principal_amount": 167481,
+    "interest_rate": 7.6,
+    "remaining_balance": 93630,
+    "next_payment_due": "2025-12-14",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1426",
+    "borrower_name": "Grace Martinez",
+    "loan_type": "Education",
+    "principal_amount": 222917,
+    "interest_rate": 7.2,
+    "remaining_balance": 67179,
+    "next_payment_due": "2025-12-31",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1427",
+    "borrower_name": "Mason Harris",
+    "loan_type": "Auto",
+    "principal_amount": 109241,
+    "interest_rate": 5.6,
+    "remaining_balance": 104850,
+    "next_payment_due": "2025-12-20",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1428",
+    "borrower_name": "Madison Rodriguez",
+    "loan_type": "Personal",
+    "principal_amount": 151736,
+    "interest_rate": 7.8,
+    "remaining_balance": 94086,
+    "next_payment_due": "2025-12-01",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1429",
+    "borrower_name": "Grace Nguyen",
+    "loan_type": "Business",
+    "principal_amount": 234862,
+    "interest_rate": 8.3,
+    "remaining_balance": 146498,
+    "next_payment_due": "2025-12-28",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1430",
+    "borrower_name": "Henry Ramirez",
+    "loan_type": "Auto",
+    "principal_amount": 338119,
+    "interest_rate": 7.8,
+    "remaining_balance": 315499,
+    "next_payment_due": "2025-11-07",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1431",
+    "borrower_name": "Jessica Hill",
+    "loan_type": "Personal",
+    "principal_amount": 15377,
+    "interest_rate": 5.7,
+    "remaining_balance": 2819,
+    "next_payment_due": "2025-11-16",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1432",
+    "borrower_name": "Ethan Garcia",
+    "loan_type": "Mortgage",
+    "principal_amount": 290940,
+    "interest_rate": 3.9,
+    "remaining_balance": 259054,
+    "next_payment_due": "2025-11-08",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1433",
+    "borrower_name": "Victoria Wright",
+    "loan_type": "Personal",
+    "principal_amount": 84197,
+    "interest_rate": 6.1,
+    "remaining_balance": 19814,
+    "next_payment_due": "2025-12-17",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1434",
+    "borrower_name": "Harper Taylor",
+    "loan_type": "Mortgage",
+    "principal_amount": 234977,
+    "interest_rate": 7.8,
+    "remaining_balance": 125162,
+    "next_payment_due": "2025-12-18",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1435",
+    "borrower_name": "Victoria Sanchez",
+    "loan_type": "Personal",
+    "principal_amount": 132359,
+    "interest_rate": 7.0,
+    "remaining_balance": 35357,
+    "next_payment_due": "2025-12-10",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1436",
+    "borrower_name": "Natalie Taylor",
+    "loan_type": "Mortgage",
+    "principal_amount": 333320,
+    "interest_rate": 6.1,
+    "remaining_balance": 73107,
+    "next_payment_due": "2025-12-23",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1437",
+    "borrower_name": "Sebastian Allen",
+    "loan_type": "Business",
+    "principal_amount": 328759,
+    "interest_rate": 3.6,
+    "remaining_balance": 34751,
+    "next_payment_due": "2025-12-23",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1438",
+    "borrower_name": "Elijah Gonzalez",
+    "loan_type": "Auto",
+    "principal_amount": 170092,
+    "interest_rate": 6.0,
+    "remaining_balance": 106563,
+    "next_payment_due": "2025-12-29",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1439",
+    "borrower_name": "Grace Jones",
+    "loan_type": "Education",
+    "principal_amount": 282680,
+    "interest_rate": 3.9,
+    "remaining_balance": 26328,
+    "next_payment_due": "2025-12-13",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1440",
+    "borrower_name": "Michael Smith",
+    "loan_type": "Personal",
+    "principal_amount": 299050,
+    "interest_rate": 6.6,
+    "remaining_balance": 153871,
+    "next_payment_due": "2025-12-14",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1441",
+    "borrower_name": "Natalie Perez",
+    "loan_type": "Auto",
+    "principal_amount": 240629,
+    "interest_rate": 6.9,
+    "remaining_balance": 239401,
+    "next_payment_due": "2025-12-18",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1442",
+    "borrower_name": "Robert Perez",
+    "loan_type": "Mortgage",
+    "principal_amount": 316212,
+    "interest_rate": 4.5,
+    "remaining_balance": 109746,
+    "next_payment_due": "2025-12-28",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1443",
+    "borrower_name": "Ava Harris",
+    "loan_type": "Business",
+    "principal_amount": 171759,
+    "interest_rate": 6.0,
+    "remaining_balance": 69046,
+    "next_payment_due": "2025-12-29",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1444",
+    "borrower_name": "Noah Harris",
+    "loan_type": "Business",
+    "principal_amount": 144528,
+    "interest_rate": 4.0,
+    "remaining_balance": 115942,
+    "next_payment_due": "2025-12-08",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1445",
+    "borrower_name": "Benjamin Miller",
+    "loan_type": "Mortgage",
+    "principal_amount": 11696,
+    "interest_rate": 5.9,
+    "remaining_balance": 7487,
+    "next_payment_due": "2025-12-29",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1446",
+    "borrower_name": "Madison Thomas",
+    "loan_type": "Personal",
+    "principal_amount": 307103,
+    "interest_rate": 4.3,
+    "remaining_balance": 161272,
+    "next_payment_due": "2025-11-21",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1447",
+    "borrower_name": "Abigail Jackson",
+    "loan_type": "Auto",
+    "principal_amount": 73099,
+    "interest_rate": 4.9,
+    "remaining_balance": 52830,
+    "next_payment_due": "2025-11-01",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1448",
+    "borrower_name": "Benjamin Ramirez",
+    "loan_type": "Mortgage",
+    "principal_amount": 142952,
+    "interest_rate": 5.1,
+    "remaining_balance": 103823,
+    "next_payment_due": "2025-12-17",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1449",
+    "borrower_name": "Madison Martinez",
+    "loan_type": "Education",
+    "principal_amount": 132807,
+    "interest_rate": 4.9,
+    "remaining_balance": 78655,
+    "next_payment_due": "2025-12-02",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1450",
+    "borrower_name": "Aria Hill",
+    "loan_type": "Mortgage",
+    "principal_amount": 237269,
+    "interest_rate": 5.3,
+    "remaining_balance": 3458,
+    "next_payment_due": "2025-12-06",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1451",
+    "borrower_name": "Aria Garcia",
+    "loan_type": "Business",
+    "principal_amount": 69270,
+    "interest_rate": 7.5,
+    "remaining_balance": 30103,
+    "next_payment_due": "2025-11-10",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1452",
+    "borrower_name": "Carter Martinez",
+    "loan_type": "Auto",
+    "principal_amount": 110998,
+    "interest_rate": 8.3,
+    "remaining_balance": 54804,
+    "next_payment_due": "2025-11-23",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1453",
+    "borrower_name": "Grace Young",
+    "loan_type": "Personal",
+    "principal_amount": 155568,
+    "interest_rate": 3.9,
+    "remaining_balance": 28510,
+    "next_payment_due": "2025-12-10",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1454",
+    "borrower_name": "David Taylor",
+    "loan_type": "Mortgage",
+    "principal_amount": 267502,
+    "interest_rate": 7.3,
+    "remaining_balance": 226714,
+    "next_payment_due": "2025-12-06",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1455",
+    "borrower_name": "Lucas Moore",
+    "loan_type": "Business",
+    "principal_amount": 329483,
+    "interest_rate": 5.7,
+    "remaining_balance": 286577,
+    "next_payment_due": "2025-12-16",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1456",
+    "borrower_name": "John Davis",
+    "loan_type": "Auto",
+    "principal_amount": 336096,
+    "interest_rate": 3.7,
+    "remaining_balance": 21811,
+    "next_payment_due": "2025-12-13",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1457",
+    "borrower_name": "Grace Wright",
+    "loan_type": "Education",
+    "principal_amount": 341225,
+    "interest_rate": 7.1,
+    "remaining_balance": 297076,
+    "next_payment_due": "2025-12-12",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1458",
+    "borrower_name": "Emily Allen",
+    "loan_type": "Business",
+    "principal_amount": 45664,
+    "interest_rate": 4.6,
+    "remaining_balance": 45268,
+    "next_payment_due": "2025-12-23",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1459",
+    "borrower_name": "Matthew Wilson",
+    "loan_type": "Business",
+    "principal_amount": 229101,
+    "interest_rate": 8.2,
+    "remaining_balance": 127934,
+    "next_payment_due": "2025-11-13",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1460",
+    "borrower_name": "Abigail Gonzalez",
+    "loan_type": "Mortgage",
+    "principal_amount": 288606,
+    "interest_rate": 7.9,
+    "remaining_balance": 244522,
+    "next_payment_due": "2025-11-17",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1461",
+    "borrower_name": "Sebastian Wright",
+    "loan_type": "Auto",
+    "principal_amount": 56085,
+    "interest_rate": 6.1,
+    "remaining_balance": 2632,
+    "next_payment_due": "2025-12-15",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1462",
+    "borrower_name": "Benjamin Martinez",
+    "loan_type": "Mortgage",
+    "principal_amount": 279134,
+    "interest_rate": 5.5,
+    "remaining_balance": 116556,
+    "next_payment_due": "2025-11-16",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1463",
+    "borrower_name": "Natalie Jones",
+    "loan_type": "Education",
+    "principal_amount": 260578,
+    "interest_rate": 4.1,
+    "remaining_balance": 222216,
+    "next_payment_due": "2025-11-15",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1464",
+    "borrower_name": "Ethan Martinez",
+    "loan_type": "Personal",
+    "principal_amount": 216696,
+    "interest_rate": 3.7,
+    "remaining_balance": 167780,
+    "next_payment_due": "2025-11-03",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1465",
+    "borrower_name": "Elijah Walker",
+    "loan_type": "Personal",
+    "principal_amount": 141243,
+    "interest_rate": 7.9,
+    "remaining_balance": 108308,
+    "next_payment_due": "2025-12-19",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1466",
+    "borrower_name": "Noah Thomas",
+    "loan_type": "Education",
+    "principal_amount": 246213,
+    "interest_rate": 5.0,
+    "remaining_balance": 179123,
+    "next_payment_due": "2025-12-13",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1467",
+    "borrower_name": "James Wilson",
+    "loan_type": "Mortgage",
+    "principal_amount": 139731,
+    "interest_rate": 7.3,
+    "remaining_balance": 66407,
+    "next_payment_due": "2025-12-26",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1468",
+    "borrower_name": "Natalie Wright",
+    "loan_type": "Auto",
+    "principal_amount": 305125,
+    "interest_rate": 8.1,
+    "remaining_balance": 148404,
+    "next_payment_due": "2025-12-09",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1469",
+    "borrower_name": "Lucas Anderson",
+    "loan_type": "Mortgage",
+    "principal_amount": 315984,
+    "interest_rate": 5.8,
+    "remaining_balance": 296427,
+    "next_payment_due": "2025-11-26",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1470",
+    "borrower_name": "Chloe Martinez",
+    "loan_type": "Mortgage",
+    "principal_amount": 67952,
+    "interest_rate": 7.8,
+    "remaining_balance": 22210,
+    "next_payment_due": "2025-12-22",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1471",
+    "borrower_name": "Isabella Harris",
+    "loan_type": "Education",
+    "principal_amount": 92120,
+    "interest_rate": 7.6,
+    "remaining_balance": 27189,
+    "next_payment_due": "2025-11-04",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1472",
+    "borrower_name": "Abigail Nguyen",
+    "loan_type": "Education",
+    "principal_amount": 145637,
+    "interest_rate": 5.4,
+    "remaining_balance": 129257,
+    "next_payment_due": "2025-11-13",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1473",
+    "borrower_name": "Daniel Jackson",
+    "loan_type": "Education",
+    "principal_amount": 94916,
+    "interest_rate": 5.7,
+    "remaining_balance": 69413,
+    "next_payment_due": "2025-12-19",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1474",
+    "borrower_name": "Jessica Harris",
+    "loan_type": "Education",
+    "principal_amount": 69363,
+    "interest_rate": 5.6,
+    "remaining_balance": 42544,
+    "next_payment_due": "2025-11-02",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1475",
+    "borrower_name": "Robert Davis",
+    "loan_type": "Auto",
+    "principal_amount": 285871,
+    "interest_rate": 7.5,
+    "remaining_balance": 50842,
+    "next_payment_due": "2025-11-25",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1476",
+    "borrower_name": "Elijah Taylor",
+    "loan_type": "Education",
+    "principal_amount": 219000,
+    "interest_rate": 6.8,
+    "remaining_balance": 57997,
+    "next_payment_due": "2025-12-22",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1477",
+    "borrower_name": "Amelia Miller",
+    "loan_type": "Auto",
+    "principal_amount": 7181,
+    "interest_rate": 6.0,
+    "remaining_balance": 7059,
+    "next_payment_due": "2025-12-25",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1478",
+    "borrower_name": "Mason Garcia",
+    "loan_type": "Personal",
+    "principal_amount": 248528,
+    "interest_rate": 4.8,
+    "remaining_balance": 59092,
+    "next_payment_due": "2025-12-30",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1479",
+    "borrower_name": "Amelia Thompson",
+    "loan_type": "Personal",
+    "principal_amount": 339233,
+    "interest_rate": 5.0,
+    "remaining_balance": 187680,
+    "next_payment_due": "2025-12-22",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1480",
+    "borrower_name": "Emily Gonzalez",
+    "loan_type": "Mortgage",
+    "principal_amount": 91766,
+    "interest_rate": 7.4,
+    "remaining_balance": 53237,
+    "next_payment_due": "2025-11-12",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1481",
+    "borrower_name": "Natalie Walker",
+    "loan_type": "Auto",
+    "principal_amount": 346370,
+    "interest_rate": 4.5,
+    "remaining_balance": 335933,
+    "next_payment_due": "2025-12-07",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1482",
+    "borrower_name": "Jacob Robinson",
+    "loan_type": "Mortgage",
+    "principal_amount": 281611,
+    "interest_rate": 6.8,
+    "remaining_balance": 57746,
+    "next_payment_due": "2025-11-17",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1483",
+    "borrower_name": "Harper Davis",
+    "loan_type": "Education",
+    "principal_amount": 268742,
+    "interest_rate": 6.8,
+    "remaining_balance": 46798,
+    "next_payment_due": "2025-11-12",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1484",
+    "borrower_name": "Ethan White",
+    "loan_type": "Personal",
+    "principal_amount": 336515,
+    "interest_rate": 7.3,
+    "remaining_balance": 162027,
+    "next_payment_due": "2025-11-10",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1485",
+    "borrower_name": "Ella Clark",
+    "loan_type": "Auto",
+    "principal_amount": 264975,
+    "interest_rate": 4.5,
+    "remaining_balance": 221548,
+    "next_payment_due": "2025-11-25",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1486",
+    "borrower_name": "William Wright",
+    "loan_type": "Personal",
+    "principal_amount": 151357,
+    "interest_rate": 5.0,
+    "remaining_balance": 28930,
+    "next_payment_due": "2025-12-04",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1487",
+    "borrower_name": "Jessica Lewis",
+    "loan_type": "Education",
+    "principal_amount": 44693,
+    "interest_rate": 5.7,
+    "remaining_balance": 21167,
+    "next_payment_due": "2025-12-04",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1488",
+    "borrower_name": "Sarah Ramirez",
+    "loan_type": "Mortgage",
+    "principal_amount": 197821,
+    "interest_rate": 5.9,
+    "remaining_balance": 29422,
+    "next_payment_due": "2025-11-15",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1489",
+    "borrower_name": "Noah Rodriguez",
+    "loan_type": "Mortgage",
+    "principal_amount": 324568,
+    "interest_rate": 8.5,
+    "remaining_balance": 204108,
+    "next_payment_due": "2025-12-20",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1490",
+    "borrower_name": "Sarah Walker",
+    "loan_type": "Auto",
+    "principal_amount": 281045,
+    "interest_rate": 7.7,
+    "remaining_balance": 270751,
+    "next_payment_due": "2025-11-20",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1491",
+    "borrower_name": "Olivia Allen",
+    "loan_type": "Education",
+    "principal_amount": 227262,
+    "interest_rate": 7.3,
+    "remaining_balance": 207838,
+    "next_payment_due": "2025-12-14",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1492",
+    "borrower_name": "William Thompson",
+    "loan_type": "Auto",
+    "principal_amount": 93487,
+    "interest_rate": 7.8,
+    "remaining_balance": 9873,
+    "next_payment_due": "2025-11-30",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1493",
+    "borrower_name": "Natalie Ramirez",
+    "loan_type": "Personal",
+    "principal_amount": 296461,
+    "interest_rate": 7.1,
+    "remaining_balance": 250905,
+    "next_payment_due": "2025-11-01",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1494",
+    "borrower_name": "Jack Taylor",
+    "loan_type": "Business",
+    "principal_amount": 286214,
+    "interest_rate": 8.0,
+    "remaining_balance": 56323,
+    "next_payment_due": "2025-11-11",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1495",
+    "borrower_name": "Lily Torres",
+    "loan_type": "Mortgage",
+    "principal_amount": 256125,
+    "interest_rate": 7.5,
+    "remaining_balance": 184307,
+    "next_payment_due": "2025-12-29",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1496",
+    "borrower_name": "Noah Lee",
+    "loan_type": "Mortgage",
+    "principal_amount": 303825,
+    "interest_rate": 5.2,
+    "remaining_balance": 109929,
+    "next_payment_due": "2025-12-06",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1497",
+    "borrower_name": "Emily Flores",
+    "loan_type": "Personal",
+    "principal_amount": 223956,
+    "interest_rate": 8.2,
+    "remaining_balance": 95089,
+    "next_payment_due": "2025-12-25",
+    "status": "Current"
+  },
+  {
+    "loan_id": "LN-1498",
+    "borrower_name": "Lily Young",
+    "loan_type": "Business",
+    "principal_amount": 121205,
+    "interest_rate": 8.1,
+    "remaining_balance": 86038,
+    "next_payment_due": "2025-12-19",
+    "status": "Paid Off"
+  },
+  {
+    "loan_id": "LN-1499",
+    "borrower_name": "Olivia Jackson",
+    "loan_type": "Auto",
+    "principal_amount": 341294,
+    "interest_rate": 8.0,
+    "remaining_balance": 105036,
+    "next_payment_due": "2025-12-14",
+    "status": "Overdue"
+  },
+  {
+    "loan_id": "LN-1500",
+    "borrower_name": "Luna Nguyen",
+    "loan_type": "Auto",
+    "principal_amount": 178921,
+    "interest_rate": 5.8,
+    "remaining_balance": 5591,
+    "next_payment_due": "2025-12-27",
+    "status": "Overdue"
+  }
+  ]
+}

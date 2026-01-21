@@ -1,0 +1,112 @@
+<link rel="stylesheet" type="text/css" href="/resources/style.css">
+
+<div class="html-content">
+    <h1>Setting Up Node.js and Project Dependencies</h1>
+    <h2>Install Node.js</h2>
+
+    <p>Download and install Node.js from <a href="https://nodejs.org">NodeJS.org</a>. Once installed, verify it using your terminal or command prompt:</p>
+    <pre>node -v 
+npm -v</pre>
+
+    <p>This confirms Node.js and npm (Node Package Manager) are working.</p>
+
+    <h2>Create a New Project</h2>
+
+    <p>Create a new folder for your project, navigate into it, and initialize it:</p>
+    <pre>mkdir my-project
+cd my-project
+npm init -y</pre>
+
+    <p>The -y flag automatically creates a default package.json file.</p>
+
+    <h2>Install Required Packages</h2>
+
+    <p>Use npm to install the dependencies you'll need:</p>
+
+    <pre>npm install express
+npm install cors
+npm install dotenv
+npm install body-parser
+npm install openai
+npm install @anthropic-ai/sdk
+npm install axios</pre>
+
+    <p>Here's what each package does:</p>
+
+    <ul>
+        <li><b>express</b>: for building the web server and API endpoints</li>
+        <li><b>cors</b>: enables cross-origin requests (useful when connecting frontend & backend)</li>
+        <li><b>dotenv</b>: loads environment variables from a .env file</li>
+        <li><b>body-parser</b>: parses incoming JSON data in requests</li>
+        <li><b>openai</b>: allows your Node.js app to access OpenAI's API</li>
+        <li><b>anthropic</b>: allows your Node.js app to access Claude's API</li>
+        <li><b>axios</b>: allows your Node.js app to access your local LLM API</li>
+    </ul>
+
+    <h2>Set Up the .env File</h2>
+
+    <p>Create a file named .env in the root of your project and add your OpenAI API key:</p>
+
+    <pre>OPENAI_API_KEY=your_openai_api_key_here
+CLAUDE_API_KEY=your_claude_api_key_here</pre>
+
+    <h2>File Structure</h2>
+    <p>
+        This example is composed of several backend files. It includes:
+        <ul>
+            <li>The public AI-prompt handler, which exposes the endpoint your frontend calls.</li>
+            <li>A JSON file defining the system AI prompt, used to control model behavior.</li>
+            <li>Service modules responsible for connecting to your chosen AI provider.</li>
+        </ul>
+        Files related to data retrieval are not included, since those depend entirely on your own backend architecture and business logic.
+    </p>
+    <div class="code">
+        <span class="fa fa-folder"></span> server
+        <ul>
+            <li>
+                <span class="fa fa-folder"></span> endpoints
+                <ul>
+                    <li>
+                        <span class="fa fa-folder"></span> ai
+                        <ul>
+                            <li>
+                                <span class="fa fa-folder"></span> handlers
+                                <ul>
+                                    <li><span class="fa fa-file"></span> ai-prompt.js</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="fa fa-folder"></span> prompts
+                                <ul>
+                                    <li><span class="fa fa-file"></span> system-prompt.json</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="fa fa-folder"></span> services
+                                <ul>
+                                    <li><span class="fa fa-file"></span> chatgpt.js</li>
+                                    <li><span class="fa fa-file"></span> claude.js</li>
+                                    <li><span class="fa fa-file"></span> shared.js</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="fa fa-folder"></span> data
+                        <ul>
+                            <li><span class="fa fa-file"></span> school-data.js</li>
+                            <li><span class="fa fa-file"></span> healthcare-data.js</li>
+                            <li><span class="fa fa-file"></span> ...</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><span class="fa fa-file"></span> .env</li>
+            <li><span class="fa fa-file"></span> server.js</li>
+        </ul>
+    </div>
+    <p>
+        Once you have everything ready, run the following command to start the server:
+    </p>
+    <pre>node server.js</pre>
+</div>

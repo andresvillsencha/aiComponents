@@ -1,0 +1,99 @@
+<link rel="stylesheet" type="text/css" href="/resources/style.css">
+
+<div class="html-content">
+    <h1>Sales Grid with Natural-Language Integration</h1>
+    
+    <p>
+        This example shows rows of <b>sales representative data</b>.
+        The user can <b>type natural language queries</b> in the grid toolbar. 
+        The app connects to a backend NL model to interpret the user intent, and <b>the frontend performs actual filtering</b> on the client-side store.
+    </p>
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <td>Sales Grid</td>
+        </tr>
+        <tr>
+            <th>Filtering</th>
+            <td style="color: #036; font-weight: bold;">Client-Side</td>
+        </tr>
+        <tr>
+            <th>Search bar</th>
+            <td>Text field + Controller</td>
+        </tr>
+        <tr>
+            <th>Prompt</th>
+            <td>Must be defined by backend developer</td>
+        </tr>
+        <tr>
+            <th>Allows Filtering</th>
+            <td style="color: #063;">Yes</td>
+        </tr>
+        <tr>
+            <th>Allows Sorting</th>
+            <td style="color: #063;">Yes</td>
+        </tr>
+        <tr>
+            <th>Allows Grouping</th>
+            <td style="color: #063;">Yes</td>
+        </tr>
+        <tr>
+            <th>Allows Page Navigation</th>
+            <td style="color: #933;">No</td>
+        </tr>
+    </table>
+   
+    <h2>Usage</h2>
+    <p>By using the search bar, you can type in natural language queries for filtering or sorting data. For example:</p>
+    <pre>- Show active users under 30
+- Show users between 40 and 50 years old
+- Show active users with a live.com account
+- Show USA users with most sales
+- Sort by name a to z
+- Sort by age ascending
+- Show users from the UK with sales over 800, sort by age descending
+- Group by type</pre>
+
+
+    <p><img decoding="async" src="https://www.sencha.com/wp-content/uploads/2025/09/HowtoImplementNaturalLanguageGridSearchinExtJ.png" alt="How to Implement Natural Language Grid Search in Ext JS Using ChatGPT"></p>
+
+
+    <h2>Files</h2>
+
+    <h3>Frontend (Ext JS)</h3>
+    <ul>
+        <li><b>/app/view/ai/DataGrid.js</b><br>Sales Grid view: columns, toolbar with NL input and standard column filters, binds to the store.</li>
+        <li><b>/app/view/ai/DataGridController.js</b><br>Captures NL input, sends it to the backend endpoint, receives the model's interpretation (e.g., a filter spec or structured query), and applies filtering locally to the store using store.filter().</li>
+        <li><b>/app/store/SimpleDataStore.js</b><br>Client-side store that holds sales rows. The store supports local filtering and sorting; data is either preloaded or fetched once from the server and kept client-side.</li>
+    </ul>
+
+    <h3>Backend (Node.js)</h3>
+    <ul>
+        <li><b>/server/server.js</b><br> Express bootstrap: serves static assets and exposes the NL endpoint used by the grid controller.</li>
+        <li><b>/server/endpoints/simplegrid-endpoint.js</b><br> Builds the NL prompt from the user text, calls the NL model API, and returns the model's structured interpretation (not raw rows). Note: because filtering runs in the frontend, the backend returns a predictable filter description or JSON structure that the controller can consume.</li>
+    </ul>
+
+    
+
+    <h2>Typical runtime flow (step-by-step)</h2>
+    <ol>
+        <li>User types a free-text query in the grid toolbar.</li>
+        <li>DataGridCcontroller.js sends the text to the backend NL endpoint (POST /api/ai-endpoint).</li>
+        <li>simplegrid-endpoint.js composes a hand-written prompt and calls the NL model. The model returns a structured interpretation.</li>
+        <li>The controller receives the response and <b>applies filters locally</b> to the filters plugin. <b>No server-side filtering is performed in this example.</b></li>
+    </ol>
+
+    <h3>The response</h3>
+    <p>Once the middleware responds, it returns a JSON object that can include up to four main sections: filters, sorters, grouping, and tokenData.</p>
+    <ul>
+        <li><b>filters</b><br> Contains the filtering conditions generated from the user's query, defining which records should be displayed. Ready to be applied to the grid filters.</li>
+        <li><b>sorters</b><br> Specifies how the data should be ordered (e.g., by field and direction such as ascending or descending) ready to be applied to the store.</li>
+        <li><b>grouping</b><br> Describes how records are grouped by a specific field.</li>
+        <li><b>tokenData</b><br> Provides the total tokens consumed during the request.</li>
+    </ul>
+
+    <a href="https://www.sencha.com/products/extjs/evaluate/"><img decoding="async" src="https://www.sencha.com/wp-content/uploads/2023/08/Sencha-CTA-Banner.png" alt="Sencha Ext JS"  width="100%"></a></p>
+
+
+</div>
