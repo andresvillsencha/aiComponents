@@ -1,17 +1,14 @@
 /**
  * Healthcare One. Data Grid
  * This is a basic grid that contains the following elements:
- * -- Grid with different column types
- * -- A toolbar with a text field to be used as a search bar and a clear filters button
- * 
- * The grid connects to a data store where it loads the data.
- * It has a view controller that connects to a Node JS backend to perform the query.
+ * -- Grid with fake healthcare data in different column types
+ * -- A toolbar with the Smart Search Field
  */
 Ext.define('AppAi.view.ai.claudeGrid.DataGrid', {
   extend: 'Ext.grid.Panel',
   xtype: 'claude-grid',
   controller: 'claude-grid-controller',
-  title: ' Healthcare Data Grid<br><span style="color:#eee; font-size: 12px;">Client Side Filtering + Custom Component</span>',
+  title: 'Smart Search<br><span style="color:#eee; font-size: 12px;">Anthropic: claude-sonnet-4.5</span>',
 
   requires: [
     'Ext.ai.SmartSearch',
@@ -131,7 +128,7 @@ Ext.define('AppAi.view.ai.claudeGrid.DataGrid', {
       serverUrl: AppAi.Globals.apiUrl, // Will get the apiURL set in the app.js file, it can be hardcoded too i.e. 'http://ai.sencha.local:3000',
       endpoint: '/api/ai-smart-search',
       llmConfig: {
-        provider: 'claude',
+        provider: 'anthropic',
         model: 'claude-sonnet-4-20250514',
         rules: [
           'Searching for Users will search for employee_name'

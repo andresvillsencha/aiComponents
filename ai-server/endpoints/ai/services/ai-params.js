@@ -3,7 +3,7 @@
 
     const aiProviders = {
         'chatgpt': '/chatgpt',
-        'claude': '/claude',
+        'anthropic': '/claude',
         'localllm': '/local',
     };
 

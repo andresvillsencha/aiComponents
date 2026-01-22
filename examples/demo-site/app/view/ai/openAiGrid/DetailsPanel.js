@@ -1,3 +1,4 @@
+
 Ext.define('AppAi.view.ai.openAiGrid.DetailsPanel', {
     extend: 'AppAi.view.ai.MainDetailsPanel',
     xtype: 'openai-grid-details',
@@ -39,6 +40,9 @@ Ext.define('AppAi.view.ai.openAiGrid.DetailsPanel', {
             title: 'Controller',
             itemId: 'controller',
             className: 'app.view.ai.openAiGrid.DataGridController'
+        }, {
+            title: 'Response Window',
+            className: 'app.view.ai.ResponseWindow'
         }, {
             title: 'Store',
             className: 'app.store.SchoolDataStore'

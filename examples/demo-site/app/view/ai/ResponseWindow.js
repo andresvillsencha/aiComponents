@@ -1,3 +1,9 @@
+/******************************************
+ * Details Window
+ * 
+ * Shows the response on a separate window.
+ * This is not part of the component, but it is here to show the response coming from the middleware
+ */
 Ext.define('AppAi.view.ai.ResponseWindow', {
     extend: 'Ext.window.Window',
     xtype: 'response-window',

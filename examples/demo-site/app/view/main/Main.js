@@ -16,7 +16,7 @@ Ext.define('AppAi.view.main.Main', {
         'AppAi.view.main.MainController',
         'AppAi.view.main.MainModel',
 
-        'AppAi.view.ai.form.AutoForm',
+        'AppAi.view.ai.form.Panel',
 
         'AppAi.view.ai.openAiGrid.Panel',// school grid
         'AppAi.view.ai.claudeGrid.Panel',
@@ -40,7 +40,7 @@ Ext.define('AppAi.view.main.Main', {
             align: 'stretch',
         },
         title: {
-            text: 'Smart Grid',
+            text: 'AI Components',
             flex: 0,
             responsiveConfig: {
                 tall: {
@@ -96,24 +96,24 @@ Ext.define('AppAi.view.main.Main', {
     },
 
     items: [ {
-        title: 'Autofill Form<br><span style="font-size: 12px; color:#eee;">gpt-4o-mini</span>',
-        items: [{
-            xtype: 'auto-form'
-        }]
-    }, {
-        title: 'Open AI Grid<br><span style="font-size: 12px; color:#eee;">gpt-4o-mini</span>',
+        title: 'Smart Search<br><span style="font-size: 12px; color:#eee;">Open AI: gpt-4o-mini</span>',
         items: [{
             xtype: 'openai-grid-panel'
         }]
     }, {
-        title: 'Claude Grid<br><span style="font-size: 12px; color:#eee;">claude-sonnet-4.5</span>',
+        title: 'Smart Search<br><span style="font-size: 12px; color:#eee;">Anthropic: claude-sonnet-4.5</span>',
         items: [{
             xtype: 'claude-grid-panel'
         }]
+    // }, {
+    //     title: 'Local LLM Grid<br><span style="font-size: 12px; color:#eee;">claude-3.7</span>',
+    //     items: [{
+    //         xtype: 'banking-grid-panel'
+    //     }]
     }, {
-        title: 'Local LLM Grid<br><span style="font-size: 12px; color:#eee;">claude-3.7</span>',
+        title: 'Smart Fill<br><span style="font-size: 12px; color:#eee;">gpt-4o-mini</span>',
         items: [{
-            xtype: 'banking-grid-panel'
+            xtype: 'form-grid-panel'
         }]
-    },] 
+    }, ] 
 });

@@ -2,106 +2,40 @@
 
 <div class="html-content">
     <h1>Setting Up Ext JS and Running the Frontend</h1>
-    <p>To start, you need an existing Sencha Ext JS 7+ Application or creating a new one. For more information, visit the <a href="https://docs.sencha.com/extjs/7.9.0/index.html">Sencha Documentation</a>.</p>
+    <p>To start, you need an existing Sencha Ext JS Application or you need to create a new one. For more information, visit the <a href="https://docs.sencha.com/extjs/7.9.0/index.html">Sencha Documentation</a>.</p>
 
-    <h2>Add the Files (Your Grid, Controller, Store, and UX Component)</h2>
-    <div class="code">
-        <span class="fa fa-folder"></span> app
-        <ul>
-            <li>
-                <span class="fa fa-folder"></span> view
+    <h2>Installing Ai-component package</h2>
+    <ul>
+        <li>
+            Download the ai-component folder (unzip if necessary) and place it in the packages folder inside your project.
+        </li>
+        <li>
+            Open the app.json file from your project and add the 'ai-components' package.
+            <div class="code">
+                <span class="fa fa-folder"></span> /
                 <ul>
                     <li>
-                        <span class="fa fa-folder"></span> ai
+                        <span class="fa fa-folder"></span> app
                         <ul>
-                            <li><span class="fa fa-file"></span> DataGrid.js</li>
-                            <li><span class="fa fa-file"></span> DataGridController.js</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <span class="fa fa-folder"></span> store
-                <ul>
-                    <li><span class="fa fa-file"></span> DataGridStore.js</li>
-                </ul>
-            </li>
-            <li>
-                <span class="fa fa-folder"></span> ux
-                <ul>
-                    <li>
-                        <span class="fa fa-folder"></span> ai
-                        <ul>
-                            <li><span class="fa fa-file"></span> SearchBar.js</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
-    <h2>File Description</h2>
-    <table>
-        <tr>
-            <th>DataGrid.js</th>
-            <td>
-                <ul>
-                    <li>Defines the view</li>
-                    <li>Includes a toolbar with the search bar</li>
-                    <li>Enables plugins/features you plan to use (e.g., gridfilters, grouping, pagingtoolbar)</li>
-                    <li>Binds to DataStore</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th>DataGridController.js</th>
-            <td>
-                <ul>
-                    <li>In grids where there is no custom component:
-                        <ul>
-                            <li>Listens to events from the NL SearchBar callback</li>
-                            <li>Applies filters/sorters/group instructions (and triggers store loads when needed)</li>
+                            <li>...</li>
                         </ul>
                     </li>
                     <li>
-                        In all grids:
+                        <span class="fa fa-folder"></span> <b>packages</b>
                         <ul>
-                            <li>Opens the response window</li>
-                            <li>Clears filters</li>
+                            <li>
+                                <span class="fa fa-folder"></span> <b>ai-components</b>
+                                <ul>
+                                    <li>...</li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                 </ul>
-            </td>
-        </tr>
-        <tr>
-            <th>DataStore.js</th>
-            <td>
-                <ul>
-                    <li>Configures the proxy to your backend server or json data</li>
-                    <li>Sets pageSize and remoteFilter/remoteSort as needed</li>
-                    <li>Defines fields that match the grid columns</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th>ux/ai/SearchBar.js</th>
-            <td>
-                To be used in grids with the custom AI component.
-                <ul>
-                    <li>Your Ext.ai.SmartSearch class (provided component)</li>
-                    <li>Make sure serverUrl and endpoint point to your Node server (e.g., http://localhost:3000, /api/ai-endpoint)</li>
-                    <li>Must be placed in a grid toolbar or linked to a grid via the grid config</li>
-                </ul>
-            </td>
-        </tr>
-    </table>
-        
-
-<h2>The custom ux.ai.SmartSearch Component</h2>
-<p>When a user enters a natural-language query, the component first captures the user's prompt from the search field. It then automatically extracts the column definitions and any active filter metadata from the linked grid to provide context for the backend. This combined information is sent as a POST request to the backend endpoint, where the natural-language interpretation occurs. Once the response is received, the component processes it and applies the returned filters, sorters, grouping, and page navigation instructions directly to the grid, updating the displayed data accordingly.</p>
-<ul>
-    <li>Capture the user prompt</li>
-    <li>Extract column + filter metadata from the linked grid</li>
-    <li>POST to the backend</li>
-    <li>Apply the returned filters/sorters/group/page to the grid</li>
-</ul>
+            </div>
+        </li>
+        <li>refresh and rebuild your project to make sure the new components are added:
+            <pre>sencha app refresh
+sencha app build [development|testing|production]</pre>
+        </li>
+    </ul>

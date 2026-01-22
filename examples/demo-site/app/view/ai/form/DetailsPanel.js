@@ -1,6 +1,6 @@
-Ext.define('AppAi.view.ai.claudeGrid.DetailsPanel', {
+Ext.define('AppAi.view.ai.form.DetailsPanel', {
     extend: 'AppAi.view.ai.MainDetailsPanel',
-    xtype: 'claude-grid-details',
+    xtype: 'auto-form-details',
 
     requires: [
         'AppAi.view.ai.DetailsPanelController'
@@ -19,7 +19,7 @@ Ext.define('AppAi.view.ai.claudeGrid.DetailsPanel', {
             title: 'About',
             itemId: 'about-hc',
             contentType: 'readhtml',
-            className: 'resources.about-claude-grid',
+            className: 'resources.about-smart-fill',
         },{
             title: 'Server Installation Guide',
             className: 'resources.server',
@@ -34,17 +34,7 @@ Ext.define('AppAi.view.ai.claudeGrid.DetailsPanel', {
         items: [{
             title: 'View',
             itemId: 'view',
-            className: 'app.view.ai.claudeGrid.DataGrid',
-        }, {
-            title: 'Controller',
-            itemId: 'controller',
-            className: 'app.view.ai.claudeGrid.DataGridController'
-        }, {
-            title: 'Response Window',
-            className: 'app.view.ai.ResponseWindow'
-        }, {
-            title: 'Store',
-            className: 'app.store.HealthcareDataStore'
+            className: 'app.view.ai.form.AutoForm',
         }]
     }],
 

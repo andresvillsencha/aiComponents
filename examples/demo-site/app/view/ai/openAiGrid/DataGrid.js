@@ -1,17 +1,15 @@
 /**
  * School . Data Grid
  * This is a basic grid that contains the following elements:
- * -- Grid with different column types
- * -- A toolbar with a text field to be used as a search bar and a clear filters button
+ * -- Grid with fake school data in different column types
+ * -- A toolbar with the Smart Search Field
  * 
- * The grid connects to a data store where it loads the data.
- * It has a view controller that connects to a Node JS backend to perform the query.
  */
 Ext.define('AppAi.view.ai.openAiGrid.DataGrid', {
   extend: 'Ext.grid.Panel',
   xtype: 'openai-grid',
   controller: 'school-grid-controller',
-  title: 'School Data Grid<br><span style="color:#eee; font-size: 12px;">Server Side Filtering + Custom Component</span>',
+  title: 'Smart Search<br><span style="color:#eee; font-size: 12px;">Open AI: gpt-4o-mini</span>',
 
   requires: [
     'Ext.ai.SmartSearch',

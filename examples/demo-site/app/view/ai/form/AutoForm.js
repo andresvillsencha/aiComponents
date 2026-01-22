@@ -2,6 +2,9 @@ Ext.define('AppAi.view.ai.form.AutoForm', {
     extend: 'Ext.panel.Panel',
     xtype: 'auto-form',
 
+
+    title: 'Smart Fill<br><span style="color:#eee; font-size: 12px;">Anthropic: claude-sonnet-4.5</span>',
+
     layout: 'center',
 
     requires: [

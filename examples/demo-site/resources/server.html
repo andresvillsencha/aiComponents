@@ -4,7 +4,7 @@
     <h1>Setting Up Node.js and Project Dependencies</h1>
     <h2>Install Node.js</h2>
 
-    <p>Download and install Node.js from <a href="https://nodejs.org">NodeJS.org</a>. Once installed, verify it using your terminal or command prompt:</p>
+    <p>Download and install Node.js from <a href="https://nodejs.org">NodeJS.org</a>. Once installed, verify it's correct installation using your terminal or command prompt window:</p>
     <pre>node -v 
 npm -v</pre>
 
@@ -12,7 +12,7 @@ npm -v</pre>
 
     <h2>Create a New Project</h2>
 
-    <p>Create a new folder for your project, navigate into it, and initialize it:</p>
+    <p>Create a new folder for your project, navigate into the folder where your middleware service will be hosted, and initialize it. For example:</p>
     <pre>mkdir my-project
 cd my-project
 npm init -y</pre>
@@ -29,7 +29,8 @@ npm install dotenv
 npm install body-parser
 npm install openai
 npm install @anthropic-ai/sdk
-npm install axios</pre>
+npm install axios
+</pre>
 
     <p>Here's what each package does:</p>
 
@@ -39,29 +40,40 @@ npm install axios</pre>
         <li><b>dotenv</b>: loads environment variables from a .env file</li>
         <li><b>body-parser</b>: parses incoming JSON data in requests</li>
         <li><b>openai</b>: allows your Node.js app to access OpenAI's API</li>
-        <li><b>anthropic</b>: allows your Node.js app to access Claude's API</li>
+        <li><b>anthropic</b>: allows your Node.js app to access Anthropic/Claude's API.</li>
         <li><b>axios</b>: allows your Node.js app to access your local LLM API</li>
     </ul>
 
     <h2>Set Up the .env File</h2>
 
     <p>Create a file named .env in the root of your project and add your OpenAI API key:</p>
-
     <pre>OPENAI_API_KEY=your_openai_api_key_here
 CLAUDE_API_KEY=your_claude_api_key_here</pre>
+
+    <p>You must also indicate the server port and the allowed CORS domains:</p>
+    <pre>PORT=3001
+CORS=comma_separated_list_of_allowed_urls_must_include_http</pre>
+
+    <p>If required, add a default model, and a list of available models:</p>
+    <pre>VALIDATE_MODEL=true
+OPENAI_DEFAULT_MODEL=gpt-4o-mini
+OPENAI_MODELS=gpt-4o-mini,gpt-4-turbo,gpt-4,gpt-4o
+CLAUDE_DEFAULT_MODEL=claude-sonnet-4-20250514
+CLAUDE_MODELS=claude-sonnet-4,claude-sonnet-4-20250514</pre>
 
     <h2>File Structure</h2>
     <p>
         This example is composed of several backend files. It includes:
         <ul>
-            <li>The public AI-prompt handler, which exposes the endpoint your frontend calls.</li>
-            <li>A JSON file defining the system AI prompt, used to control model behavior.</li>
-            <li>Service modules responsible for connecting to your chosen AI provider.</li>
+            <li>The public <b>AI-prompt handler</b>, which exposes the endpoint the frontend application will be calling.</li>
+            <li><b>Service modules</b> responsible for connecting to your chosen AI provider.</li>
+            <li>The <b>prompt</b> folder with JSON files defining the AI system prompt.</li>
+            <li>The <b>env</b> variable configuration file.</li>
         </ul>
         Files related to data retrieval are not included, since those depend entirely on your own backend architecture and business logic.
     </p>
     <div class="code">
-        <span class="fa fa-folder"></span> server
+        <span class="fa fa-folder"></span> ai-server
         <ul>
             <li>
                 <span class="fa fa-folder"></span> endpoints
@@ -72,41 +84,35 @@ CLAUDE_API_KEY=your_claude_api_key_here</pre>
                             <li>
                                 <span class="fa fa-folder"></span> handlers
                                 <ul>
-                                    <li><span class="fa fa-file"></span> ai-prompt.js</li>
+                                    <li><span class="fa fa-file"></span> ai-smart-fill.js</li>
+                                    <li><span class="fa fa-file"></span> ai-smart-search.js</li>
                                 </ul>
                             </li>
                             <li>
                                 <span class="fa fa-folder"></span> prompts
                                 <ul>
                                     <li><span class="fa fa-file"></span> system-prompt.json</li>
+                                    <li><span class="fa fa-file"></span> form-prompt.json</li>
+                                    <li><span class="fa fa-file"></span> your-own-custom-prompt.json</li>
                                 </ul>
                             </li>
                             <li>
                                 <span class="fa fa-folder"></span> services
                                 <ul>
-                                    <li><span class="fa fa-file"></span> chatgpt.js</li>
-                                    <li><span class="fa fa-file"></span> claude.js</li>
-                                    <li><span class="fa fa-file"></span> shared.js</li>
+                                    <li>...</li>
                                 </ul>
+                                
                             </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="fa fa-folder"></span> data
-                        <ul>
-                            <li><span class="fa fa-file"></span> school-data.js</li>
-                            <li><span class="fa fa-file"></span> healthcare-data.js</li>
-                            <li><span class="fa fa-file"></span> ...</li>
                         </ul>
                     </li>
                 </ul>
             </li>
             <li><span class="fa fa-file"></span> .env</li>
-            <li><span class="fa fa-file"></span> server.js</li>
+            <li><span class="fa fa-file"></span> ai-server.js</li>
         </ul>
     </div>
     <p>
         Once you have everything ready, run the following command to start the server:
     </p>
-    <pre>node server.js</pre>
+    <pre>node ai-server.js</pre>
 </div>
