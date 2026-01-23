@@ -111,7 +111,7 @@ Ext.define('AppAi.view.main.Main', {
     //         xtype: 'banking-grid-panel'
     //     }]
     }, {
-        title: 'Smart Fill<br><span style="font-size: 12px; color:#eee;">gpt-4o-mini</span>',
+        title: 'Smart Fill<br><span style="font-size: 12px; color:#eee;">Anthropic: claude-sonnet-4.5</span>',
         items: [{
             xtype: 'form-grid-panel'
         }]

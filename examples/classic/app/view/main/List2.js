@@ -1,9 +1,9 @@
 /**
  * This view is an example list of people.
  */
-Ext.define('AppAiC.view.main.List', {
+Ext.define('AppAiC.view.main.List2', {
     extend: 'Ext.grid.Panel',
-    xtype: 'mainlist',
+    xtype: 'mainlist2',
 
     requires: [
         'AppAiC.store.BankingDataStore'
@@ -16,8 +16,8 @@ Ext.define('AppAiC.view.main.List', {
     },
 
     plugins: {
-        gridfilters: true
-        // gridfilterbar:true
+        // gridfilters: true
+        gridfilterbar:true
     },
 
 
@@ -36,6 +36,22 @@ Ext.define('AppAiC.view.main.List', {
             llmConfig: {
                 provider: 'anthropic',
                 model: 'claude-sonnet-4-20250514',
+            }
+        }, 
+        {
+            xtype: 'button',
+            iconCls: 'x-fa fa-plus',
+            handler: function (btn) {
+                let grid=btn.up('mainlist2');
+                let store = grid.store;
+
+                store.addFilter({
+                    property: 'interest_rate',
+                    type: 'list', // fix filter type change from LLM
+                    operator: '>',
+                    value: 7,
+                    options: [] // will fix an issue with options on a list filter
+                });
             }
         }
 

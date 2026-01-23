@@ -15,7 +15,8 @@ Ext.define('AppAiC.view.main.Main', {
 
         'AppAiC.view.main.MainController',
         'AppAiC.view.main.MainModel',
-        'AppAiC.view.main.List'
+        'AppAiC.view.main.List',
+        'AppAiC.view.main.List2'
     ],
 
     controller: 'main',
@@ -75,29 +76,18 @@ Ext.define('AppAiC.view.main.Main', {
     },
 
     items: [{
-        title: 'Home',
-        iconCls: 'fa-home',
+        title: 'Claude Example',
+        iconCls: 'fa-wine-bottle',
         // The following grid shares a store with the classic version's grid as well!
         items: [{
             xtype: 'mainlist'
         }]
     }, {
-        title: 'Users',
-        iconCls: 'fa-user',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }, {
-        title: 'Groups',
-        iconCls: 'fa-users',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }, {
-        title: 'Settings',
-        iconCls: 'fa-cog',
-        bind: {
-            html: '{loremIpsum}'
-        }
+        title: 'Claude Example',
+        iconCls: 'fa-umbrella-beach',
+        // The following grid shares a store with the classic version's grid as well!
+        items: [{
+            xtype: 'mainlist2'
+        }]
     }]
 });
