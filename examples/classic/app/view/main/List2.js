@@ -20,8 +20,6 @@ Ext.define('AppAiC.view.main.List2', {
         gridfilterbar:true
     },
 
-
-
     features: [{
         ftype: 'grouping',
         startCollapsed: true, 

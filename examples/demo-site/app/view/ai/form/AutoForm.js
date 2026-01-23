@@ -72,7 +72,7 @@ Ext.define('AppAi.view.ai.form.AutoForm', {
             llmConfig: {
                 // provider: 'chatgpt',
                 // model: 'gpt-4o-mini'
-                provider: 'claude',
+                provider: 'anthropic',
                 model: 'claude-sonnet-4-20250514',
                 rules: [
                     "product edition or license should be turned into product_license",

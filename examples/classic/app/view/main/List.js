@@ -35,7 +35,7 @@ Ext.define('AppAiC.view.main.List', {
             serverUrl: 'http://localhost:3001',
             llmConfig: {
                 provider: 'anthropic',
-                model: 'claude-sonnet-4-20250514',
+                model: 'claude-sonnet-4-20250514'
             }
         }
 
