@@ -36,33 +36,6 @@ Ext.define('AppAiM.view.main.List', {
                 callback: function (view, response, prompt, fields) {
                     Ext.Msg.Alert('Worked', 'It Worked!');
                 }
-            }, {
-                xtype: 'button',
-                iconCls: 'x-fa fa-wrench',
-                text: 'do it!',
-                handler: function (btn) {
-                    let grid = btn.up('mainlist');
-                    let store = grid.store;
-                    debugger;
-
-                    store.setGrouper({
-                        property: 'name',     // <-- your field
-                        direction: 'ASC'
-                        // groupFn: rec => rec.get('status') // optional if you need custom grouping
-                    });
-
-                    if (grid.setGrouped) {
-                        grid.setGrouped(true);
-                    } else {
-                        grid.grouped = true; 
-                    }
-
-/*
-                    store.addFilter({
-                        property: 'name',
-                        value: 'worf'
-                    });*/
-                }
             }
 
         ]

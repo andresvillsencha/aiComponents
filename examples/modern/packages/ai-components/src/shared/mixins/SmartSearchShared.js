@@ -38,12 +38,12 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 search: {
                     hidden: false,
                     text: '',
-                    iconCls: 'fa fa-search',
+                    iconCls: 'x-fa fa-search',
                 },
                 reset: {
                     hidden: true,
                     text: '',
-                    iconCls: 'fa fa-ban',
+                    iconCls: 'x-fa fa-ban',
                     message: 'Reset grid filters'
                 }
             },
@@ -120,7 +120,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
              */
             _setupButton: function (type, buttonId) {
                 let me=this;
-                let button = me._getItems().find(function(item) { return item.itemId===buttonId; });
+                let button = me._getItems().find(function(item) { return (item.itemId===buttonId || (item.getItemId && item.getItemId()===buttonId)); });
                 let userActionConfig = (
                         typeof me.config.buttons[type]==='object'  
                         ? Ext.clone(me.config.buttons[type])            // Gets object
@@ -134,7 +134,14 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
 
                 if (button!==undefined) {
                     Ext.apply(actionConfig,userActionConfig);
-                    Ext.apply(button,actionConfig);
+                    if (Ext.isClassic) {
+                        Ext.apply(button,actionConfig);
+                    } else {
+                        button.setHidden(actionConfig.hidden);
+                        button.setText(actionConfig.text);
+                        button.setIconCls(actionConfig.iconCls);
+                        button.message=actionConfig.message;
+                    }
                     button.smartSearch=me;
                 }
                 
@@ -446,7 +453,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
              */
             _processResponse: function (linkedGrid,result) {
                 let me=this;
-                let plugin = me._getPlugin(linkedGrid); // Get filter plugin
+                let plugin = me._getPluginType(linkedGrid); // Get filter plugin
                 let gridStore = (me.config.store!==null) ? me.config.store : (linkedGrid.store ? linkedGrid.store : null); // get grid store
                 let features = me.config.features;
                 // STEP 0. If action is set
@@ -461,10 +468,11 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
 
                 // STEP 2. Apply new Filters
                     if (features.filtering && (result.filters && Array.isArray(result.filters))) {
-                        if (plugin!==undefined && plugin!==null) {
+                        if (plugin.active) {
                             // Apply filters
+                            debugger;
                                 if (plugin.type==='gridfilters') {
-                                    plugin=me._applyFiltersGF(plugin,result.filters);
+                                    plugin.plugin=me._applyFiltersGF(plugin.plugin,result.filters);
                                 } else if (plugin.type==='gridfilterbar') {
                                     me._applyFiltersFB(linkedGrid,result.filters);
                                 }
@@ -568,6 +576,31 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 return value;
             },
 
+            
+            /**
+             * Turns the operator coming from middleware into a standard operator.
+             * null if not valid
+             * @param {*} op 
+             * @returns 
+             */
+            _getOperator: function (op) {
+                switch (op) {
+                    case '>': case 'gt':
+                        return '>';
+                    case '>=': case 'gte':
+                        return '>=';
+                    case '<': case 'lt':
+                        return '>';
+                    case '<=': case 'lte':
+                        return '>=';
+                    case '=': case 'eq': case 'is':
+                        return '=';
+                    case '<>': case 'neq': case '!=':
+                        return '!=';
+                }
+                return null;
+            },
+
 
 
             /****
@@ -662,14 +695,32 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                                                     filter.value=me._sanitizeDate(filter.value);
                                                 }
 
+                                                debugger;
                                                 if (Ext.isClassic) {
-                                                    store.addFilter({
-                                                        dataIndex: filter.property,
-                                                        type: filterCfg.type || filter.type, // fix filter type change from LLM
-                                                        operator: filter.operator,
-                                                        value: filter.value,
-                                                        options: filterCfg.options || [] // will fix an issue with options on a list filter
-                                                    });
+                                                    if (typeof filter.value==='object') {
+                                                        for (let key in filter.value) {
+                                                            let val = filter.value[key];
+                                                            let op = me._getOperator(key);
+                                                            
+                                                            if (op!==null) {
+                                                                store.addFilter({
+                                                                    property: filter.property,
+                                                                    type: filterCfg.type || filter.type, // fix filter type change from LLM
+                                                                    operator: op,
+                                                                    value: val
+                                                                });
+                                                            }
+                                                        }
+
+                                                    } else {
+                                                        store.addFilter({
+                                                            property: filter.property,
+                                                            type: filterCfg.type || filter.type, // fix filter type change from LLM
+                                                            operator: filter.operator,
+                                                            value: filter.value,
+                                                            options: filterCfg.options || [] // will fix an issue with options on a list filter
+                                                        });
+                                                    }
                                                 } else {
                                                     store.addFilter({
                                                         property: filter.property,
