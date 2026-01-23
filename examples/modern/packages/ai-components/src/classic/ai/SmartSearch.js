@@ -3,6 +3,7 @@ Ext.define('Ext.ai.SmartSearch', {
     xtype: 'ai-smartsearch',
 
     mixins: [
+        "Ext.ai.mixins.AiConn",
         'Ext.ai.mixins.SmartSearchShared'
     ],
 
@@ -35,7 +36,7 @@ Ext.define('Ext.ai.SmartSearch', {
             iconCls: 'fa fa-ban',
             handler: function (obj, e) { // clears filters
                 Ext.MessageBox.confirm(obj.text || 'Reset Grid', obj.message || '', function (btn) {
-                    if (btn==='yes') obj.up()._resetGrid();
+                    if (btn==='yes') obj.up().searchBar._resetGrid();
                 });
             }
 

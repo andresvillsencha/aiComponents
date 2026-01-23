@@ -28,10 +28,6 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 loadingMessage: 'Connecting to AI',
                 callback: null,       
         },
-        
-        /* Grid Options */
-            clearFilters: true,
-            // filterType: 'gridfilters',
         /* Text field Options */
             placeholder: 'type your prompt',
             value: null,
@@ -53,10 +49,12 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
             },
             features: {
                 filtering: true,
+                clearFilters: true, // If true, will clear filters before adding new ones
                 sorting: true,
                 grouping: true,
                 paging: true,
-                columns: true
+                columns: true,
+                allowClear: true
             }
     }, 
 
@@ -110,10 +108,6 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 let me=this;
                 let features = Ext.apply(me.defaultConfig.features,me.config.features);
                 let grid = me._getGrid();
-                // Let's check if filtering is active
-                    features.filtering = (features.filtering && me._getPlugin(grid)!==null); // if filtering is selected, but no filters are available, change to false
-                    features.grouping = (features.grouping && me._getGrouping(grid)); // if grouping is selected, but no groups are available, change to false
-                    // features.paging = (features.paging && me._getPaging(grid)); // Paging is checked during call
 
                 me.config.features=features;
             },
@@ -226,38 +220,33 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                     // Let's connect
                         if (me.config.debug) { console.log('%cPrompt Object: ','color:#993;'); console.log(promptObj); };
 
-                        Ext.Ajax.request({
-                            url: me.config.serverUrl+me.config.endpoint,
-                            method: 'POST',
-                            jsonData: { 
-                                query: promptObj
-                            },
-                            success: function (response) {
+                        me._connectToMiddleWare({
+                            promptObj: promptObj,
+                            serverUrl: me.config.serverUrl + me.config.endpoint,
+                            success: function (result, fullResponse) {
                                 linkedGrid.unmask();
+
                                 try {
-                                    let result = Ext.decode(response.responseText);
                                     if (me.config.debug) { console.log('%cAi Response:','color:#993;'); console.log(result) };
                                     if (result.error===undefined || result.error===null) {
-                                        // if the result is correct
-                                            me._processResponse(linkedGrid,result);
+                                        me._processResponse(linkedGrid,result);
                                     } else {
-                                        // If could not process, or result is incorrect:
-                                            if (me.config.debug) console.log('Could not process prompt: '+result.error);
-                                            if (me.config.showError) {
-                                                Ext.toast('Response: '+result.error, 'Could not process prompt');
-                                            }
+                                        if (me.config.debug) console.log('Could not process prompt: '+result.error);
+                                        if (me.config.showError) {
+                                            Ext.toast('Response: '+result.error, 'Could not process prompt');
+                                        }
                                     }
 
-                                    // Save result inside the component, this will be helpfull if the user wants to show the response in a window
-                                        me.aiResponse = result;
+                                    me.aiResponse = result; // Save result inside the component, this will be helpfull if the user wants to show the response in a window
 
                                     // Call Callback method if set, return the result, the original prompt, and the recovered fields
                                         if (me.config.callback!==null) me.config.callback(linkedGrid, result, promptObj.prompt, promptObj.fields);
                                 } catch (err) {
                                     if (me.config.debug) console.error('Error decoding response.');
                                 }
-                            },
-                            failure: function () {
+                                
+                            }, 
+                            failure: function (response) {
                                 linkedGrid.unmask();
                                 if (me.config.debug) console.error('Unsuccessfull connection.');
                                 if (me.config.showError) {
@@ -276,23 +265,68 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
              */
             _resetGrid: function () {
                 let me=this;
-                let grid = _getGrid();
+                let grid = me._getGrid();
 
-                let filters = me._getPlugin(grid);
+                let filtersPlugin = me._getPluginType(grid);
                 let store = grid.getStore();
 
-                if (filters) filters.clearFilters();
+                if (filtersPlugin.active) {
+                    if (filtersPlugin.type==='gridfilters' && me.config.clearFilters) {
+                        filters.clearFilters();
+                    } else if (filtersPlugin.type==='gridfilterbar' && store.clearFilter) {
+                        store.clearFilter(true);
+                    }
+                }
                 if (store) {
                     store.setPageSize(store.getInitialConfig('pageSize'));
                     store.clearGrouping();
                     store.sorters.clear();
                 }
                 // show all columns
+                    if (Ext.isClassic) {
+                        Ext.Array.forEach(grid.getColumnManager().getColumns(), function(col) {
+                            col.setHidden(false);
+                        });
+                    } else if (Ext.isModern){
+                        Ext.Array.forEach(grid.getColumns(), function (col) {
+                            col.setHidden(false);
+                        });
+                    }
+
+                store.load();
+            },
+
+            /**
+             * Clears features in the array
+             * @param {*} features 
+             */
+            _clearFeatures: function (features, reload) {
+                let me=this;
+                let grid = me._getGrid();
+                let loadStore = !!reload;
+
+                let filters = me._getPlugin(grid);
+                let store = grid.getStore();
+
+                if (features.indexOf('filters')>=0 && filters) {
+                    if (filters.clearFilters) {
+                        filters.clearFilters();
+                    } else if (store.clearFilter) {
+                        store.clearFilter(true);
+                    }
+                }
+                if (store) {
+                    if (features.indexOf('sorters')>=0) store.sorters.clear();
+                    if (features.indexOf('grouping')>=0) store.clearGrouping();
+                    if (features.indexOf('paging')>=0) store.setPageSize(store.getInitialConfig('pageSize'));
+                }
+                if (features.indexOf('columns')>=0) {
                     Ext.Array.forEach(grid.getColumnManager().getColumns(), function(col) {
                         col.setHidden(false);
                     });
-
-                store.load();
+                }
+                if (load) store.load();
+                
             },
 
     /*****************************
@@ -342,15 +376,28 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 let me=this;
                 let columns = linkedGrid.getColumns();
                 let fields = [];
+                let filterType = me._getPluginType(linkedGrid);
                 me.listOptions={};
 
                 // Loop through the columns
                 Ext.Array.each(columns, function (col) {
                     // Filters are obtained in a different way in classic and modern toolkits
-                    let filter =  
-                        (Ext.isClassic) 
-                            ? ((col.filter!==undefined && col.filter!==null) ? col.filter : false)
-                            : ((col.getFilter()!==undefined && col.getFilter()!==null) ? col.getFilter() : false);
+                    let filter = null;
+                    
+                    switch (filterType.type) {
+                        case 'gridfilters': 
+                            filter =  
+                                (Ext.isClassic) 
+                                    ? ((col.filter!==undefined && col.filter!==null) ? col.filter : false)
+                                    : ((col.getFilter()!==undefined && col.getFilter()!==null) ? col.getFilter() : false);
+                            break;
+                        case 'gridfilterbar': 
+                            filter =  
+                                (Ext.isClassic) 
+                                    ? ((col.filterType!==undefined && col.filterType!==null) ? col.filterType : false)
+                                    : ((col.getFilterType()!==undefined && col.getFilterType()!==null) ? col.getFilterType() : false);
+                            break;
+                    }
 
                     let field = {
                         name: (Ext.isClassic) ? col.dataIndex : col.getDataIndex(),
@@ -375,6 +422,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 return fields;
             },
 
+            
     /**********************************
      *      RESPONSE PROCESSING
      **********************************/
@@ -401,6 +449,10 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 let plugin = me._getPlugin(linkedGrid); // Get filter plugin
                 let gridStore = (me.config.store!==null) ? me.config.store : (linkedGrid.store ? linkedGrid.store : null); // get grid store
                 let features = me.config.features;
+                // STEP 0. If action is set
+                    if (features.allowClear && result.clear!==undefined && Array.isArray(result.clear) && result.clear.length>0) {
+                        me._clearFeatures(result.clear);
+                    }
 
                 // STEP 1. Apply new sorters
                     if (features.sorting && (result.sorters && gridStore!==null && Array.isArray(result.sorters) && result.sorters.length>0)) {
@@ -411,29 +463,67 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                     if (features.filtering && (result.filters && Array.isArray(result.filters))) {
                         if (plugin!==undefined && plugin!==null) {
                             // Apply filters
-                                plugin=me._applyFilters(plugin,result.filters,linkedGrid);
+                                if (plugin.type==='gridfilters') {
+                                    plugin=me._applyFiltersGF(plugin,result.filters);
+                                } else if (plugin.type==='gridfilterbar') {
+                                    me._applyFiltersFB(linkedGrid,result.filters);
+                                }
+                                
                         } else {
                             if (me.config.debug) console.error('Must have active filters in the grid for the NL search to work.');
                         }
                     }
 
                 // STEP 3. Apply new grouping
-                    if (features.grouping) {
+                    if (features.grouping && result.grouping) {
                         me._grouping(linkedGrid,gridStore,result.grouping);
                     } else if (features.grouping===false) {
                         me._groupClear(linkedGrid,gridStore);
                     }
 
                 // STEP 4. Column visibility, only if parameters are correct and if the column exists
-                    if (features.columns && (typeof result.columns === 'object')) {
+                    if (features.columns && (typeof result.columns === 'object') && result.columns) {
                         me._columnVisibility(linkedGrid,result.columns);
                     }
 
                 // STEP 5. Apply page change
-                    if (features.paging) {
+                    if (features.paging && me._getPaging(linkedGrid) && result.paging) {
                         me._setPaging(linkedGrid,gridStore,result.paging);
                     }
                     
+            },
+
+            /**
+             * Finds the filter plugin
+             * @param {*} linkedGrid 
+             * @returns 
+             */
+            _getPluginType: function (linkedGrid) {
+                let me=this;
+                let plugin = {
+                    plugin: null,
+                    type: '',
+                    parameter: '',
+                    active: false
+                };
+
+                if (linkedGrid.getPlugin('gridfilters')) {
+                    plugin = {
+                        plugin: linkedGrid.getPlugin('gridfilters'),
+                        type: 'gridfilters',
+                        parameter: 'filter',
+                        active: true
+                    };
+                } else if (linkedGrid.getPlugin('gridfilterbar')) {
+                    plugin = {
+                        plugin: linkedGrid.getPlugin('gridfilterbar'),
+                        type: 'gridfilterbar',
+                        parameter: 'filtertype',
+                        active: true
+                    };
+                } 
+
+                return plugin;
             },
 
             /**
@@ -445,6 +535,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
              * @returns object plugin
              */
             _getPlugin: function (linkedGrid) {
+                let me=this;
                 let plugin = null;
 
                 // Gets grid filters plugin
@@ -456,7 +547,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 // if not found, then do nothing with filters
                     if (!plugin) {
                         plugin=null;
-                        if (me.config.debug) console.log('%cThe AI search bar requires either the gridfilters or the gridfilterbar plugin','color: #933;');
+                        if (me.config.debug) console.log('%cThe Smart Search Component requires either the gridfilters or the gridfilterbar plugin to work correctly','color: #933;');
                     }
 
                 return plugin;
@@ -492,12 +583,12 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                              * @param {*} plugin 
                              * @param {*} filters 
                              */
-                            _applyFilters: function (plugin,filters) {
+                            _applyFiltersGF: function (plugin,filters) {
                                 let me=this;
                                 let filterArray=[];
 
                                 // In classic, plugin requires to clear the existing filters
-                                if (me.config.clearFilters && Ext.isClassic) {
+                                if (Ext.isClassic) {
                                     plugin.clearFilters();
                                 }
                                 
@@ -543,6 +634,54 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                                         }
                                     }
                                 return plugin;
+                            },
+
+                            /**
+                             * Filters on Filterbar grid
+                             * @param {*} linkedGrid 
+                             * @param {*} filters 
+                             * @returns 
+                             */
+                            _applyFiltersFB: function (linkedGrid,filters) {
+                                let me=this;
+                                let store=linkedGrid.store;
+
+                                // In classic, plugin requires to clear the existing filters
+                                store.clearFilter(true);
+                                
+                                Ext.Array.forEach(filters, function (filter) {
+                                    // We will get the column data. This will be used for several things:
+                                    // 1. If filter is of type list, we will need to get the options to avoid an issue where the options are modified
+                                    // 2. Sometimes, the LLM model might change the filter type. We need the real filter type, and not the one that comes from the LLM
+                                        let filterCfg = me.listOptions[filter.property];
+
+                                        if (filterCfg!==undefined) {
+                                            // Dates coming from the response have not been correctly formatted, 
+                                            // the following statement fixes it to make it work correctly
+                                                if (filterCfg.type==="date") {
+                                                    filter.value=me._sanitizeDate(filter.value);
+                                                }
+
+                                                if (Ext.isClassic) {
+                                                    store.addFilter({
+                                                        dataIndex: filter.property,
+                                                        type: filterCfg.type || filter.type, // fix filter type change from LLM
+                                                        operator: filter.operator,
+                                                        value: filter.value,
+                                                        options: filterCfg.options || [] // will fix an issue with options on a list filter
+                                                    });
+                                                } else {
+                                                    store.addFilter({
+                                                        property: filter.property,
+                                                        value: filter.value,
+                                                        operator: filter.operator
+                                                    });
+                                                }
+                                        } else {
+                                            if (me.config.debug) console.log('%cFilter '+filter.property+" not found","color:#933;");
+                                        }
+                                    });
+                                    store.load();
                             },
 
                     /************
@@ -659,12 +798,12 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                              * @param {*} store 
                              * @param {*} paging 
                              */
-                            _setPaging: function (linkedGrid,store, paging) {
+                            _setPaging: function (linkedGrid, store, paging) {
                                 let me=this;
                                 if (paging!==null && paging!==undefined) {
                                     let pagingtb = linkedGrid.down('pagingtoolbar');
 
-                                    if (me._getPaging()) {
+                                    if (me._getPaging(linkedGrid)) {
                                         // Paging
                                             if (paging.page) me._changePage(store,paging.page);
                                         // Page Size

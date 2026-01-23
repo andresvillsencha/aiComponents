@@ -267,19 +267,31 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 let me=this;
                 let grid = me._getGrid();
 
-                let filters = me._getPlugin(grid);
+                let filtersPlugin = me._getPluginType(grid);
                 let store = grid.getStore();
 
-                if (filters && me.config.clearFilters) filters.clearFilters();
+                if (filtersPlugin.active) {
+                    if (filtersPlugin.type==='gridfilters' && me.config.clearFilters) {
+                        filters.clearFilters();
+                    } else if (filtersPlugin.type==='gridfilterbar' && store.clearFilter) {
+                        store.clearFilter(true);
+                    }
+                }
                 if (store) {
                     store.setPageSize(store.getInitialConfig('pageSize'));
                     store.clearGrouping();
                     store.sorters.clear();
                 }
                 // show all columns
-                    Ext.Array.forEach(grid.getColumnManager().getColumns(), function(col) {
-                        col.setHidden(false);
-                    });
+                    if (Ext.isClassic) {
+                        Ext.Array.forEach(grid.getColumnManager().getColumns(), function(col) {
+                            col.setHidden(false);
+                        });
+                    } else if (Ext.isModern){
+                        Ext.Array.forEach(grid.getColumns(), function (col) {
+                            col.setHidden(false);
+                        });
+                    }
 
                 store.load();
             },
@@ -296,7 +308,13 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 let filters = me._getPlugin(grid);
                 let store = grid.getStore();
 
-                if (features.indexOf('filters')>=0 && filters) filters.clearFilters();
+                if (features.indexOf('filters')>=0 && filters) {
+                    if (filters.clearFilters) {
+                        filters.clearFilters();
+                    } else if (store.clearFilter) {
+                        store.clearFilter(true);
+                    }
+                }
                 if (store) {
                     if (features.indexOf('sorters')>=0) store.sorters.clear();
                     if (features.indexOf('grouping')>=0) store.clearGrouping();
@@ -358,15 +376,28 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 let me=this;
                 let columns = linkedGrid.getColumns();
                 let fields = [];
+                let filterType = me._getPluginType(linkedGrid);
                 me.listOptions={};
 
                 // Loop through the columns
                 Ext.Array.each(columns, function (col) {
                     // Filters are obtained in a different way in classic and modern toolkits
-                    let filter =  
-                        (Ext.isClassic) 
-                            ? ((col.filter!==undefined && col.filter!==null) ? col.filter : false)
-                            : ((col.getFilter()!==undefined && col.getFilter()!==null) ? col.getFilter() : false);
+                    let filter = null;
+                    
+                    switch (filterType.type) {
+                        case 'gridfilters': 
+                            filter =  
+                                (Ext.isClassic) 
+                                    ? ((col.filter!==undefined && col.filter!==null) ? col.filter : false)
+                                    : ((col.getFilter()!==undefined && col.getFilter()!==null) ? col.getFilter() : false);
+                            break;
+                        case 'gridfilterbar': 
+                            filter =  
+                                (Ext.isClassic) 
+                                    ? ((col.filterType!==undefined && col.filterType!==null) ? col.filterType : false)
+                                    : ((col.getFilterType()!==undefined && col.getFilterType()!==null) ? col.getFilterType() : false);
+                            break;
+                    }
 
                     let field = {
                         name: (Ext.isClassic) ? col.dataIndex : col.getDataIndex(),
@@ -391,6 +422,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 return fields;
             },
 
+            
     /**********************************
      *      RESPONSE PROCESSING
      **********************************/
@@ -417,7 +449,6 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 let plugin = me._getPlugin(linkedGrid); // Get filter plugin
                 let gridStore = (me.config.store!==null) ? me.config.store : (linkedGrid.store ? linkedGrid.store : null); // get grid store
                 let features = me.config.features;
-
                 // STEP 0. If action is set
                     if (features.allowClear && result.clear!==undefined && Array.isArray(result.clear) && result.clear.length>0) {
                         me._clearFeatures(result.clear);
@@ -432,7 +463,12 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                     if (features.filtering && (result.filters && Array.isArray(result.filters))) {
                         if (plugin!==undefined && plugin!==null) {
                             // Apply filters
-                                plugin=me._applyFilters(plugin,result.filters,linkedGrid);
+                                if (plugin.type==='gridfilters') {
+                                    plugin=me._applyFiltersGF(plugin,result.filters);
+                                } else if (plugin.type==='gridfilterbar') {
+                                    me._applyFiltersFB(linkedGrid,result.filters);
+                                }
+                                
                         } else {
                             if (me.config.debug) console.error('Must have active filters in the grid for the NL search to work.');
                         }
@@ -458,6 +494,39 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
             },
 
             /**
+             * Finds the filter plugin
+             * @param {*} linkedGrid 
+             * @returns 
+             */
+            _getPluginType: function (linkedGrid) {
+                let me=this;
+                let plugin = {
+                    plugin: null,
+                    type: '',
+                    parameter: '',
+                    active: false
+                };
+
+                if (linkedGrid.getPlugin('gridfilters')) {
+                    plugin = {
+                        plugin: linkedGrid.getPlugin('gridfilters'),
+                        type: 'gridfilters',
+                        parameter: 'filter',
+                        active: true
+                    };
+                } else if (linkedGrid.getPlugin('gridfilterbar')) {
+                    plugin = {
+                        plugin: linkedGrid.getPlugin('gridfilterbar'),
+                        type: 'gridfilterbar',
+                        parameter: 'filtertype',
+                        active: true
+                    };
+                } 
+
+                return plugin;
+            },
+
+            /**
              * Recovers the active filter plugin. This searchbar only works if either the 
              * - gridfilters
              * - gridfilterbar
@@ -466,6 +535,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
              * @returns object plugin
              */
             _getPlugin: function (linkedGrid) {
+                let me=this;
                 let plugin = null;
 
                 // Gets grid filters plugin
@@ -477,7 +547,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 // if not found, then do nothing with filters
                     if (!plugin) {
                         plugin=null;
-                        if (me.config.debug) console.log('%cThe AI search bar requires either the gridfilters or the gridfilterbar plugin','color: #933;');
+                        if (me.config.debug) console.log('%cThe Smart Search Component requires either the gridfilters or the gridfilterbar plugin to work correctly','color: #933;');
                     }
 
                 return plugin;
@@ -513,7 +583,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                              * @param {*} plugin 
                              * @param {*} filters 
                              */
-                            _applyFilters: function (plugin,filters) {
+                            _applyFiltersGF: function (plugin,filters) {
                                 let me=this;
                                 let filterArray=[];
 
@@ -564,6 +634,54 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                                         }
                                     }
                                 return plugin;
+                            },
+
+                            /**
+                             * Filters on Filterbar grid
+                             * @param {*} linkedGrid 
+                             * @param {*} filters 
+                             * @returns 
+                             */
+                            _applyFiltersFB: function (linkedGrid,filters) {
+                                let me=this;
+                                let store=linkedGrid.store;
+
+                                // In classic, plugin requires to clear the existing filters
+                                store.clearFilter(true);
+                                
+                                Ext.Array.forEach(filters, function (filter) {
+                                    // We will get the column data. This will be used for several things:
+                                    // 1. If filter is of type list, we will need to get the options to avoid an issue where the options are modified
+                                    // 2. Sometimes, the LLM model might change the filter type. We need the real filter type, and not the one that comes from the LLM
+                                        let filterCfg = me.listOptions[filter.property];
+
+                                        if (filterCfg!==undefined) {
+                                            // Dates coming from the response have not been correctly formatted, 
+                                            // the following statement fixes it to make it work correctly
+                                                if (filterCfg.type==="date") {
+                                                    filter.value=me._sanitizeDate(filter.value);
+                                                }
+
+                                                if (Ext.isClassic) {
+                                                    store.addFilter({
+                                                        dataIndex: filter.property,
+                                                        type: filterCfg.type || filter.type, // fix filter type change from LLM
+                                                        operator: filter.operator,
+                                                        value: filter.value,
+                                                        options: filterCfg.options || [] // will fix an issue with options on a list filter
+                                                    });
+                                                } else {
+                                                    store.addFilter({
+                                                        property: filter.property,
+                                                        value: filter.value,
+                                                        operator: filter.operator
+                                                    });
+                                                }
+                                        } else {
+                                            if (me.config.debug) console.log('%cFilter '+filter.property+" not found","color:#933;");
+                                        }
+                                    });
+                                    store.load();
                             },
 
                     /************
