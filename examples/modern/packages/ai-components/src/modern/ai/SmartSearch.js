@@ -3,6 +3,7 @@ Ext.define('Ext.ai.SmartSearch', {
     xtype: 'ai-smartsearch',
 
     mixins: [
+        "Ext.ai.mixins.AiConn",
         'Ext.ai.mixins.SmartSearchShared'
     ],
 
@@ -25,16 +26,16 @@ Ext.define('Ext.ai.SmartSearch', {
         }, {
             xtype: 'button',
             itemId: 'searchButton',
-            iconCls: 'fa fa-search',
+            iconCls: 'x-fa fa-search',
             handler: function (obj, e) { // performs search
                 obj.up('ai-smartsearch')._performSearch(obj.up('ai-smartsearch'),obj.prev().getValue());
             }
         }, {
             xtype: 'button',
             itemId: 'resetButton',
-            iconCls: 'fa fa-ban',
+            iconCls: 'x-fa fa-ban',
             handler: function (obj, e) { // clears filters
-                Ext.MessageBox.confirm(obj.text || 'Reset Grid', obj.message || '', function (btn) {
+                Ext.Msg.confirm(obj.text || 'Reset Grid', obj.message || '', function (btn) {
                     if (btn==='yes') obj.up('ai-smartsearch')._resetGrid();
                 });
             }

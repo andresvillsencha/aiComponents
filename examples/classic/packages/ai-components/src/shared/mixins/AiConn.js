@@ -28,7 +28,6 @@ Ext.define('Ext.ai.mixins.AiConn', {
 
         if (connectionObj.promptObj && typeof connectionObj.serverUrl) {
             // Connect to middleware, send data
-            debugger;
                 Ext.Ajax.request({
                     url: connectionObj.serverUrl,
                     method: 'POST',

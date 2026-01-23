@@ -20,7 +20,7 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
             examples: [],     
             /* backend middleware connection */
                 serverUrl: 'http://www.sencha.com',
-                endpoint: '/api/ai-smart-fill',
+                endpoint: '/api/endpoint',
                 callback: null,
         },
     }, 
@@ -75,7 +75,7 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
 
         // Let's get the initialConfig
             let promptObj = {
-                name: me.config.name || me.name || Ext.id(),
+                name: me.config.name,
                 llmConfig: {
                     provider:  me.config.llmConfig.provider || me.initialConfig.llmConfig.provider,
                     model:  me.config.llmConfig.model || me.initialConfig.llmConfig.model,
@@ -97,7 +97,7 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
      */
     _getForm: function () {
         let me=this;
-        return me.config.form || me.up('form') || me.up('formpanel') || null;
+        return me.config.form || me.up('form') || null;
     },
 
     /**
@@ -107,22 +107,18 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
     _getFormFields: function () {
         let me=this;
         let form = me._getForm(); 
-        let fields = (form!==undefined && form!==null) ? 
-            (Ext.isClassic ? form.getForm().getFields() : form.getFields()) : 
-            [];
+        let fields = (form!==undefined && form!==null) ? form.getForm().getFields() : [];
         let fieldsForAI = [];
-
-        for (let key in fields) {
-            let field=fields[key];
+        
+        fields.each(function (field) {
             if (me!==field) {
                 fieldsForAI.push({
                     name: field.getName(),
                     type: 'string',
-                    description: Ext.classic ? field.getFieldLabel() : field.getLabel()
+                    description: field.getFieldLabel()
                 });
             }
-        }
-
+        });
         return fieldsForAI;
     },
 

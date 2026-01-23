@@ -29,7 +29,6 @@ Steps to install:
          - sencha app refresh
          - sencha app build [development|testing|production]
       - Add the component just like a basic textfield component inside your project. Example:
-
          {
             xtype: 'ai-smartsearch',
             itemId: 'ai-search',
@@ -53,6 +52,9 @@ Steps to install:
             // TODO: add your code if you need to use the middleware response for something else
             }
          }
+   #### 2.1.1 IMPORTANT
+         It is required to have the gridfilters or gridfilterbar plugin active for the filters to work.
+         It is also required to specify a type or filterType on every column that will be analyzed by the AI model.
    ### 2.2 BACK END / AI Middleware
       - Download the ai-server files (unzip if necessary)
       - Create the .env based on .env.dev file with the following parameters:
