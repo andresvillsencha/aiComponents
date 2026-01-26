@@ -9,6 +9,9 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
         autorun: true,
         debug: false,
         loadingMessage: 'Connecting to AI',
+
+        serverUrl: 'http://www.sencha.com',
+        endpoint: '/api/ai-smart-fill',
         
         llmConfig: {
             provider: 'chatgpt',
@@ -18,10 +21,8 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
             },
             rules: [],  // New rules can be added to the prompt, best practice would be to add it to the system prompt in the backend directly
             examples: [],     
-            /* backend middleware connection */
-                serverUrl: 'http://www.sencha.com',
-                endpoint: '/api/endpoint',
-                callback: null,
+            callback: null,
+               
         },
     }, 
 
@@ -34,6 +35,8 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
         let promptObj = me._getPromptObj(form, value);
 
         form.mask(me.config.loadingMessage);
+
+        debugger;
 
         me._connectToMiddleWare({
             promptObj: promptObj,

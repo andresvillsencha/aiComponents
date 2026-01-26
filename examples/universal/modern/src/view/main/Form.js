@@ -1,5 +1,5 @@
-Ext.define('App.view.main.Form', {
-    extend: 'Ext.Container',
+Ext.define('AppAi.view.main.Form', {
+    extend: 'Ext.Panel',
     xtype: 'auto-form',
 
     requires: [
@@ -9,7 +9,6 @@ Ext.define('App.view.main.Form', {
         'Ext.ai.SmartFillField'
     ],
 
-    fullscreen: true,
     layout: 'center',
 
     style: {

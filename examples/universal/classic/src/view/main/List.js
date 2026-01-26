@@ -44,14 +44,7 @@ Ext.define('AppAi.view.main.List', {
         xtype: 'pagingtoolbar',
         displayInfo: true,
         displayMsg: 'Displaying topics {0} - {1} of {2}',
-        emptyMsg: "No topics to display",
-
-        items: ['-', {
-            bind: '{expanded ? "Hide Preview" : "Show Preview"}',
-            pressed: '{expanded}',
-            enableToggle: true,
-            toggleHandler: 'onToggleExpanded'
-        }]
+        emptyMsg: "No topics to display"
     },
 
     columns: [

@@ -4,14 +4,15 @@
  * added to the Viewport container.
  */
 Ext.define('AppAi.view.main.Main', {
-    extend: 'Ext.panel.Panel',
+    extend: 'Ext.Panel',
     xtype: 'app-main',
 
     requires: [
         'Ext.MessageBox',
         'Ext.layout.Fit',
 
-        'App.view.main.Form'
+        'AppAi.view.main.List',
+        'AppAi.view.main.Form'
     ],
 
     controller: 'main',

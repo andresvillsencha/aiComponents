@@ -17,7 +17,7 @@ Ext.define('AppAi.view.main.Main', {
         'AppAi.view.main.MainModel',
         'AppAi.view.main.List',
 
-        'App.view.main.Form'
+        'AppAi.view.main.Form'
     ],
 
     controller: 'main',
@@ -95,6 +95,7 @@ Ext.define('AppAi.view.main.Main', {
     items: [{
         title: 'Grid',
         iconCls: 'fa-table',
+        layout: 'fit',
         // The following grid shares a store with the classic version's grid as well!
         items: [{
             xtype: 'mainlist'

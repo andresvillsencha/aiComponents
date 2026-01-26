@@ -1,4 +1,4 @@
-Ext.define('App.view.main.Form', {
+Ext.define('AppAi.view.main.Form', {
     extend: 'Ext.panel.Panel',
     xtype: 'auto-form',
 
