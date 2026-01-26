@@ -34,25 +34,31 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
 
         let promptObj = me._getPromptObj(form, value);
 
-        form.mask(me.config.loadingMessage);
+        if (promptObj.fields!==null && promptObj.fields.length>0) {
+            form.mask(me.config.loadingMessage);
 
-        me._connectToMiddleWare({
-            promptObj: promptObj,
-            serverUrl: me.config.serverUrl + me.config.endpoint,
-            success: function (response, fullResponse) {
-                form.unmask();
-                if (response && response.success && response.data) {
-                    if (me.debug) console.log ('%cAI Middleware Response received correctly','color:#993;');
-                    me._applyFormFields(response.data);
-                } else {
-                    if (me.debug) console.log('%cCould not process data. Invalid response from middleware server.');
+            me._connectToMiddleWare({
+                promptObj: promptObj,
+                serverUrl: me.config.serverUrl + me.config.endpoint,
+                success: function (response, fullResponse) {
+                    form.unmask();
+                    if (response && response.success && response.data) {
+                        if (me.debug) console.log ('%cAI Middleware Response received correctly','color:#993;');
+                        me._applyFormFields(response.data);
+                    } else {
+                        if (me.debug) console.log('%cCould not process data. Invalid response from middleware server.');
+                    }
+                }, 
+                failure: function (response) {
+                    form.unmask();
+                    if (me.debug) console.log('%cCould not process data. Middleware server did not response.');
                 }
-            }, 
-            failure: function (response) {
-                form.unmask();
-                if (me.debug) console.log('%cCould not process data. Middleware server did not response.');
-            }
-        });
+            });
+        } else {
+            console.log('%cIt is not possible to perform a AI call if there is no linked form, or no fields are found.',"color:#933;");
+        }
+
+        
     },
 
 
@@ -98,7 +104,7 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
      */
     _getForm: function () {
         let me=this;
-        return me.config.form || me.up('form') || null;
+        return me.config.form || me.up('form') || me.up('formpanel') || null;
     },
 
     /**
@@ -108,25 +114,43 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
     _getFormFields: function () {
         let me=this;
         let form = me._getForm(); 
-        let fields = (form!==undefined && form!==null) ? form.getForm().getFields() : [];
+        let fields = [];
         let fieldsForAI = [];
         
-        fields.each(function (field) {
-            if (me!==field) {
-                fieldsForAI.push({
-                    name: field.getName(),
-                    type: 'string',
-                    description: field.getFieldLabel()
-                });
-            }
-        });
+        if (Ext.isClassic) {
+            fields = (form!==undefined && form!==null) ? form.getForm().getFields() : [];
+            fields.each(function (field) {
+                if (me!==field) {
+                    fieldsForAI.push({
+                        name: field.getName(),
+                        type: 'string',
+                        description: field.getFieldLabel()
+                    });
+                }
+            });
+        } else if (Ext.isModern) {
+            fields = (form!==undefined && form!==null) ? form.getFields() : [];
+            if (typeof fields==='object') for (key in fields) {
+                let field = fields[key];
+                if (me!==field) {
+                    fieldsForAI.push({
+                        name: field.getName(),
+                        type: 'string',
+                        description: field.getLabel()
+                    });
+                }
+            };
+        }
+        
+        
         return fieldsForAI;
     },
 
     _applyFormFields: function (fieldData) {
         let me=this;
         let form = me._getForm(); 
-        let fields = (form!==undefined && form!==null) ? form.getForm() : null;
+        
+        let fields = (form!==undefined && form!==null) ? (Ext.isClassic ? form.getForm() : form) : null;
 
         if (fields && fieldData) {
             fields.setValues(fieldData);
