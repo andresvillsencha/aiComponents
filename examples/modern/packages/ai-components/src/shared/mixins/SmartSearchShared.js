@@ -470,7 +470,6 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                     if (features.filtering && (result.filters && Array.isArray(result.filters))) {
                         if (plugin.active) {
                             // Apply filters
-                            debugger;
                                 if (plugin.type==='gridfilters') {
                                     plugin.plugin=me._applyFiltersGF(plugin.plugin,result.filters);
                                 } else if (plugin.type==='gridfilterbar') {
@@ -695,7 +694,6 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                                                     filter.value=me._sanitizeDate(filter.value);
                                                 }
 
-                                                debugger;
                                                 if (Ext.isClassic) {
                                                     if (typeof filter.value==='object') {
                                                         for (let key in filter.value) {
