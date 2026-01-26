@@ -49,20 +49,20 @@ Ext.define('AppAi.view.main.List', {
             dataIndex: 'loan_id',
             width: 110,
             tooltip: 'Unique loan identifier',
-            filterType: { type: 'string' }
+            filter: { type: 'string' }
         },
         {
             text: 'Borrower',
             dataIndex: 'borrower_name',
             flex: 1,
             minWidth: 160,
-            filterType: { type: 'string' }
+            filter: { type: 'string' }
         },
         {
             text: 'Type',
             dataIndex: 'loan_type',
             width: 120,
-            filterType: { 
+            filter: { 
                 type: 'list' ,
                 options: [
                     'Personal',
@@ -80,13 +80,13 @@ Ext.define('AppAi.view.main.List', {
             align: 'right',
             xtype: 'numbercolumn',
             format: '$0,0',
-            filterType: { type: 'number' },
+            filter: { type: 'number' },
         },{
             text: 'Rate',
             dataIndex: 'interest_rate',
             width: 90,
             align: 'right',
-            filterType: { type: 'number' },
+            filter: { type: 'number' },
             renderer: v => Ext.util.Format.number(v, '0.0') + '%'
         },
         {
@@ -96,7 +96,7 @@ Ext.define('AppAi.view.main.List', {
             align: 'right',
             xtype: 'numbercolumn',
             format: '$0,0',
-            filterType: { type: 'number' },
+            filter: { type: 'number' },
         },
         {
             text: 'Next Due',
@@ -104,13 +104,13 @@ Ext.define('AppAi.view.main.List', {
             width: 120,
             xtype: 'datecolumn',
             format: 'Y-m-d',
-            filterType: { type: 'date' }
+            filter: { type: 'date' }
         },
         {
             text: 'Status',
             dataIndex: 'status',
             width: 110,
-            filterType: { 
+            filter: { 
                 type: 'list',
                 options: [
                     'Current',

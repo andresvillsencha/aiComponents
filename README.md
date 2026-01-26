@@ -54,7 +54,7 @@ Steps to install:
          }
    #### 2.1.1 IMPORTANT
          It is required to have the gridfilters or gridfilterbar plugin active for the filters to work.
-         It is also required to specify a type or filterType on every column that will be analyzed by the AI model.
+         It is also required to specify a filter (gridfilters) or filterType (gridfilterbar) on every column that will be analyzed by the AI model.
    ### 2.2 BACK END / AI Middleware
       - Download the ai-server files (unzip if necessary)
       - Create the .env based on .env.dev file with the following parameters:

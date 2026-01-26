@@ -214,7 +214,6 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 // get the text field
                     let textField = fieldcontainer.down('#queryField');
 
-
                 if (!textField.validate()) {
                     // Validate the prompt is not empty
                         if (me.config.debug) console.error('Can\'t send an empty an empty prompt');
