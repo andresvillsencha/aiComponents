@@ -36,8 +36,6 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
 
         form.mask(me.config.loadingMessage);
 
-        debugger;
-
         me._connectToMiddleWare({
             promptObj: promptObj,
             serverUrl: me.config.serverUrl + me.config.endpoint,
