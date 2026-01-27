@@ -67,6 +67,7 @@ Ext.define('AppAi.view.main.Form', {
             serverUrl: 'http://localhost:3001',
             debug: true,
             flex: 1,
+            paste: false,
             llmConfig: {
                 // provider: 'chatgpt',
                 // model: 'gpt-4o-mini'
