@@ -2,8 +2,10 @@
 
 
     const aiProviders = {
+        'openai': '/chatgpt',
         'chatgpt': '/chatgpt',
         'anthropic': '/claude',
+        'claude': '/claude',
         'localllm': '/local',
     };
 

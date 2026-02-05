@@ -9,12 +9,11 @@
  * 
  */
 Ext.define('Ext.ai.SmartFillField', {
-    extend: 'Ext.form.field.Text',
+    extend: 'Ext.form.FieldContainer',
     xtype: 'smart-fill-field',
 
     config: {
         form: null,
-        autorun: true,
     },
 
     mixins: [
@@ -22,16 +21,83 @@ Ext.define('Ext.ai.SmartFillField', {
         "Ext.ai.mixins.SmartFillShared"
     ],
 
+    layout: 'hbox',
+
     formFields: null,
-    enableKeyEvents: true,
-    selectOnFocus: true,
 
     _init: function () {
         let me = this;
 
+        let field=me.getComponent('ai-textfield')
+        let button=me.getComponent('ai-button');
+
+        let placeholderText = (typeof me.placeholder === 'string') ? me.placeholder : ((typeof me.emptyText==='string') ? me.emptyText : '');
+
+        field.setEmptyText(placeholderText);
+
+        if (me.config.button) {
+            button.setHidden(me.config.button.hidden);
+            button.setText(me.config.button.text);
+            button.setIconCls(me.config.button.iconCls);
+        } else {
+            button.setHidden(true);
+        }
+
         me.formFields = me._getFormFields();
 
     },
+
+    items: [{
+        xtype: 'textfield',
+        flex: 1,
+        itemId: 'ai-textfield',
+        ignoreField: true,
+        enableKeyEvents: true,
+        selectOnFocus: true,
+        listeners: {
+            specialkey: function (obj,e) {
+                let container = obj.up('smart-fill-field');
+                let prompt=obj.getValue();
+                if (e.getKey() === e.ENTER) {
+                    e.preventDefault();
+                    if (obj.getValue()!=="") container._commit(obj.getValue());
+                }
+            },
+            paste: function(field, e, eOpts) {
+                let container = field.up('smart-fill-field');
+                // show me how to get the pasted text
+                let be = e.browserEvent || e;
+                let clipboard = be.clipboardData || window.clipboardData;
+                
+                if (container.config.paste===true) {
+                    let pastedText = '';
+                    if (clipboard) {
+                        // Standard
+                        if (clipboard.getData) {
+                            // Some browsers prefer 'text/plain'
+                            pastedText = clipboard.getData('text/plain') || clipboard.getData('Text') || '';
+                        }
+                    }
+
+                    if (pastedText!=='') {
+                        container._commit(pastedText);
+                    }
+                }
+            }
+        }
+    }, {
+        xtype: 'button',
+        itemId: 'ai-button',
+        iconCls: 'x-fa fa-play',
+        text: '',
+        handler: function (btn) {
+            let container = btn.up('smart-fill-field');
+            let obj = container._getItem('ai-textfield')
+            let prompt = obj.getValue();
+            if (prompt!=="") container._commit(prompt);
+        }
+    }],
+
 
     listeners: {
         beforerender: function () {
@@ -39,31 +105,7 @@ Ext.define('Ext.ai.SmartFillField', {
         },
 
     
-        specialkey: function (obj,e) {
-            let prompt=obj.getValue();
-            if (e.getKey() === e.ENTER) {
-                e.preventDefault();
-                if (obj.getValue()!=="") obj._commit(obj.getValue());
-            }
-        },
-        paste: function(field, e, eOpts) {
-            // show me how to get the pasted text
-            let be = e.browserEvent || e;
-            let clipboard = be.clipboardData || window.clipboardData;
-
-            let pastedText = '';
-            if (clipboard) {
-                // Standard
-                if (clipboard.getData) {
-                    // Some browsers prefer 'text/plain'
-                    pastedText = clipboard.getData('text/plain') || clipboard.getData('Text') || '';
-                }
-            }
-
-            if (pastedText!=='') {
-                field._commit(pastedText);
-            }
-        }
+        
     },
 
     

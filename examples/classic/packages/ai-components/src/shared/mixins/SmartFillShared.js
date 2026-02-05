@@ -6,7 +6,15 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
         name: 'SMARTFILL_'+Ext.id(), // Specify name that will be used for caching
         fieldContainer: null,
         form: null,
-        autorun: true,
+
+        button: {
+            hidden: false,
+            text: '',
+            iconCls: 'x-fa fa-play',
+        },
+        paste: true,
+
+
         debug: false,
         loadingMessage: 'Connecting to AI',
 
@@ -16,6 +24,7 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
         llmConfig: {
             provider: 'chatgpt',
             model: 'gpt-4o-mini',
+            temperature: 0,
             systemPrompt: {
                 name: null, // name of the system prompt, if null, it will read the default system prompt, and ignore the build property
             },
@@ -59,6 +68,23 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
         }
 
         
+    },
+
+    /**
+     * Due to differences in classic and modern toolkit, the following method get the two child items
+     * @param {*} pos 
+     * @returns 
+     */
+    _getItems: function () {
+        let me=this;
+        return Ext.isClassic ? me.items : me.getItems().items;
+    },
+    
+    _getItem: function (itemId) {
+        let me=this;
+        let selItem = me._getItems().find(function(item) { return (item.itemId===itemId || (item.getItemId && item.getItemId()===itemId)); });
+        
+        return selItem;
     },
 
 
@@ -114,34 +140,29 @@ Ext.define('Ext.ai.mixins.SmartFillShared', {
     _getFormFields: function () {
         let me=this;
         let form = me._getForm(); 
-        let fields = [];
+        let fields = form.query('[isFormField]') || ((form!==undefined && form!==null) ? form.getFields() : []);;
         let fieldsForAI = [];
-        
-        if (Ext.isClassic) {
-            fields = (form!==undefined && form!==null) ? form.getForm().getFields() : [];
-            fields.each(function (field) {
-                if (me!==field) {
+
+        if (typeof fields==='object') for (key in fields) {
+            let field = fields[key];
+
+            if (me!==field && field.ignoreField!==true) {
+                if (Ext.isClassic) {
                     fieldsForAI.push({
                         name: field.getName(),
                         type: 'string',
                         description: field.getFieldLabel()
                     });
-                }
-            });
-        } else if (Ext.isModern) {
-            fields = (form!==undefined && form!==null) ? form.getFields() : [];
-            if (typeof fields==='object') for (key in fields) {
-                let field = fields[key];
-                if (me!==field) {
+                } else if (Ext.isModern) {
                     fieldsForAI.push({
                         name: field.getName(),
                         type: 'string',
                         description: field.getLabel()
                     });
+
                 }
-            };
-        }
-        
+            }
+        };
         
         return fieldsForAI;
     },

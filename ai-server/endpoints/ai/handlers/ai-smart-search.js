@@ -25,7 +25,7 @@
 
 // Available AI LLMs
     const defaults = {
-        provider: "chatgpt",
+        provider: "openai",
         promptFile: "system-prompt",
     };
 

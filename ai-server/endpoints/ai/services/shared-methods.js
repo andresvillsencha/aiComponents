@@ -146,13 +146,17 @@
             // Add Descriptor
                 prompt += "\n"+readArray(promptObj.description);
             // Add fields
-                prompt += "\nFields (name->type):" + createFieldPrompt(promptObj.fields, true);
+                if (typeof promptObj.fields !== undefined && Array.isArray(promptObj.fields) && promptObj.fields.length>0) {
+                    prompt += "\nFields (name->type):" + createFieldPrompt(promptObj.fields, true);
+                }
             // Add Operators
                 prompt += "\n"+readArray(promptObj.operators);
             // Add Rules
                 prompt += "\n"+readArray(promptObj.rules);
-                // Add Extra Rule
+            // Add Extra Rule
+                if (typeof promptObj.fields !== undefined && Array.isArray(promptObj.fields) && promptObj.fields.length>0) {
                     prompt += "\n- You must only output fields that exist in the following whitelist: " + createFieldPrompt(promptObj.fields, false);
+                }
             // Add Output Shape
                 prompt += "\n"+readArray(promptObj.output);
             // Add examples
@@ -229,6 +233,7 @@
             let fields = query.fields || [];
             let cacheName = query.name || STATIC_PREFIX_VERSION;
             let prompt = query.prompt || '';
+            let provider = query.llmConfig.provider || '-';
 
             console.log(query);
 
@@ -262,7 +267,12 @@
                             json.tokenData = completion.tokenData; // add the total tokens to the response
 
                         // Let's add the response config, that may include the fields or other data  for reference when returned to the front end
-                            json._responseParams=responseParams;
+                            // json._responseParams=responseParams;
+                            json.llmConfig = {
+                                model: model,
+                                provider: provider,
+                                aiType: query.aiType || '-'
+                            };
                             res.json(json);
                     } catch (err) {
                         // Handle and log error
@@ -318,9 +328,28 @@
         });
         return res;
     }
-
+    
+    
+    /**
+     * Connects to the AI Provider using the selected prompt.
+     * Returns the response from the AI model
+     * @param {*} params 
+     * @param {*} res 
+     * @param {*} debug 
+     * @param {*} connMethod 
+     * @returns 
+     */
+    async function getAiGenResponse(params, res, debug, connMethod) {
+        //let query = getParams(params.query);
+        res = await getAiResponse(params.model, params, res, debug, connMethod, { 
+            type: "generic",
+            fields: params.fields
+        });
+        return res;
+    }
 // EXPORTS
     module.exports = {
         getAiSearchResponse,
-        getAiFillResponse
+        getAiFillResponse,
+        getAiGenResponse
     };

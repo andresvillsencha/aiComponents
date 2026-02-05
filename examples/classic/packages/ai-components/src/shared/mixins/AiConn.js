@@ -5,11 +5,12 @@ Ext.define('Ext.ai.mixins.AiConn', {
         llmConfig: {
             provider: 'chatgpt',
             model: 'gpt-4o-mini',
+            temperature: 0,
             systemPrompt: {
                 name: null, // name of the system prompt, if null, it will read the default system prompt, and ignore the build property
             },
             rules: [],  // New rules can be added to the prompt, best practice would be to add it to the system prompt in the backend directly
-            examples: [],            
+            examples: [],
         },
     },
 

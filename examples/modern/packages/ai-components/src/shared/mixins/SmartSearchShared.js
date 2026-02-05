@@ -19,6 +19,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
         llmConfig: {
             provider: 'chatgpt',
             model: 'gpt-4o-mini',
+            temperature: 0,
             systemPrompt: {
                 name: null, // name of the system prompt, if null, it will read the default system prompt, and ignore the build property
             },
@@ -246,7 +247,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                                     me.aiResponse = result; // Save result inside the component, this will be helpfull if the user wants to show the response in a window
 
                                     // Call Callback method if set, return the result, the original prompt, and the recovered fields
-                                        if (me.config.callback!==null) me.config.callback(linkedGrid, result, promptObj.prompt, promptObj.fields);
+                                        if (me.config.callback!==null && me.config.callback!==undefined) me.config.callback(linkedGrid, result, promptObj.prompt, promptObj.fields);
                                 } catch (err) {
                                     if (me.config.debug) console.error('Error decoding response.');
                                 }
@@ -645,11 +646,10 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                                                         options: filterCfg.options || [] // will fix an issue with options on a list filter
                                                     });
                                                 } else {
-                                                    filterArray.push({
-                                                        property: filter.property,
-                                                        value: filter.value,
-                                                        operator: filter.operator
-                                                    });
+                                                    let newFilters = me._getFilterCfg(filter);
+                                                    for (let key in newFilters) {
+                                                        filterArray.push(newFilters[key]);
+                                                    }
                                                 }
                                         } else {
                                             if (me.config.debug) console.log('%cFilter '+filter.property+" not found","color:#933;");
@@ -665,6 +665,46 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                                         }
                                     }
                                 return plugin;
+                            },
+
+                            /**
+                             * Transform filters to be used by the modern toolkit
+                             * @param {*} filter 
+                             * @returns 
+                             */
+                            _getFilterCfg: function (filter) {
+                                let filterCfg = [];
+                                let operators = {
+                                    "gt": ">",
+                                    "lt": "<",
+                                    "gte": ">",
+                                    "lte": "<",
+                                    "eq": "=",
+                                    "is": "=",
+                                    "like": "like"
+                                };
+
+                                if (!Array.isArray(filter.value) && typeof filter.value === 'object') {
+                                    for (let op in filter.value) {
+                                        let value = filter.value[op];
+                                        let oper = operators[op] || "=";
+                                        filterCfg.push({
+                                            property: filter.property,
+                                            // type: filter.type || 'number',
+                                            operator: oper,
+                                            value: value
+                                        });
+                                    }
+                                } else {
+                                    filterCfg=[{
+                                        property: filter.property,
+                                        // type: filter.type || 'string',
+                                        operator: filter.operator || 'like',
+                                        value: filter.value
+                                    }];
+                                }
+
+                                return filterCfg;
                             },
 
                             /**

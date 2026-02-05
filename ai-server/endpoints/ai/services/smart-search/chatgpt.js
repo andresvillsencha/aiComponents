@@ -9,7 +9,6 @@
     
     const {getAiSearchResponse} = require('../shared-methods');
 
-
 // You should have a dotenv file with your AI API Key
     require('dotenv').config(); 
 
@@ -19,8 +18,6 @@
         ? process.env[modelVar+'MODELS'].split(',').map(s => s.trim())
         : [];
     const defaultModel = process.env[modelVar+'DEFAULT_MODEL'] || models[0] || "";
-
-
 
 // Initialize OpenAI client with API key from environment variable
     const AiConn = new OpenAI({
@@ -87,8 +84,6 @@
         // Return response
             return res;
     }
-
-
 
 // EXPORTS
     module.exports = {
