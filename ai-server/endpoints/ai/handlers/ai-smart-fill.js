@@ -26,7 +26,7 @@
 
 // Available AI LLMs
     const defaults = {
-        provider: "chatgpt",
+        provider: "openai",
         promptFile: "form-prompt",
     };
     const type = "smart-fill";

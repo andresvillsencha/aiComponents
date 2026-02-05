@@ -12,7 +12,9 @@ Ext.define('AppAi.view.main.Main', {
         'Ext.layout.Fit',
 
         'AppAi.view.main.List',
-        'AppAi.view.main.Form'
+        'AppAi.view.main.Form',
+
+        'Ext.util.ai.Conn'
     ],
 
     controller: 'main',
@@ -33,6 +35,32 @@ Ext.define('AppAi.view.main.Main', {
             );
 
             window.location.href = url.toString();
+        }
+    }, {
+        xtype: 'button',
+        iconCls: 'x-fa fa-robot',
+        text: 'Tell me a Joke',
+        handler: function (btn) {
+            let jokeType = ["knock knock", "bar", "it", "scary", "animal", "software"]
+            btn.setIconCls('x-fa fa-spinner fa-spin');
+            btn.setDisabled(true);
+            Ext.util.ai.Conn.load(" Tell me "+jokeType[Math.floor(Math.random()*jokeType.length)]+" joke number: ", {
+                serverUrl: 'http://localhost:3001',
+                llmConfig: {
+                    provider: 'anthropic',
+                    systemPrompt: 'generic-prompt',
+                },
+                success: function (response) {
+                    btn.setIconCls('x-fa fa-robot');
+                    btn.setDisabled(false);
+                    Ext.Msg.alert("Response:", response.response);
+                },
+                failure: function (response) {
+                    btn.setIconCls('x-fa fa-robot');
+                    btn.setDisabled(false);
+                    console.error('Could not get a valid response from middleware');
+                },
+            });
         }
     }],
 

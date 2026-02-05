@@ -30,11 +30,32 @@ Ext.define('AppAi.view.main.List', {
     tbar: [ 
         {
             xtype: 'ai-smartsearch',
+            itemId: 'aiSmart',
             width: 500,
             serverUrl: 'http://localhost:3001',
             llmConfig: {
                 provider: 'anthropic',
                 model: 'claude-sonnet-4-20250514'
+            },
+            callback: function (grid,response) {
+                console.log(response);
+            },
+            buttons: false
+        },
+        {
+            xtype: 'button', 
+            text: "Chat GPT",
+            handler: function (obj) {
+                let field=obj.up().getComponent('aiSmart');
+                if (field) field.submit('openai','gpt-4o-mini');
+            }
+        },
+        {
+            xtype: 'button', 
+            text: "Claude",
+            handler: function (obj) {
+                let field=obj.up().getComponent('aiSmart');
+                if (field) field.submit('anthropic','claude-sonnet-4-20250514');
             }
         }
 

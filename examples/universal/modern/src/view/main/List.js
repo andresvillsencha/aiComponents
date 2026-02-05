@@ -34,7 +34,18 @@ Ext.define('AppAi.view.main.List', {
                     model: 'claude-sonnet-4-20250514',
                 },
                 callback: function (view, response, prompt, fields) {
-                    Ext.Msg.Alert('Worked', 'It Worked!');
+                }
+            }, {
+                xtype: 'button',
+                text: 'have fun',
+                handler: function (obj) {
+                    let linkedGrid=obj.up('mainlist');
+                    let plugin=linkedGrid.getPlugin('gridfilters');
+                    console.log(plugin.getActiveFilter());
+                    plugin.setActiveFilter([
+                        { property: 'next_payment_due', operator: '>', value: (new Date('2025-11-01')).toISOString() },
+                        { property: 'next_payment_due', operator: '<', value: (new Date('2025-11-30')).toISOString() }
+                    ]);
                 }
             }
 

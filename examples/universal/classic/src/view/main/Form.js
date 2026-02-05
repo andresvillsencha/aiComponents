@@ -69,8 +69,6 @@ Ext.define('AppAi.view.main.Form', {
             flex: 1,
             paste: false,
             llmConfig: {
-                // provider: 'chatgpt',
-                // model: 'gpt-4o-mini'
                 provider: 'anthropic',
                 model: 'claude-sonnet-4-20250514',
                 rules: [

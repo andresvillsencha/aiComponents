@@ -19,6 +19,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
         llmConfig: {
             provider: 'chatgpt',
             model: 'gpt-4o-mini',
+            temperature: 0,
             systemPrompt: {
                 name: null, // name of the system prompt, if null, it will read the default system prompt, and ignore the build property
             },
@@ -58,6 +59,22 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
             }
     }, 
 
+    /***
+     * PUBLIC SUBMIT BUTTON
+     */
+
+    submit: function (provider=null,model=null) {
+        let me=this;
+        let obj = me._getItemById('queryField');
+        
+        if (obj!==null && obj.value!=='') {
+            // If either provider or model were passed, then update the config
+                me.config.llmConfig.provider = (provider!==null) ? provider : me.config.llmConfig.provider;
+                me.config.llmConfig.model = (model!==null) ? model : me.config.llmConfig.model;
+            me._performSearch(me,obj.getValue());
+        }
+    },
+
 
 
     /*****************************
@@ -85,6 +102,9 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                         // Add Search Button
                             me._setupButton('search', 'searchButton'); // Search button
                             me._setupButton('reset', 'resetButton'); // Search button
+                    } else if (me.config.buttons===false) {
+                        me._getItemById('searchButton').hidden=true;
+                        me._getItemById('resetButton').hidden=true;
                     }
 
                 // Setup features
@@ -113,6 +133,18 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
             },
 
             /**
+             * Gets the button
+             * @param {*} buttonId 
+             * @returns 
+             */
+            _getItemById: function (buttonId) {
+                let me=this;
+                let button = me._getItems().find(function(item) { return (item.itemId===buttonId || (item.getItemId && item.getItemId()===buttonId)); });
+
+                return (button!==undefined) ? button : null;
+            },
+
+            /**
              * Setups one of the three buttons
              * @param {*} type 
              * @param {*} buttonId 
@@ -120,7 +152,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
              */
             _setupButton: function (type, buttonId) {
                 let me=this;
-                let button = me._getItems().find(function(item) { return (item.itemId===buttonId || (item.getItemId && item.getItemId()===buttonId)); });
+                let button = me._getItemById(buttonId);
                 let userActionConfig = (
                         typeof me.config.buttons[type]==='object'  
                         ? Ext.clone(me.config.buttons[type])            // Gets object
@@ -132,7 +164,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                 );
                 let actionConfig = Ext.clone(me.defaultConfig.buttons[type] || {});
 
-                if (button!==undefined) {
+                if (button!==undefined && button!==null) {
                     Ext.apply(actionConfig,userActionConfig);
                     if (Ext.isClassic) {
                         Ext.apply(button,actionConfig);
@@ -246,7 +278,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                                     me.aiResponse = result; // Save result inside the component, this will be helpfull if the user wants to show the response in a window
 
                                     // Call Callback method if set, return the result, the original prompt, and the recovered fields
-                                        if (me.config.callback!==null) me.config.callback(linkedGrid, result, promptObj.prompt, promptObj.fields);
+                                        if (me.config.callback!==null && me.config.callback!==undefined) me.config.callback(linkedGrid, result, promptObj.prompt, promptObj.fields);
                                 } catch (err) {
                                     if (me.config.debug) console.error('Error decoding response.');
                                 }
@@ -645,11 +677,10 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                                                         options: filterCfg.options || [] // will fix an issue with options on a list filter
                                                     });
                                                 } else {
-                                                    filterArray.push({
-                                                        property: filter.property,
-                                                        value: filter.value,
-                                                        operator: filter.operator
-                                                    });
+                                                    let newFilters = me._getFilterCfg(filter);
+                                                    for (let key in newFilters) {
+                                                        filterArray.push(newFilters[key]);
+                                                    }
                                                 }
                                         } else {
                                             if (me.config.debug) console.log('%cFilter '+filter.property+" not found","color:#933;");
@@ -665,6 +696,46 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                                         }
                                     }
                                 return plugin;
+                            },
+
+                            /**
+                             * Transform filters to be used by the modern toolkit
+                             * @param {*} filter 
+                             * @returns 
+                             */
+                            _getFilterCfg: function (filter) {
+                                let filterCfg = [];
+                                let operators = {
+                                    "gt": ">",
+                                    "lt": "<",
+                                    "gte": ">",
+                                    "lte": "<",
+                                    "eq": "=",
+                                    "is": "=",
+                                    "like": "like"
+                                };
+
+                                if (!Array.isArray(filter.value) && typeof filter.value === 'object') {
+                                    for (let op in filter.value) {
+                                        let value = filter.value[op];
+                                        let oper = operators[op] || "=";
+                                        filterCfg.push({
+                                            property: filter.property,
+                                            // type: filter.type || 'number',
+                                            operator: oper,
+                                            value: value
+                                        });
+                                    }
+                                } else {
+                                    filterCfg=[{
+                                        property: filter.property,
+                                        // type: filter.type || 'string',
+                                        operator: filter.operator || 'like',
+                                        value: filter.value
+                                    }];
+                                }
+
+                                return filterCfg;
                             },
 
                             /**

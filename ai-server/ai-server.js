@@ -55,6 +55,7 @@
   const parseQuery = [
     { query: require('./endpoints/ai/handlers/ai-smart-search'), api: '/api/ai-smart-search' },
     { query: require('./endpoints/ai/handlers/ai-smart-fill'), api: '/api/ai-smart-fill' },
+    { query: require('./endpoints/ai/handlers/ai-smart'), api: '/api/ai-smart' },
   ]; 
   const app = express();
 
@@ -67,7 +68,7 @@
       if (allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        callback(new Error('Not allowed by CORS'));
+        callback(new Error('Domain not allowed by CORS'));
       }
     },
     credentials: true // if you need cookies or auth headers
@@ -78,5 +79,8 @@
   parseQuery.forEach(element => {
     app.use(element.api, element.query);
   });
-  app.listen(port, () => console.log('AI Server running on ' + myServerUrl));
+  app.listen(port, () => {
+    console.log('AI Server running on ' + myServerUrl);
+    if ( process.env.cors) console.log('CORS Servers;\n- ' + process.env.cors.replace(/,/g, '\n- '))
+  });
 

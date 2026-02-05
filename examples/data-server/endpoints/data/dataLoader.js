@@ -108,31 +108,29 @@
                     const cell = row[prop];
                     if (cell === undefined) return false;
 
+                    
                     // numeric compare if both are numeric
                     const numCell = Number(cell);
                     const numVal = Number(rawVal);
                     const bothNumbers = !Number.isNaN(numCell) && !Number.isNaN(numVal);
-
+                    
                     if (bothNumbers) {
-                        if (op === 'gt') return numCell > numVal;
-                        if (op === 'lt') return numCell < numVal;
-                        if (op === 'gte') return numCell >= numVal;
-                        if (op === 'lte') return numCell <= numVal;
-                        if (op === 'ne') return numCell !== numVal;
-                        /* IN FOR NUMBERS */
-                            if (op === 'in') {
-                                const arr = Array.isArray(rawVal)
-                                    ? rawVal.map(Number)
-                                    : String(rawVal).split(',').map(Number);
-                                return arr.includes(numCell);
-                            }
-                            if (op === 'notin') {
-                                const arr = Array.isArray(rawVal)
-                                    ? rawVal.map(Number)
-                                    : String(rawVal).split(',').map(Number);
-                                return !arr.includes(numCell);
-                            }
-                        return numCell === numVal;
+                        return evalNumbers(op,numCell,numVal);
+                    } 
+                    
+                    // dates in javascript are base 0
+                    try {
+                        console.log(cell);
+                        const dateCell = new Date(cell);
+                        const dateVal = new Date(rawVal);
+                        const bothDates = !isNaN(dateCell.getTime()) && !isNaN(dateVal.getTime());    
+                        if (bothDates) {
+                            console.log(dateCell);
+                            console.log(dateVal);
+                            return evalNumbers(op,dateCell,dateVal);
+                        }
+                    } catch (error) {
+                        console.log ('could not retreive date');
                     }
 
                     // string ops (case-insensitive)
@@ -165,6 +163,36 @@
                     return textCell === textVal;
                 });
             });
+        }
+
+        /**
+         * Compares two numbers
+         * @param {*} op 
+         * @param {*} numCell 
+         * @param {*} numVal 
+         * @returns 
+         */
+        function evalNumbers(op,numCell,numVal) {
+            if (op === 'eq' || op === '=') return numCell = numVal;
+            if (op === 'gt' || op === '>') return numCell >= numVal;
+            if (op === 'lt' || op === '<') return numCell <= numVal;
+            if (op === 'gte' || op === '>=') return numCell >= numVal;
+            if (op === 'lte' || op === '>=') return numCell <= numVal;
+            if (op === 'ne' || op === '<>' || op === '!=') return numCell !== numVal;
+            /* IN FOR NUMBERS */
+                if (op === 'in') {
+                    const arr = Array.isArray(rawVal)
+                        ? rawVal.map(Number)
+                        : String(rawVal).split(',').map(Number);
+                    return arr.includes(numCell);
+                }
+                if (op === 'notin') {
+                    const arr = Array.isArray(rawVal)
+                        ? rawVal.map(Number)
+                        : String(rawVal).split(',').map(Number);
+                    return !arr.includes(numCell);
+                }
+            return numCell === numVal;
         }
 
         /**

@@ -7,7 +7,7 @@
 // Import required modules
     const OpenAI = require('openai'); 
     
-    const {getAiFillResponse} = require('../shared-methods');
+    const {getAiGenResponse} = require('../shared-methods');
 
  // You should have a dotenv file with your AI API Key
     require('dotenv').config(); 
@@ -59,8 +59,13 @@
             params.model = params.model || defaultModel;
             if (process.env.VALIDATE_MODEL && models && models.length>0 && !models.includes(params.model.toLowerCase())) params.model=defaultModel;
 
-            res = getAiFillResponse(params, res, debug, async function (model, cacheName, systemPrompt, userPrompt) {
+            res = getAiGenResponse(params, res, debug, async function (model, cacheName, systemPrompt, userPrompt) {
                 let response = {};
+                console.log("====");
+                console.log(systemPrompt);
+                console.log("====");
+                console.log(userPrompt);
+                console.log("====");
                 const completion = await AiConn.chat.completions.create({
                     model: model,
                     prompt_cache_key: cacheName,
