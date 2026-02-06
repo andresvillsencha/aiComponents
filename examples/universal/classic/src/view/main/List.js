@@ -38,24 +38,37 @@ Ext.define('AppAi.view.main.List', {
                 model: 'claude-sonnet-4-20250514'
             },
             callback: function (grid,response) {
-                console.log(response);
             },
             buttons: false
         },
         {
             xtype: 'button', 
             text: "Chat GPT",
+            iconCls: 'fa fa-chess-queen',
             handler: function (obj) {
                 let field=obj.up().getComponent('aiSmart');
-                if (field) field.submit('openai','gpt-4o-mini');
+                obj.setIconCls('fa fa-spinner fa-spin');
+                if (field) {
+                    field.submit('openai','gpt-4o-mini', function (grid,response) {
+                        obj.setIconCls('fa fa-chess-queen');
+                        console.log(response);
+                    });
+                }
             }
         },
         {
             xtype: 'button', 
             text: "Claude",
+            iconCls: 'fa fa-chess-king',
             handler: function (obj) {
                 let field=obj.up().getComponent('aiSmart');
-                if (field) field.submit('anthropic','claude-sonnet-4-20250514');
+                obj.setIconCls('fa fa-spinner fa-spin');
+                if (field) {
+                    field.submit('anthropic','claude-sonnet-4-20250514', function (grid,response) {
+                        obj.setIconCls('fa fa-chess-king');
+                        console.log(response);
+                    });
+                }
             }
         }
 

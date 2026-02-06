@@ -59,11 +59,15 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
             }
     }, 
 
-    /***
+    /**
+     * 
      * PUBLIC SUBMIT BUTTON
+     * @param {*} provider 
+     * @param {*} model 
+     * @param {*} callback 
      */
 
-    submit: function (provider=null,model=null) {
+    submit: function (provider=null,model=null,callback=null) {
         let me=this;
         let obj = me._getItemById('queryField');
         
@@ -71,7 +75,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
             // If either provider or model were passed, then update the config
                 me.config.llmConfig.provider = (provider!==null) ? provider : me.config.llmConfig.provider;
                 me.config.llmConfig.model = (model!==null) ? model : me.config.llmConfig.model;
-            me._performSearch(me,obj.getValue());
+            me._performSearch(me,obj.getValue(),callback);
         }
     },
 
@@ -102,9 +106,14 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
                         // Add Search Button
                             me._setupButton('search', 'searchButton'); // Search button
                             me._setupButton('reset', 'resetButton'); // Search button
-                    } else if (me.config.buttons===false) {
-                        me._getItemById('searchButton').hidden=true;
-                        me._getItemById('resetButton').hidden=true;
+                    } else if (me.config.buttons===false || me.config.buttons===true) {
+                        if (Ext.isClassic) {
+                            me._getItemById('searchButton').hidden=!me.config.buttons;
+                            me._getItemById('resetButton').hidden=!me.config.buttons;
+                        } else if (Ext.isModern) {
+                            me._getItemById('searchButton').setHidden(!me.config.buttons);
+                            me._getItemById('resetButton').setHidden(!me.config.buttons);
+                        }
                     }
 
                 // Setup features
@@ -235,11 +244,14 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
             },
 
             /**
+             * 
              * PERFORM SEARCH
              * Main method that calls the middleware that connects to the AI Provider
+             * @param {*} fieldcontainer 
              * @param {*} userPrompt 
+             * @param {*} inlineCallBack 
              */
-            _performSearch: function (fieldcontainer,userPrompt) {
+            _performSearch: function (fieldcontainer,userPrompt,inlineCallBack) {
                 let me=this;
                 // get the linked grid
                     let linkedGrid = me._getGrid();
@@ -279,6 +291,7 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
 
                                     // Call Callback method if set, return the result, the original prompt, and the recovered fields
                                         if (me.config.callback!==null && me.config.callback!==undefined) me.config.callback(linkedGrid, result, promptObj.prompt, promptObj.fields);
+                                        if (inlineCallBack!==null && inlineCallBack!==undefined) inlineCallBack(linkedGrid, result, promptObj.prompt, promptObj.fields);
                                 } catch (err) {
                                     if (me.config.debug) console.error('Error decoding response.');
                                 }

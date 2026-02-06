@@ -28,24 +28,47 @@ Ext.define('AppAi.view.main.List', {
             {
                 xtype: 'ai-smartsearch',
                 width: 500,
+                itemId: 'aiSmart',
                 serverUrl: 'http://localhost:3001',
                 llmConfig: {
                     provider: 'anthropic',
                     model: 'claude-sonnet-4-20250514',
                 },
                 callback: function (view, response, prompt, fields) {
-                }
+                },
+                buttons: true
             }, {
-                xtype: 'button',
-                text: 'have fun',
+                xtype: 'button', 
+                text: "Chat GPT",
+                iconCls: 'x-fa fa-chess-queen',
                 handler: function (obj) {
-                    let linkedGrid=obj.up('mainlist');
-                    let plugin=linkedGrid.getPlugin('gridfilters');
-                    console.log(plugin.getActiveFilter());
-                    plugin.setActiveFilter([
-                        { property: 'next_payment_due', operator: '>', value: (new Date('2025-11-01')).toISOString() },
-                        { property: 'next_payment_due', operator: '<', value: (new Date('2025-11-30')).toISOString() }
-                    ]);
+                    let field=obj.up().getComponent('aiSmart');
+                    obj.setIconCls('x-fa fa-spinner fa-spin');
+                    if (field) {
+                        field.submit('openai','gpt-4o-mini', function (grid,response) {
+                            obj.setIconCls('x-fa fa-chess-queen');
+                            console.log(response);
+                        });
+                    } else {
+                        obj.setIconCls('x-fa fa-chess-queen');
+                    }
+                }
+            },
+            {
+                xtype: 'button', 
+                text: "Claude",
+                iconCls: 'x-fa fa-chess-king',
+                handler: function (obj) {
+                    let field=obj.up().getComponent('aiSmart');
+                    obj.setIconCls('x-fa fa-spinner fa-spin');
+                    if (field) {
+                        field.submit('anthropic','claude-sonnet-4-20250514', function (grid,response) {
+                            obj.setIconCls('x-fa fa-chess-king');
+                            console.log(response);
+                        });
+                    } else {
+                        obj.setIconCls('x-fa fa-chess-king');
+                    }
                 }
             }
 
