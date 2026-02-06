@@ -120,13 +120,10 @@
                     
                     // dates in javascript are base 0
                     try {
-                        console.log(cell);
                         const dateCell = new Date(cell);
                         const dateVal = new Date(rawVal);
                         const bothDates = !isNaN(dateCell.getTime()) && !isNaN(dateVal.getTime());    
                         if (bothDates) {
-                            console.log(dateCell);
-                            console.log(dateVal);
                             return evalNumbers(op,dateCell,dateVal);
                         }
                     } catch (error) {

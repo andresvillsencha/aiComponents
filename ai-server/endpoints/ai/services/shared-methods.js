@@ -235,8 +235,6 @@
             let prompt = query.prompt || '';
             let provider = query.llmConfig.provider || '-';
 
-            console.log(query);
-
         // Let's first check that we have everything that is required:
             if (typeof prompt === 'string' && prompt.trim()!=="") {
                 // STEP 1. Let's create the system Prompt - Which, if it exceeds 1024 tokens, it will be automatically cached
