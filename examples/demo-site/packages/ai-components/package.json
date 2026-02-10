@@ -1,26 +1,129 @@
 {
-    "name": "ai-components",
-    "author": "Andres Villalba Palau",
+    "name": "@sencha/ext-ai-components",
 
-    "namespace": "Ext",
-    "type": "code",
-    "toolkits": [ "classic", "modern" ],
-    "creator": "Sencha",
-    "summary": "Sencha AI Components",
-    "detailedDescription": "Package containing classes related to AI Components.",
-    "description": "Package containing classes related to AI Components.",
-    "version": "1.0.0",
-    "compatVersion": "1.0.0",
-    
-    "output": "${package.dir}/build/${toolkit.name}/${build.id}",
-    "local": true,
+    "ext-react-name": "@sencha/ext-react-ai-components",
+    "ext-name": "@sencha/ext-ai-components",
+    "SenchaExtName": "@sencha/ext-ai-components",
+    "SenchaExtReactName": "@sencha/ext-react-ai-components",
 
-    "classpath": [
-        "${package.dir}/src/shared",
-        "${package.dir}/src/${toolkit.name}"
-    ],
+    "version": "8.0.0",
+    "sencha": {
+        "name": "ai-components",
+        "namespace": "Ext",
+        "type": "code",
+        "framework": "ext",
+        "js": [
+            {
+                "path": "aicomponents.min.js",
+                "includeInBundle": false,
+                "requiresSdk": false,
+                "isSdk": false,
+                "compress": false
+            },
+            {
+                "path": "html5-aicomponents.min.js",
+                "includeInBundle": false,
+                "isSdk": false,
+                "requiresSdk": false,
+                "compress": false
+            }
+        ],
+
+        "creator": "Sencha",
+        "summary": "Sencha AI Components",
+        "detailedDescription": "Package containing classes related to AI Components.",
+        "version": "8.0.0",
+        "compatVersion": "7.9.0",
+        "format": "1",
+
+        "slicer": {
+            "js": [
+                {
+                    "path": "${package.dir}/sass/example/custom.js",
+                    "isWidgetManifest": true
+                }
+            ]
+        },
+        "local": true,
+        "output": {
+            "base": "${framework.dir}/build/packages/${package.name}/${toolkit.name}/${build.id}",
+            "js": "..",
+            "sass": ""
+        },
+
+        "sass": {
+            "namespace": "Ext",
+            "etc": [
+                "${package.dir}/sass/etc/all.scss",
+                "${package.dir}/${toolkit.name}/sass/etc/all.scss"
+            ],
+            "var": [
+                "${package.dir}/sass/var",
+                "${package.dir}/${toolkit.name}/sass/var"
+            ],
+            "src": [
+                "${package.dir}/sass/src",
+                "${package.dir}/${toolkit.name}/sass/src"
+            ]
+        },
+
+        "classpath": [
+            "${package.dir}/src",
+            "${package.dir}/${toolkit.name}/src"
+        ],
+        "overrides": [
+            "${package.dir}/overrides",
+            "${package.dir}/${toolkit.name}/overrides"
+        ],
+
+       "resources": [
+            {
+                "path": "resources"
+            },
+            {
+                "path": "${toolkit.name}/resources"
+            }
+        ],
+        "builds": {
+            "triton": {
+                "toolkit": "classic",
+                "theme": "theme-triton"
+            },
+            "neptune": {
+                "toolkit": "classic",
+                "theme": "theme-neptune"
+            },
+            "crisp": {
+                "toolkit": "classic",
+                "theme": "theme-crisp"
+            },
+            "classic": {
+                "toolkit": "classic",
+                "theme": "theme-classic"
+            },
+            "classic-material": {
+                "toolkit": "classic",
+                "theme": "theme-material"
+            },
+            "modern-triton": {
+                "toolkit": "modern",
+                "theme": "theme-triton"
+            },
+            "modern-neptune": {
+                "toolkit": "modern",
+                "theme": "theme-neptune"
+            },
+            "ios": {
+                "toolkit": "modern",
+                "theme": "theme-ios"
+            },
+            "material": {
+                "toolkit": "modern",
+                "theme": "theme-material"
+            }
+        }
+
+    }
+
     
-    "requires": [
-        "ext"
-    ]
 }

@@ -19,7 +19,6 @@ Ext.define('Ext.ai.mixins.SmartSearchShared', {
         llmConfig: {
             provider: 'chatgpt',
             model: 'gpt-4o-mini',
-            temperature: 0,
             systemPrompt: {
                 name: null, // name of the system prompt, if null, it will read the default system prompt, and ignore the build property
             },
