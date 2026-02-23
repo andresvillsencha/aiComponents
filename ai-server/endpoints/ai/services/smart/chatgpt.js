@@ -21,7 +21,8 @@
 
 // Initialize OpenAI client with API key from environment variable
     const AiConn = new OpenAI({
-        apiKey: process.env.OPENAI_API_KEY
+        apiKey: process.env.OPENAI_API_KEY,
+        baseURL: process.env.OPENAI_BASE_URL || undefined
     });
 
 

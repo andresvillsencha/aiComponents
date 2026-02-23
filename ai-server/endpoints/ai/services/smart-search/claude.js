@@ -24,7 +24,8 @@
 
 // Initialize Anthropic client with API key from environment variable
     const AiConn = new Anthropic({
-        apiKey: process.env.CLAUDE_API_KEY 
+        apiKey: process.env.CLAUDE_API_KEY,
+        baseURL: process.env.CLAUDE_BASE_URL || undefined 
     });
 
 

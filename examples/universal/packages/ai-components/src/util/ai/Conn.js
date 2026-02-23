@@ -34,12 +34,13 @@ Ext.define('Ext.util.ai.Conn', {
      * Connects to the middleware
      * @param {*} userPrompt 
      * @param {*} connObject 
+     * @param {*} params Optional, extra params to be sent to the middleware 
      * @returns 
      */
-    load: function (userPrompt, connObject) {
+    load: function (userPrompt, connObject, params=undefined) {
         let me=this;
         let connObj = me._getConnObj(connObject);
-        let promptObj = me._getPromptObj(userPrompt, connObj.llmConfig);
+        let promptObj = me._getPromptObj(userPrompt, connObj.llmConfig, params);
         let url = me._joinUrl(connObj.serverUrl, connObj.endpoint);
 
         if (promptObj && typeof connObj.serverUrl) {
@@ -130,7 +131,7 @@ Ext.define('Ext.util.ai.Conn', {
      * @param {*} llmConfig
      * @returns 
      */
-    _getPromptObj: function (userPrompt, llmConfig) {
+    _getPromptObj: function (userPrompt, llmConfig, params=undefined) {
         let me = this;
 
         // Let's get the initialConfig
@@ -138,6 +139,7 @@ Ext.define('Ext.util.ai.Conn', {
                 name: llmConfig.name,
                 llmConfig: llmConfig,
                 prompt: userPrompt,
+                params: params || undefined
             };
 
         return promptObj;

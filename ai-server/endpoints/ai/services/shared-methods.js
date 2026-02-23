@@ -283,7 +283,6 @@
                 console.log('Prompt must not be empty');
                 res.status(500).json({ error: 'Prompt can\'t be empty' });
             }
-
             return res;
     }
 

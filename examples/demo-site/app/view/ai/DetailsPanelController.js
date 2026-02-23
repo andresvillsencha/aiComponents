@@ -109,7 +109,7 @@ Ext.define('AppAi.view.ai.DetailsPanelController', {
             });
         }
 
-        // 2️⃣ Define syntax patterns (ordered by priority)
+        // Define syntax patterns (ordered by priority)
         const patterns = [
             { type: 'comment', regex: /\/\/[^\r\n]*(?:\r?\n|$)|\/\*[\s\S]*?\*\//g },
             { type: 'string',  regex: /(['"`])(?:\\.|(?!\1).)*\1/g },
@@ -119,7 +119,7 @@ Ext.define('AppAi.view.ai.DetailsPanelController', {
             { type: 'ext',     regex: /\b(Ext)\b/g },
         ];
 
-        // 3️⃣ Assign colors per token type
+        // Assign colors per token type
         const colors = {
             comment: '#008000',   // green
             string:  '#a31515',   // dark red
@@ -129,7 +129,7 @@ Ext.define('AppAi.view.ai.DetailsPanelController', {
             ext:     '#800080',    // violet
         };
 
-        // 4️⃣ Tokenize safely (collect all matches)
+        // Tokenize safely (collect all matches)
         let tokens = [];
         patterns.forEach(function ({ type, regex })  {
             let match;
@@ -144,7 +144,7 @@ Ext.define('AppAi.view.ai.DetailsPanelController', {
             }
         });
 
-        // 5️⃣ Sort tokens by position and remove overlaps
+        // Sort tokens by position and remove overlaps
         tokens.sort(function (a, b) { return a.start - b.start });
         let filtered = [];
         let lastEnd = 0;
@@ -155,7 +155,7 @@ Ext.define('AppAi.view.ai.DetailsPanelController', {
             }
         }
 
-        // 6️⃣ Build highlighted HTML
+        // Build highlighted HTML
         let result = '';
         let pos = 0;
         for (let token of filtered) {
@@ -167,7 +167,7 @@ Ext.define('AppAi.view.ai.DetailsPanelController', {
         }
         if (pos < code.length) result += escapeHtml(code.slice(pos));
 
-        // 7️⃣ Return formatted block with monospace styling
+        // Return formatted block with monospace styling
         return result;
     }
 });
