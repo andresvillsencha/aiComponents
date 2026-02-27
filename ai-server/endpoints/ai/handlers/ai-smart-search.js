@@ -18,10 +18,11 @@
  *  
  */
 // Import required modules
+    require('dotenv').config();
     const express = require('express');
     const router = express.Router(); 
     const {extractParams} = require('../services/ai-params');
-    const debug = true; // Enable/disable server debug logging
+    const debug = process.env.DEBUG || false; // Enable/disable server debug logging
 
 // Available AI LLMs
     const defaults = {
@@ -49,8 +50,8 @@
 
         if (params.active) {
             // Connect to endPoint
-                const {getResponse} = require(params.llmConfig.endPoint);
-                res = getResponse(params, res, debug);
+                const {getAiResponse} = require(params.llmConfig.endPoint);
+                res = getAiResponse(params, res, debug);
         } else {
             // Return error
             if (debug) console.error('Incorrect or unavailable Provider ('+params.llmConfig.provider+')');
