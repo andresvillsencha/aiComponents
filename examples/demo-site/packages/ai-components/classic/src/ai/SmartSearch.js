@@ -1,3 +1,16 @@
+/**
+ * Ext.ai.SmartSearch (Classic Toolkit)
+ *
+ * Classic toolkit implementation of the SmartSearch UI.
+ * Provides a prompt field + buttons that connect to the Node.js AI middleware
+ * via the AiConn mixin, then applies the returned actions to the linked grid.
+ *
+ * Note:
+ * - This class is a thin UI wrapper.
+ * - Most behavior is implemented in `Ext.ai.mixins.SmartSearchShared`
+ *   to keep Classic and Modern behavior consistent.
+ *
+ */
 Ext.define('Ext.ai.SmartSearch', {
     extend: 'Ext.form.FieldContainer',
     xtype: 'ai-smartsearch',
@@ -9,7 +22,12 @@ Ext.define('Ext.ai.SmartSearch', {
 
     layout: 'hbox',
 
-    /** CHILD ITEMS */
+    /**
+     * Child items
+     * - queryField: user natural-language prompt input
+     * - searchButton: triggers middleware request
+     * - resetButton: resets grid state (filters/sorters/grouping/paging/columns)
+     */
         items: [{
             xtype: 'textfield',
             text: '',
@@ -43,11 +61,9 @@ Ext.define('Ext.ai.SmartSearch', {
         }],
 
     /**
-     * Component Init methods
+     * Classic lifecycle hook.
+     * Initializes shared behavior (applies config to field/buttons, sets up features, etc.).
      */
-        /**
-         * Classic Toolkit
-         */
         initComponent: function () { 
             this._init();
             this.callParent();
