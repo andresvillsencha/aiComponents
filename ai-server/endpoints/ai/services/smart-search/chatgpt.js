@@ -55,7 +55,7 @@
      * @param {*} debug 
      * @returns 
      */
-    async function getResponse(params, res, debug) {
+    async function getAiResponse(params, res, debug) {
         // Connect
             params.model = params.model || defaultModel;
             if (process.env.VALIDATE_MODEL && models && models.length>0 && !models.includes(params.model.toLowerCase())) params.model=defaultModel;
@@ -88,5 +88,5 @@
 
 // EXPORTS
     module.exports = {
-        getResponse
+        getAiResponse
     };

@@ -7,7 +7,7 @@ To get this to run, you'll need to install Node JS, and enter your API keys in t
 
 To create your web server (inside the server folder):
 - npm init -y
-- npm install express cors dotenv body-parser
+- npm install express cors dotenv body-parser 
 For Open AI
 - npm install openai 
 For Anthropic / Claude

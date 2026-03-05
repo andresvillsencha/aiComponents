@@ -16,6 +16,7 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
     "openai": "^5.23.2"
   },
   "description": "AI Backend/Middleware Server. \r This is part 2 of 2 of the Sencha AI Toolkit. These files connect your Sencha App with the AI Provider of your choosing.",
