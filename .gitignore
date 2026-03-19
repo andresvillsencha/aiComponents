@@ -16,5 +16,8 @@ data-server/node_modules/
 data-server/*.env
 ai-server/node_modules/
 ai-server/*.env
+extjs-composer/*.env
+extjs-composer/ext/
 node_modules/
 *.log
+*.env
